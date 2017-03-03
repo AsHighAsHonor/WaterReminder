@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (4.3.0)
+  - ChameleonSwift (2.3)
+  - IQKeyboardManagerSwift (4.0.8)
+  - JGProgressHUD (1.4)
+  - LTMorphingLabel (0.4.0)
+  - SnapKit (3.1.2)
+  - swiftScan (1.0.8)
+  - SwiftyJSON (3.1.4)
+  - Toast-Swift (2.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - ChameleonSwift
+  - IQKeyboardManagerSwift
+  - JGProgressHUD
+  - LTMorphingLabel
+  - SnapKit
+  - swiftScan (from `https://github.com/MxABC/swiftScan.git`, tag `1.0.9`)
+  - SwiftyJSON
+  - Toast-Swift
+
+EXTERNAL SOURCES:
+  swiftScan:
+    :git: https://github.com/MxABC/swiftScan.git
+    :tag: 1.0.9
+
+CHECKOUT OPTIONS:
+  swiftScan:
+    :git: https://github.com/MxABC/swiftScan.git
+    :tag: 1.0.9
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  ChameleonSwift: 48e36549559a2b62f6043ff935ab0ad18ecb839c
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
+  LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+  swiftScan: 2dc76303bc7c2dcb7bde9c539f9bd6a7520abc8e
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
+
+PODFILE CHECKSUM: 151f75078f2b8fb0cf092205e37c88734a49c1e1
+
+COCOAPODS: 1.2.0

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:WaterReminder/Classes/myPlain/Model/AlarmInfosEntiy+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:WaterReminder/Classes/myPlain/Model/AlarmInfosEntiy+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:WaterReminder.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

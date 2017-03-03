@@ -1,0 +1,1187 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6BCCDAD0FF5E05E07D8039DC /* Pods_WaterReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE2F77EDC6DC0EE190F819E /* Pods_WaterReminder.framework */; };
+		FD0BE3CD1E669E4A002ED9B4 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BE3CC1E669E4A002ED9B4 /* Constant.swift */; };
+		FD190C431E5C82D60027359A /* NotificationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD190C421E5C82D60027359A /* NotificationAction.swift */; };
+		FD190C491E5D90270027359A /* WaterScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD190C481E5D90270027359A /* WaterScanViewController.swift */; };
+		FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD190C4A1E5D93F30027359A /* CodeScan.bundle */; };
+		FD190C521E5DBF430027359A /* OChelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD190C4E1E5DBF430027359A /* OChelper.m */; };
+		FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD2B7BE51E6708FE00220F4C /* sub.caf */; };
+		FD31419B1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */; };
+		FD31419D1E6846F8005C75B7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */; };
+		FD31419F1E6850C8005C75B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419E1E6850C8005C75B7 /* Theme.swift */; };
+		FD4EF5111E63C779005A2A6C /* WaterAddLocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5101E63C779005A2A6C /* WaterAddLocationMapController.swift */; };
+		FD4EF5131E63CBC7005A2A6C /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */; };
+		FD4EF5151E651E1E005A2A6C /* WaterAddLocationTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */; };
+		FD4EF5171E652940005A2A6C /* WaterAddLocationContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5161E652940005A2A6C /* WaterAddLocationContentController.swift */; };
+		FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */; };
+		FD8CACBA1E5ECE8B00B8E443 /* QuickActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */; };
+		FD8CACBD1E5FCBEF00B8E443 /* LXFPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */; };
+		FD8CACBF1E5FCDB500B8E443 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACBE1E5FCDB500B8E443 /* Common.swift */; };
+		FD8CACC11E5FD01E00B8E443 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACC01E5FD01E00B8E443 /* UIImage+Color.swift */; };
+		FD8FDBB51E39F8E60009A61C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8FDBB41E39F8E60009A61C /* Assets.xcassets */; };
+		FD8FDBBC1E3B34FF0009A61C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8FDBBB1E3B34FF0009A61C /* NotificationCenter.framework */; };
+		FD8FDBBF1E3B34FF0009A61C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDBBE1E3B34FF0009A61C /* TodayViewController.swift */; };
+		FD8FDBC21E3B34FF0009A61C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8FDBC01E3B34FF0009A61C /* MainInterface.storyboard */; };
+		FD8FDBC61E3B34FF0009A61C /* WaterReminderWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD8FDBBA1E3B34FF0009A61C /* WaterReminderWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD8FDBEE1E3EC8870009A61C /* Universal.h in Headers */ = {isa = PBXBuildFile; fileRef = FD8FDBEC1E3EC8870009A61C /* Universal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD8FDBF11E3EC8870009A61C /* Universal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8FDBEA1E3EC8870009A61C /* Universal.framework */; };
+		FD8FDBF21E3EC8870009A61C /* Universal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD8FDBEA1E3EC8870009A61C /* Universal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD8FDBFF1E3F74310009A61C /* WaveLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDBFE1E3F74310009A61C /* WaveLoadingIndicator.swift */; };
+		FD8FDC001E3F754A0009A61C /* Universal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8FDBEA1E3EC8870009A61C /* Universal.framework */; };
+		FD8FDC021E3F82270009A61C /* CacheUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC011E3F82270009A61C /* CacheUtil.swift */; };
+		FD8FDC031E3F829E0009A61C /* CacheUtil.swift in Headers */ = {isa = PBXBuildFile; fileRef = FD8FDC011E3F82270009A61C /* CacheUtil.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD8FDC041E3F829E0009A61C /* WaveLoadingIndicator.swift in Headers */ = {isa = PBXBuildFile; fileRef = FD8FDBFE1E3F74310009A61C /* WaveLoadingIndicator.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD8FDC141E41876B0009A61C /* WaterMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC0C1E41876B0009A61C /* WaterMainController.swift */; };
+		FD8FDC151E41876B0009A61C /* WaterPlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC111E41876B0009A61C /* WaterPlanTableViewController.swift */; };
+		FD8FDC181E4189C10009A61C /* WaterPlanControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC161E4189C10009A61C /* WaterPlanControlCell.swift */; };
+		FD8FDC191E4189C10009A61C /* WaterPlanControlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8FDC171E4189C10009A61C /* WaterPlanControlCell.xib */; };
+		FD8FDC1C1E418AD10009A61C /* WaterPlanSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC1A1E418AD10009A61C /* WaterPlanSetCell.swift */; };
+		FD8FDC1D1E418AD10009A61C /* WaterPlanSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8FDC1B1E418AD10009A61C /* WaterPlanSetCell.xib */; };
+		FD8FDC1F1E4227090009A61C /* WaterAddAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC1E1E4227090009A61C /* WaterAddAlarmController.swift */; };
+		FD8FDC211E42D0380009A61C /* WaterAlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC201E42D0380009A61C /* WaterAlarmModel.swift */; };
+		FD8FDC251E42D8410009A61C /* UIAlertViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC241E42D8410009A61C /* UIAlertViewControllerExtension.swift */; };
+		FD8FDC281E4314CE0009A61C /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC271E4314CE0009A61C /* NotificationUtil.swift */; };
+		FD8FDC301E45BFB30009A61C /* WaterAlarmInfos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD8FDC2E1E45BFB30009A61C /* WaterAlarmInfos.xcdatamodeld */; };
+		FD90CAF21E4AB0900054459E /* WaterAddAlarmItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90CAF11E4AB0900054459E /* WaterAddAlarmItemController.swift */; };
+		FD90CAF41E4DC0070054459E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD90CAF31E4DC0070054459E /* HealthKit.framework */; };
+		FD90CAF61E50A55A0054459E /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90CAF51E50A55A0054459E /* UITableViewExtension.swift */; };
+		FDAF1AD21E602C380065ED0F /* ZYSpreadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF1ACB1E602C380065ED0F /* ZYSpreadButton.m */; };
+		FDAF1AD31E602C380065ED0F /* ZYSpreadSubButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAF1ACD1E602C380065ED0F /* ZYSpreadSubButton.m */; };
+		FDAF1AD41E602C380065ED0F /* SpreadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF1AD01E602C380065ED0F /* SpreadButton.swift */; };
+		FDAF1AD51E602C380065ED0F /* SpreadSubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF1AD11E602C380065ED0F /* SpreadSubButton.swift */; };
+		FDB6DC141E5714F300398E88 /* WaterBinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB6DC121E5714F300398E88 /* WaterBinary.swift */; };
+		FDB6DC161E57153500398E88 /* WaterVersionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB6DC151E57153500398E88 /* WaterVersionInfoModel.swift */; };
+		FDC4C73D1E52955100DD0131 /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4C73C1E52955100DD0131 /* UIViewController+Toast.swift */; };
+		FDC4C7401E547E6C00DD0131 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4C73F1E547E6C00DD0131 /* BaseViewController.swift */; };
+		FDC4C7441E548AE300DD0131 /* String+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4C7431E548AE300DD0131 /* String+Time.swift */; };
+		FDDFB30A1E56D011006743E7 /* libUMessage_Sdk_1.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDFB3081E56D011006743E7 /* libUMessage_Sdk_1.4.0.a */; };
+		FDDFB30C1E56D0ED006743E7 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDFB30B1E56D0ED006743E7 /* UserNotifications.framework */; };
+		FDDFB30E1E56D117006743E7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDFB30D1E56D117006743E7 /* libz.tbd */; };
+		FDEAA8FF1E374C6B00C04ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEAA8F11E374C6B00C04ADF /* AppDelegate.swift */; };
+		FDEAA9031E374C6B00C04ADF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDEAA8FA1E374C6B00C04ADF /* Info.plist */; };
+		FDEAA9061E374CBA00C04ADF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDEAA9051E374CBA00C04ADF /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD8FDBC41E3B34FF0009A61C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDEAA8CA1E3721E500C04ADF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD8FDBB91E3B34FF0009A61C;
+			remoteInfo = WaterReminderWidget;
+		};
+		FD8FDBEF1E3EC8870009A61C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FDEAA8CA1E3721E500C04ADF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD8FDBE91E3EC8870009A61C;
+			remoteInfo = Universal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD8FDBCA1E3B34FF0009A61C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FD8FDBC61E3B34FF0009A61C /* WaterReminderWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD8FDBF61E3EC8870009A61C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FD8FDBF21E3EC8870009A61C /* Universal.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		96CB4FF0685905E2EC4FE470 /* Pods_WaterReminderWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterReminderWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2FFE4AC784953CCBAC145B /* Pods-WaterReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WaterReminder/Pods-WaterReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		DBE2F77EDC6DC0EE190F819E /* Pods_WaterReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8E354A5DD7CBABD2BFB1C74 /* Pods-WaterReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-WaterReminder/Pods-WaterReminder.release.xcconfig"; sourceTree = "<group>"; };
+		FD0BE3CC1E669E4A002ED9B4 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		FD190C421E5C82D60027359A /* NotificationAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationAction.swift; sourceTree = "<group>"; };
+		FD190C481E5D90270027359A /* WaterScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterScanViewController.swift; sourceTree = "<group>"; };
+		FD190C4A1E5D93F30027359A /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
+		FD190C4D1E5DBF430027359A /* OChelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OChelper.h; sourceTree = "<group>"; };
+		FD190C4E1E5DBF430027359A /* OChelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OChelper.m; sourceTree = "<group>"; };
+		FD2B7BE51E6708FE00220F4C /* sub.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sub.caf; sourceTree = "<group>"; };
+		FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddAlarmTableController.swift; sourceTree = "<group>"; };
+		FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		FD31419E1E6850C8005C75B7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FD4EF5101E63C779005A2A6C /* WaterAddLocationMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationMapController.swift; sourceTree = "<group>"; };
+		FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
+		FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationTableController.swift; sourceTree = "<group>"; };
+		FD4EF5161E652940005A2A6C /* WaterAddLocationContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationContentController.swift; sourceTree = "<group>"; };
+		FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Reflect.swift"; sourceTree = "<group>"; };
+		FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionHandler.swift; sourceTree = "<group>"; };
+		FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFPopMenu.swift; sourceTree = "<group>"; };
+		FD8CACBE1E5FCDB500B8E443 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		FD8CACC01E5FD01E00B8E443 /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		FD8FDBB41E39F8E60009A61C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD8FDBBA1E3B34FF0009A61C /* WaterReminderWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaterReminderWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD8FDBBB1E3B34FF0009A61C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		FD8FDBBE1E3B34FF0009A61C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		FD8FDBC11E3B34FF0009A61C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		FD8FDBC31E3B34FF0009A61C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD8FDBCE1E3C696F0009A61C /* Pods_WaterReminder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_WaterReminder.framework; path = "../../../Library/Developer/Xcode/DerivedData/WaterReminder-drxzuardulhhtqcestwmpmkntnvy/Build/Products/Debug-iphonesimulator/Pods_WaterReminder.framework"; sourceTree = "<group>"; };
+		FD8FDBEA1E3EC8870009A61C /* Universal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Universal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD8FDBEC1E3EC8870009A61C /* Universal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Universal.h; sourceTree = "<group>"; };
+		FD8FDBED1E3EC8870009A61C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD8FDBFE1E3F74310009A61C /* WaveLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveLoadingIndicator.swift; sourceTree = "<group>"; };
+		FD8FDC011E3F82270009A61C /* CacheUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheUtil.swift; sourceTree = "<group>"; };
+		FD8FDC051E40C1750009A61C /* WaterReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterReminder.entitlements; sourceTree = "<group>"; };
+		FD8FDC061E40C3820009A61C /* WaterReminderWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterReminderWidget.entitlements; sourceTree = "<group>"; };
+		FD8FDC0C1E41876B0009A61C /* WaterMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterMainController.swift; sourceTree = "<group>"; };
+		FD8FDC111E41876B0009A61C /* WaterPlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPlanTableViewController.swift; sourceTree = "<group>"; };
+		FD8FDC161E4189C10009A61C /* WaterPlanControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPlanControlCell.swift; sourceTree = "<group>"; };
+		FD8FDC171E4189C10009A61C /* WaterPlanControlCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterPlanControlCell.xib; sourceTree = "<group>"; };
+		FD8FDC1A1E418AD10009A61C /* WaterPlanSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPlanSetCell.swift; sourceTree = "<group>"; };
+		FD8FDC1B1E418AD10009A61C /* WaterPlanSetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterPlanSetCell.xib; sourceTree = "<group>"; };
+		FD8FDC1E1E4227090009A61C /* WaterAddAlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddAlarmController.swift; sourceTree = "<group>"; };
+		FD8FDC201E42D0380009A61C /* WaterAlarmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAlarmModel.swift; sourceTree = "<group>"; };
+		FD8FDC241E42D8410009A61C /* UIAlertViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertViewControllerExtension.swift; sourceTree = "<group>"; };
+		FD8FDC271E4314CE0009A61C /* NotificationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
+		FD8FDC2F1E45BFB30009A61C /* WaterAlarmInfos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WaterAlarmInfos.xcdatamodel; sourceTree = "<group>"; };
+		FD90CAF11E4AB0900054459E /* WaterAddAlarmItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddAlarmItemController.swift; sourceTree = "<group>"; };
+		FD90CAF31E4DC0070054459E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		FD90CAF51E50A55A0054459E /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		FDAF1ACA1E602C380065ED0F /* ZYSpreadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSpreadButton.h; sourceTree = "<group>"; };
+		FDAF1ACB1E602C380065ED0F /* ZYSpreadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSpreadButton.m; sourceTree = "<group>"; };
+		FDAF1ACC1E602C380065ED0F /* ZYSpreadSubButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSpreadSubButton.h; sourceTree = "<group>"; };
+		FDAF1ACD1E602C380065ED0F /* ZYSpreadSubButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSpreadSubButton.m; sourceTree = "<group>"; };
+		FDAF1ACE1E602C380065ED0F /* SpreadButton-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpreadButton-Bridging-Header.h"; sourceTree = "<group>"; };
+		FDAF1AD01E602C380065ED0F /* SpreadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadButton.swift; sourceTree = "<group>"; };
+		FDAF1AD11E602C380065ED0F /* SpreadSubButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadSubButton.swift; sourceTree = "<group>"; };
+		FDB6DC121E5714F300398E88 /* WaterBinary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterBinary.swift; sourceTree = "<group>"; };
+		FDB6DC151E57153500398E88 /* WaterVersionInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterVersionInfoModel.swift; sourceTree = "<group>"; };
+		FDC4C73C1E52955100DD0131 /* UIViewController+Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
+		FDC4C73E1E5301B400DD0131 /* WaterReminder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaterReminder-Bridging-Header.h"; sourceTree = "<group>"; };
+		FDC4C73F1E547E6C00DD0131 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FDC4C7431E548AE300DD0131 /* String+Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Time.swift"; sourceTree = "<group>"; };
+		FDDFB3081E56D011006743E7 /* libUMessage_Sdk_1.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.4.0.a; sourceTree = "<group>"; };
+		FDDFB3091E56D011006743E7 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		FDDFB30B1E56D0ED006743E7 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		FDDFB30D1E56D117006743E7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FDEAA8D21E3721E500C04ADF /* WaterReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDEAA8F11E374C6B00C04ADF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FDEAA8F51E374C6B00C04ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FDEAA8FA1E374C6B00C04ADF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDEAA9051E374CBA00C04ADF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD8FDBB71E3B34FF0009A61C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8FDC001E3F754A0009A61C /* Universal.framework in Frameworks */,
+				FD8FDBBC1E3B34FF0009A61C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD8FDBE61E3EC8870009A61C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDEAA8CF1E3721E500C04ADF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDFB30E1E56D117006743E7 /* libz.tbd in Frameworks */,
+				FDDFB30C1E56D0ED006743E7 /* UserNotifications.framework in Frameworks */,
+				FDDFB30A1E56D011006743E7 /* libUMessage_Sdk_1.4.0.a in Frameworks */,
+				FD90CAF41E4DC0070054459E /* HealthKit.framework in Frameworks */,
+				FD8FDBF11E3EC8870009A61C /* Universal.framework in Frameworks */,
+				6BCCDAD0FF5E05E07D8039DC /* Pods_WaterReminder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		545F2770C5FDAC24328630C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDDFB30D1E56D117006743E7 /* libz.tbd */,
+				FDDFB30B1E56D0ED006743E7 /* UserNotifications.framework */,
+				FDDFB3071E56D011006743E7 /* UMessage_Sdk_1.4.0 */,
+				FD90CAF31E4DC0070054459E /* HealthKit.framework */,
+				FD8FDBCE1E3C696F0009A61C /* Pods_WaterReminder.framework */,
+				DBE2F77EDC6DC0EE190F819E /* Pods_WaterReminder.framework */,
+				FD8FDBBB1E3B34FF0009A61C /* NotificationCenter.framework */,
+				96CB4FF0685905E2EC4FE470 /* Pods_WaterReminderWidget.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C439258F09DCF18DD4850AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB2FFE4AC784953CCBAC145B /* Pods-WaterReminder.debug.xcconfig */,
+				E8E354A5DD7CBABD2BFB1C74 /* Pods-WaterReminder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FD190C441E5D83630027359A /* SelfApi */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CACBB1E5FCBEF00B8E443 /* PopoverMenu */,
+				FD190C4C1E5DBF430027359A /* OChelper */,
+			);
+			path = SelfApi;
+			sourceTree = "<group>";
+		};
+		FD190C4C1E5DBF430027359A /* OChelper */ = {
+			isa = PBXGroup;
+			children = (
+				FD190C4D1E5DBF430027359A /* OChelper.h */,
+				FD190C4E1E5DBF430027359A /* OChelper.m */,
+			);
+			path = OChelper;
+			sourceTree = "<group>";
+		};
+		FD2B7BE41E6708FE00220F4C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				FD2B7BE51E6708FE00220F4C /* sub.caf */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		FD8CACBB1E5FCBEF00B8E443 /* PopoverMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */,
+			);
+			path = PopoverMenu;
+			sourceTree = "<group>";
+		};
+		FD8FDBBD1E3B34FF0009A61C /* WaterReminderWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC061E40C3820009A61C /* WaterReminderWidget.entitlements */,
+				FD8FDBBE1E3B34FF0009A61C /* TodayViewController.swift */,
+				FD8FDBC01E3B34FF0009A61C /* MainInterface.storyboard */,
+				FD8FDBC31E3B34FF0009A61C /* Info.plist */,
+			);
+			path = WaterReminderWidget;
+			sourceTree = "<group>";
+		};
+		FD8FDBEB1E3EC8870009A61C /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				FDC4C7431E548AE300DD0131 /* String+Time.swift */,
+				FD8FDC011E3F82270009A61C /* CacheUtil.swift */,
+				FD8FDBFE1E3F74310009A61C /* WaveLoadingIndicator.swift */,
+				FD8FDBEC1E3EC8870009A61C /* Universal.h */,
+				FD8FDBED1E3EC8870009A61C /* Info.plist */,
+			);
+			path = Universal;
+			sourceTree = "<group>";
+		};
+		FD8FDC0A1E41876B0009A61C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC0B1E41876B0009A61C /* Controller */,
+				FD8FDC0D1E41876B0009A61C /* Model */,
+				FD8FDC0E1E41876B0009A61C /* View */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		FD8FDC0B1E41876B0009A61C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC0C1E41876B0009A61C /* WaterMainController.swift */,
+				FD190C481E5D90270027359A /* WaterScanViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FD8FDC0D1E41876B0009A61C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDB6DC151E57153500398E88 /* WaterVersionInfoModel.swift */,
+				FDB6DC121E5714F300398E88 /* WaterBinary.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD8FDC0E1E41876B0009A61C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD8FDC0F1E41876B0009A61C /* myPlain */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC261E4314970009A61C /* Util */,
+				FD8FDC101E41876B0009A61C /* Controller */,
+				FD8FDC121E41876B0009A61C /* Model */,
+				FD8FDC131E41876B0009A61C /* View */,
+			);
+			path = myPlain;
+			sourceTree = "<group>";
+		};
+		FD8FDC101E41876B0009A61C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC111E41876B0009A61C /* WaterPlanTableViewController.swift */,
+				FD8FDC1E1E4227090009A61C /* WaterAddAlarmController.swift */,
+				FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */,
+				FD90CAF11E4AB0900054459E /* WaterAddAlarmItemController.swift */,
+				FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */,
+				FD4EF5161E652940005A2A6C /* WaterAddLocationContentController.swift */,
+				FD4EF5101E63C779005A2A6C /* WaterAddLocationMapController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FD8FDC121E41876B0009A61C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC201E42D0380009A61C /* WaterAlarmModel.swift */,
+				FD8FDC2E1E45BFB30009A61C /* WaterAlarmInfos.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD8FDC131E41876B0009A61C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC161E4189C10009A61C /* WaterPlanControlCell.swift */,
+				FD8FDC171E4189C10009A61C /* WaterPlanControlCell.xib */,
+				FD8FDC1A1E418AD10009A61C /* WaterPlanSetCell.swift */,
+				FD8FDC1B1E418AD10009A61C /* WaterPlanSetCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD8FDC221E42D78A0009A61C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF1AC71E602C380065ED0F /* OpenApi */,
+				FD190C441E5D83630027359A /* SelfApi */,
+				FD8FDC231E42D78A0009A61C /* Extension */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		FD8FDC231E42D78A0009A61C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC241E42D8410009A61C /* UIAlertViewControllerExtension.swift */,
+				FDC4C73C1E52955100DD0131 /* UIViewController+Toast.swift */,
+				FD90CAF51E50A55A0054459E /* UITableViewExtension.swift */,
+				FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */,
+				FD8CACC01E5FD01E00B8E443 /* UIImage+Color.swift */,
+				FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FD8FDC261E4314970009A61C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC271E4314CE0009A61C /* NotificationUtil.swift */,
+				FD190C421E5C82D60027359A /* NotificationAction.swift */,
+				FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		FDAF1AC71E602C380065ED0F /* OpenApi */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF1AC81E602C380065ED0F /* SprateButton */,
+			);
+			path = OpenApi;
+			sourceTree = "<group>";
+		};
+		FDAF1AC81E602C380065ED0F /* SprateButton */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF1AC91E602C380065ED0F /* objc */,
+				FDAF1ACE1E602C380065ED0F /* SpreadButton-Bridging-Header.h */,
+				FDAF1ACF1E602C380065ED0F /* swift */,
+			);
+			path = SprateButton;
+			sourceTree = "<group>";
+		};
+		FDAF1AC91E602C380065ED0F /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF1ACA1E602C380065ED0F /* ZYSpreadButton.h */,
+				FDAF1ACB1E602C380065ED0F /* ZYSpreadButton.m */,
+				FDAF1ACC1E602C380065ED0F /* ZYSpreadSubButton.h */,
+				FDAF1ACD1E602C380065ED0F /* ZYSpreadSubButton.m */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+		FDAF1ACF1E602C380065ED0F /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				FDAF1AD01E602C380065ED0F /* SpreadButton.swift */,
+				FDAF1AD11E602C380065ED0F /* SpreadSubButton.swift */,
+			);
+			path = swift;
+			sourceTree = "<group>";
+		};
+		FDDFB3071E56D011006743E7 /* UMessage_Sdk_1.4.0 */ = {
+			isa = PBXGroup;
+			children = (
+				FDDFB3081E56D011006743E7 /* libUMessage_Sdk_1.4.0.a */,
+				FDDFB3091E56D011006743E7 /* UMessage.h */,
+			);
+			name = UMessage_Sdk_1.4.0;
+			path = WaterReminder/UMessage_Sdk_1.4.0;
+			sourceTree = "<group>";
+		};
+		FDEAA8C91E3721E500C04ADF = {
+			isa = PBXGroup;
+			children = (
+				FDEAA8D41E3721E500C04ADF /* WaterReminder */,
+				FD8FDBBD1E3B34FF0009A61C /* WaterReminderWidget */,
+				FD8FDBEB1E3EC8870009A61C /* Universal */,
+				FDEAA8D31E3721E500C04ADF /* Products */,
+				7C439258F09DCF18DD4850AE /* Pods */,
+				545F2770C5FDAC24328630C5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FDEAA8D31E3721E500C04ADF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDEAA8D21E3721E500C04ADF /* WaterReminder.app */,
+				FD8FDBBA1E3B34FF0009A61C /* WaterReminderWidget.appex */,
+				FD8FDBEA1E3EC8870009A61C /* Universal.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDEAA8D41E3721E500C04ADF /* WaterReminder */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FDC051E40C1750009A61C /* WaterReminder.entitlements */,
+				FD8FDC221E42D78A0009A61C /* Vendor */,
+				FDEAA8EE1E374C6B00C04ADF /* Resource */,
+				FDEAA8EA1E374C6B00C04ADF /* Classes */,
+			);
+			path = WaterReminder;
+			sourceTree = "<group>";
+		};
+		FDEAA8EA1E374C6B00C04ADF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */,
+				FDEAA9051E374CBA00C04ADF /* Main.storyboard */,
+				FD8FDC0A1E41876B0009A61C /* main */,
+				FD8FDC0F1E41876B0009A61C /* myPlain */,
+				FDEAA8ED1E374C6B00C04ADF /* setting */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FDEAA8ED1E374C6B00C04ADF /* setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
+		FDEAA8EE1E374C6B00C04ADF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FD2B7BE41E6708FE00220F4C /* Sound */,
+				FDEAA8EF1E374C6B00C04ADF /* Font */,
+				FDEAA8F01E374C6B00C04ADF /* Global */,
+				FDEAA8F61E374C6B00C04ADF /* Image */,
+				FDEAA8F81E374C6B00C04ADF /* Macro */,
+				FDEAA8F91E374C6B00C04ADF /* Plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FDEAA8EF1E374C6B00C04ADF /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		FDEAA8F01E374C6B00C04ADF /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				FDEAA8F11E374C6B00C04ADF /* AppDelegate.swift */,
+				FDEAA8F41E374C6B00C04ADF /* Main.storyboard */,
+				FDC4C73E1E5301B400DD0131 /* WaterReminder-Bridging-Header.h */,
+				FDC4C73F1E547E6C00DD0131 /* BaseViewController.swift */,
+				FD8CACBE1E5FCDB500B8E443 /* Common.swift */,
+				FD0BE3CC1E669E4A002ED9B4 /* Constant.swift */,
+				FD31419E1E6850C8005C75B7 /* Theme.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		FDEAA8F61E374C6B00C04ADF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FD190C4A1E5D93F30027359A /* CodeScan.bundle */,
+				FD8FDBB41E39F8E60009A61C /* Assets.xcassets */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FDEAA8F81E374C6B00C04ADF /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		FDEAA8F91E374C6B00C04ADF /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				FDEAA8FA1E374C6B00C04ADF /* Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FD8FDBE71E3EC8870009A61C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8FDBEE1E3EC8870009A61C /* Universal.h in Headers */,
+				FD8FDC031E3F829E0009A61C /* CacheUtil.swift in Headers */,
+				FD8FDC041E3F829E0009A61C /* WaveLoadingIndicator.swift in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FD8FDBB91E3B34FF0009A61C /* WaterReminderWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD8FDBC91E3B34FF0009A61C /* Build configuration list for PBXNativeTarget "WaterReminderWidget" */;
+			buildPhases = (
+				FD8FDBB61E3B34FF0009A61C /* Sources */,
+				FD8FDBB71E3B34FF0009A61C /* Frameworks */,
+				FD8FDBB81E3B34FF0009A61C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterReminderWidget;
+			productName = WaterReminderWidget;
+			productReference = FD8FDBBA1E3B34FF0009A61C /* WaterReminderWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		FD8FDBE91E3EC8870009A61C /* Universal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD8FDBF51E3EC8870009A61C /* Build configuration list for PBXNativeTarget "Universal" */;
+			buildPhases = (
+				FD8FDBE51E3EC8870009A61C /* Sources */,
+				FD8FDBE61E3EC8870009A61C /* Frameworks */,
+				FD8FDBE71E3EC8870009A61C /* Headers */,
+				FD8FDBE81E3EC8870009A61C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Universal;
+			productName = Universal;
+			productReference = FD8FDBEA1E3EC8870009A61C /* Universal.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FDEAA8D11E3721E500C04ADF /* WaterReminder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDEAA8E41E3721E500C04ADF /* Build configuration list for PBXNativeTarget "WaterReminder" */;
+			buildPhases = (
+				98DBD70850ECA38E553899B6 /* [CP] Check Pods Manifest.lock */,
+				FDEAA8CE1E3721E500C04ADF /* Sources */,
+				FDEAA8CF1E3721E500C04ADF /* Frameworks */,
+				FDEAA8D01E3721E500C04ADF /* Resources */,
+				9C277C4E40D339E6267B2A7C /* [CP] Embed Pods Frameworks */,
+				C95165D76A474E3B60D0D7A8 /* [CP] Copy Pods Resources */,
+				FD8FDBCA1E3B34FF0009A61C /* Embed App Extensions */,
+				FD8FDBF61E3EC8870009A61C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD8FDBC51E3B34FF0009A61C /* PBXTargetDependency */,
+				FD8FDBF01E3EC8870009A61C /* PBXTargetDependency */,
+			);
+			name = WaterReminder;
+			productName = WaterReminder;
+			productReference = FDEAA8D21E3721E500C04ADF /* WaterReminder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDEAA8CA1E3721E500C04ADF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = YYang;
+				TargetAttributes = {
+					FD8FDBB91E3B34FF0009A61C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZLV92V5957;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+					FD8FDBE91E3EC8870009A61C = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
+					};
+					FDEAA8D11E3721E500C04ADF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZLV92V5957;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = FDEAA8CD1E3721E500C04ADF /* Build configuration list for PBXProject "WaterReminder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDEAA8C91E3721E500C04ADF;
+			productRefGroup = FDEAA8D31E3721E500C04ADF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDEAA8D11E3721E500C04ADF /* WaterReminder */,
+				FD8FDBB91E3B34FF0009A61C /* WaterReminderWidget */,
+				FD8FDBE91E3EC8870009A61C /* Universal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD8FDBB81E3B34FF0009A61C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8FDBC21E3B34FF0009A61C /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD8FDBE81E3EC8870009A61C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDEAA8D01E3721E500C04ADF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8FDC191E4189C10009A61C /* WaterPlanControlCell.xib in Resources */,
+				FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */,
+				FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */,
+				FDEAA9031E374C6B00C04ADF /* Info.plist in Resources */,
+				FD8FDC1D1E418AD10009A61C /* WaterPlanSetCell.xib in Resources */,
+				FD8FDBB51E39F8E60009A61C /* Assets.xcassets in Resources */,
+				FDEAA9061E374CBA00C04ADF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98DBD70850ECA38E553899B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C277C4E40D339E6267B2A7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterReminder/Pods-WaterReminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C95165D76A474E3B60D0D7A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WaterReminder/Pods-WaterReminder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD8FDBB61E3B34FF0009A61C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8FDBBF1E3B34FF0009A61C /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD8FDBE51E3EC8870009A61C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDC4C7441E548AE300DD0131 /* String+Time.swift in Sources */,
+				FD8FDC021E3F82270009A61C /* CacheUtil.swift in Sources */,
+				FD8FDBFF1E3F74310009A61C /* WaveLoadingIndicator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDEAA8CE1E3721E500C04ADF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD8FDC211E42D0380009A61C /* WaterAlarmModel.swift in Sources */,
+				FD4EF5151E651E1E005A2A6C /* WaterAddLocationTableController.swift in Sources */,
+				FD8CACC11E5FD01E00B8E443 /* UIImage+Color.swift in Sources */,
+				FD8FDC301E45BFB30009A61C /* WaterAlarmInfos.xcdatamodeld in Sources */,
+				FD8FDC251E42D8410009A61C /* UIAlertViewControllerExtension.swift in Sources */,
+				FD90CAF61E50A55A0054459E /* UITableViewExtension.swift in Sources */,
+				FD4EF5171E652940005A2A6C /* WaterAddLocationContentController.swift in Sources */,
+				FDAF1AD41E602C380065ED0F /* SpreadButton.swift in Sources */,
+				FD0BE3CD1E669E4A002ED9B4 /* Constant.swift in Sources */,
+				FD4EF5111E63C779005A2A6C /* WaterAddLocationMapController.swift in Sources */,
+				FDB6DC141E5714F300398E88 /* WaterBinary.swift in Sources */,
+				FD8FDC181E4189C10009A61C /* WaterPlanControlCell.swift in Sources */,
+				FD190C521E5DBF430027359A /* OChelper.m in Sources */,
+				FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */,
+				FDC4C7401E547E6C00DD0131 /* BaseViewController.swift in Sources */,
+				FD8FDC1F1E4227090009A61C /* WaterAddAlarmController.swift in Sources */,
+				FD4EF5131E63CBC7005A2A6C /* LocationUtil.swift in Sources */,
+				FD190C431E5C82D60027359A /* NotificationAction.swift in Sources */,
+				FD31419B1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift in Sources */,
+				FD8CACBD1E5FCBEF00B8E443 /* LXFPopMenu.swift in Sources */,
+				FDAF1AD21E602C380065ED0F /* ZYSpreadButton.m in Sources */,
+				FDC4C73D1E52955100DD0131 /* UIViewController+Toast.swift in Sources */,
+				FD31419D1E6846F8005C75B7 /* UIColorExtension.swift in Sources */,
+				FD90CAF21E4AB0900054459E /* WaterAddAlarmItemController.swift in Sources */,
+				FD8FDC151E41876B0009A61C /* WaterPlanTableViewController.swift in Sources */,
+				FD8FDC281E4314CE0009A61C /* NotificationUtil.swift in Sources */,
+				FD31419F1E6850C8005C75B7 /* Theme.swift in Sources */,
+				FD8CACBF1E5FCDB500B8E443 /* Common.swift in Sources */,
+				FDB6DC161E57153500398E88 /* WaterVersionInfoModel.swift in Sources */,
+				FD8CACBA1E5ECE8B00B8E443 /* QuickActionHandler.swift in Sources */,
+				FD8FDC141E41876B0009A61C /* WaterMainController.swift in Sources */,
+				FDAF1AD31E602C380065ED0F /* ZYSpreadSubButton.m in Sources */,
+				FD190C491E5D90270027359A /* WaterScanViewController.swift in Sources */,
+				FDAF1AD51E602C380065ED0F /* SpreadSubButton.swift in Sources */,
+				FD8FDC1C1E418AD10009A61C /* WaterPlanSetCell.swift in Sources */,
+				FDEAA8FF1E374C6B00C04ADF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD8FDBC51E3B34FF0009A61C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD8FDBB91E3B34FF0009A61C /* WaterReminderWidget */;
+			targetProxy = FD8FDBC41E3B34FF0009A61C /* PBXContainerItemProxy */;
+		};
+		FD8FDBF01E3EC8870009A61C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD8FDBE91E3EC8870009A61C /* Universal */;
+			targetProxy = FD8FDBEF1E3EC8870009A61C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FD8FDBC01E3B34FF0009A61C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD8FDBC11E3B34FF0009A61C /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		FDEAA8F41E374C6B00C04ADF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDEAA8F51E374C6B00C04ADF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD8FDBC71E3B34FF0009A61C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = WaterReminderWidget/WaterReminderWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = ZLV92V5957;
+				INFOPLIST_FILE = WaterReminderWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GZreminder.ztesoft.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "28cf2f74-4a05-4b48-b68a-9f40c32e0a74";
+				PROVISIONING_PROFILE_SPECIFIER = GZreminderWidgetPP;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FD8FDBC81E3B34FF0009A61C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = WaterReminderWidget/WaterReminderWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = ZLV92V5957;
+				INFOPLIST_FILE = WaterReminderWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GZreminder.ztesoft.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "28cf2f74-4a05-4b48-b68a-9f40c32e0a74";
+				PROVISIONING_PROFILE_SPECIFIER = GZreminderWidgetPP;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FD8FDBF31E3EC8870009A61C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Universal/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ZTESoftGuangzhouCRM.-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FD8FDBF41E3EC8870009A61C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Universal/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ZTESoftGuangzhouCRM.-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDEAA8E21E3721E500C04ADF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDEAA8E31E3721E500C04ADF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDEAA8E51E3721E500C04ADF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB2FFE4AC784953CCBAC145B /* Pods-WaterReminder.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = WaterReminder/WaterReminder.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = ZLV92V5957;
+				INFOPLIST_FILE = "$(SRCROOT)/WaterReminder/Resource/Plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WaterReminder/UMessage_Sdk_1.4.0",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GZreminder.ztesoft;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2ba2f4f6-7646-4fd4-a8b4-2e40122dae8c";
+				PROVISIONING_PROFILE_SPECIFIER = GZreminderPP;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WaterReminder/Resource/Global/WaterReminder-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FDEAA8E61E3721E500C04ADF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8E354A5DD7CBABD2BFB1C74 /* Pods-WaterReminder.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = WaterReminder/WaterReminder.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = ZLV92V5957;
+				INFOPLIST_FILE = "$(SRCROOT)/WaterReminder/Resource/Plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WaterReminder/UMessage_Sdk_1.4.0",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GZreminder.ztesoft;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2ba2f4f6-7646-4fd4-a8b4-2e40122dae8c";
+				PROVISIONING_PROFILE_SPECIFIER = GZreminderPP;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WaterReminder/Resource/Global/WaterReminder-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD8FDBC91E3B34FF0009A61C /* Build configuration list for PBXNativeTarget "WaterReminderWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD8FDBC71E3B34FF0009A61C /* Debug */,
+				FD8FDBC81E3B34FF0009A61C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD8FDBF51E3EC8870009A61C /* Build configuration list for PBXNativeTarget "Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD8FDBF31E3EC8870009A61C /* Debug */,
+				FD8FDBF41E3EC8870009A61C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDEAA8CD1E3721E500C04ADF /* Build configuration list for PBXProject "WaterReminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDEAA8E21E3721E500C04ADF /* Debug */,
+				FDEAA8E31E3721E500C04ADF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDEAA8E41E3721E500C04ADF /* Build configuration list for PBXNativeTarget "WaterReminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDEAA8E51E3721E500C04ADF /* Debug */,
+				FDEAA8E61E3721E500C04ADF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD8FDC2E1E45BFB30009A61C /* WaterAlarmInfos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD8FDC2F1E45BFB30009A61C /* WaterAlarmInfos.xcdatamodel */,
+			);
+			currentVersion = FD8FDC2F1E45BFB30009A61C /* WaterAlarmInfos.xcdatamodel */;
+			path = WaterAlarmInfos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FDEAA8CA1E3721E500C04ADF /* Project object */;
+}

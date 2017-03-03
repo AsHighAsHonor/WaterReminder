@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="WaterPlanSetCell" selectionStyle="default" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="WaterPlanSetCell" customModule="WaterReminder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="98"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qVz-Bi-gdQ">
+                        <rect key="frame" x="8" y="8" width="334" height="82"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyh-Ky-mwt">
+                                <rect key="frame" x="0.0" y="29" width="285" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D6H-ii-Elk">
+                                <rect key="frame" x="285" y="25" width="51" height="31"/>
+                                <color key="onTintColor" red="0.44157841801643372" green="0.74878698587417603" blue="0.9900546669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="toggleValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="MUv-v8-GSu"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="qVz-Bi-gdQ" secondAttribute="bottom" id="5hU-h4-rmr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qVz-Bi-gdQ" secondAttribute="trailing" id="C1z-oR-RZ0"/>
+                    <constraint firstItem="qVz-Bi-gdQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="CFR-W0-Ek6"/>
+                    <constraint firstItem="qVz-Bi-gdQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="nKd-hj-u47"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="setLabel" destination="cyh-Ky-mwt" id="ZpB-tu-pX3"/>
+                <outlet property="toggle" destination="D6H-ii-Elk" id="SwB-UQ-ole"/>
+            </connections>
+            <point key="canvasLocation" x="35" y="2"/>
+        </tableViewCell>
+    </objects>
+</document>
