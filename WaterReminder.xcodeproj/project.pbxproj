@@ -17,6 +17,21 @@
 		FD31419B1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */; };
 		FD31419D1E6846F8005C75B7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */; };
 		FD31419F1E6850C8005C75B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419E1E6850C8005C75B7 /* Theme.swift */; };
+		FD4BAE3B1E69998B00311790 /* WeatherCargador.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE3A1E69998B00311790 /* WeatherCargador.swift */; };
+		FD4BAE4A1E6AA22000311790 /* WaterWeatherChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE3C1E6AA22000311790 /* WaterWeatherChannel.swift */; };
+		FD4BAE4B1E6AA22000311790 /* WaterWeatherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE3D1E6AA22000311790 /* WaterWeatherItem.swift */; };
+		FD4BAE4C1E6AA22000311790 /* WaterWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE3E1E6AA22000311790 /* WaterWeatherForecast.swift */; };
+		FD4BAE4D1E6AA22000311790 /* WaterWeatherImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE3F1E6AA22000311790 /* WaterWeatherImage.swift */; };
+		FD4BAE4E1E6AA22000311790 /* WaterWeatherQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE401E6AA22000311790 /* WaterWeatherQuery.swift */; };
+		FD4BAE4F1E6AA22000311790 /* WaterWeatherAtmosphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE411E6AA22000311790 /* WaterWeatherAtmosphere.swift */; };
+		FD4BAE501E6AA22000311790 /* WaterWeatherUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE421E6AA22000311790 /* WaterWeatherUnit.swift */; };
+		FD4BAE511E6AA22000311790 /* WaterWeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE431E6AA22000311790 /* WaterWeatherCondition.swift */; };
+		FD4BAE521E6AA22000311790 /* WaterWeatherWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE441E6AA22000311790 /* WaterWeatherWind.swift */; };
+		FD4BAE531E6AA22000311790 /* WaterWeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE451E6AA22000311790 /* WaterWeatherLocation.swift */; };
+		FD4BAE541E6AA22000311790 /* WaterWeatherAstronomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE461E6AA22000311790 /* WaterWeatherAstronomy.swift */; };
+		FD4BAE551E6AA22000311790 /* WaterWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE471E6AA22000311790 /* WaterWeatherResult.swift */; };
+		FD4BAE561E6AA22000311790 /* WaterWeatherRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE481E6AA22000311790 /* WaterWeatherRootClass.swift */; };
+		FD4BAE571E6AA22000311790 /* WaterWeatherGuid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BAE491E6AA22000311790 /* WaterWeatherGuid.swift */; };
 		FD4EF5111E63C779005A2A6C /* WaterAddLocationMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5101E63C779005A2A6C /* WaterAddLocationMapController.swift */; };
 		FD4EF5131E63CBC7005A2A6C /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */; };
 		FD4EF5151E651E1E005A2A6C /* WaterAddLocationTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */; };
@@ -66,7 +81,6 @@
 		FDDFB30C1E56D0ED006743E7 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDFB30B1E56D0ED006743E7 /* UserNotifications.framework */; };
 		FDDFB30E1E56D117006743E7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDFB30D1E56D117006743E7 /* libz.tbd */; };
 		FDEAA8FF1E374C6B00C04ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEAA8F11E374C6B00C04ADF /* AppDelegate.swift */; };
-		FDEAA9031E374C6B00C04ADF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDEAA8FA1E374C6B00C04ADF /* Info.plist */; };
 		FDEAA9061E374CBA00C04ADF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDEAA9051E374CBA00C04ADF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +141,21 @@
 		FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddAlarmTableController.swift; sourceTree = "<group>"; };
 		FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		FD31419E1E6850C8005C75B7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FD4BAE3A1E69998B00311790 /* WeatherCargador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCargador.swift; sourceTree = "<group>"; };
+		FD4BAE3C1E6AA22000311790 /* WaterWeatherChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherChannel.swift; sourceTree = "<group>"; };
+		FD4BAE3D1E6AA22000311790 /* WaterWeatherItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherItem.swift; sourceTree = "<group>"; };
+		FD4BAE3E1E6AA22000311790 /* WaterWeatherForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherForecast.swift; sourceTree = "<group>"; };
+		FD4BAE3F1E6AA22000311790 /* WaterWeatherImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherImage.swift; sourceTree = "<group>"; };
+		FD4BAE401E6AA22000311790 /* WaterWeatherQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherQuery.swift; sourceTree = "<group>"; };
+		FD4BAE411E6AA22000311790 /* WaterWeatherAtmosphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherAtmosphere.swift; sourceTree = "<group>"; };
+		FD4BAE421E6AA22000311790 /* WaterWeatherUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherUnit.swift; sourceTree = "<group>"; };
+		FD4BAE431E6AA22000311790 /* WaterWeatherCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherCondition.swift; sourceTree = "<group>"; };
+		FD4BAE441E6AA22000311790 /* WaterWeatherWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherWind.swift; sourceTree = "<group>"; };
+		FD4BAE451E6AA22000311790 /* WaterWeatherLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherLocation.swift; sourceTree = "<group>"; };
+		FD4BAE461E6AA22000311790 /* WaterWeatherAstronomy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherAstronomy.swift; sourceTree = "<group>"; };
+		FD4BAE471E6AA22000311790 /* WaterWeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherResult.swift; sourceTree = "<group>"; };
+		FD4BAE481E6AA22000311790 /* WaterWeatherRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherRootClass.swift; sourceTree = "<group>"; };
+		FD4BAE491E6AA22000311790 /* WaterWeatherGuid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherGuid.swift; sourceTree = "<group>"; };
 		FD4EF5101E63C779005A2A6C /* WaterAddLocationMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationMapController.swift; sourceTree = "<group>"; };
 		FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
 		FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationTableController.swift; sourceTree = "<group>"; };
@@ -271,6 +300,14 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		FD4BAE391E69992B00311790 /* WeatherUtil */ = {
+			isa = PBXGroup;
+			children = (
+				FD4BAE3A1E69998B00311790 /* WeatherCargador.swift */,
+			);
+			path = WeatherUtil;
+			sourceTree = "<group>";
+		};
 		FD8CACBB1E5FCBEF00B8E443 /* PopoverMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +342,7 @@
 		FD8FDC0A1E41876B0009A61C /* main */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BAE391E69992B00311790 /* WeatherUtil */,
 				FD8FDC0B1E41876B0009A61C /* Controller */,
 				FD8FDC0D1E41876B0009A61C /* Model */,
 				FD8FDC0E1E41876B0009A61C /* View */,
@@ -324,6 +362,20 @@
 		FD8FDC0D1E41876B0009A61C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BAE3C1E6AA22000311790 /* WaterWeatherChannel.swift */,
+				FD4BAE3D1E6AA22000311790 /* WaterWeatherItem.swift */,
+				FD4BAE3E1E6AA22000311790 /* WaterWeatherForecast.swift */,
+				FD4BAE3F1E6AA22000311790 /* WaterWeatherImage.swift */,
+				FD4BAE401E6AA22000311790 /* WaterWeatherQuery.swift */,
+				FD4BAE411E6AA22000311790 /* WaterWeatherAtmosphere.swift */,
+				FD4BAE421E6AA22000311790 /* WaterWeatherUnit.swift */,
+				FD4BAE431E6AA22000311790 /* WaterWeatherCondition.swift */,
+				FD4BAE441E6AA22000311790 /* WaterWeatherWind.swift */,
+				FD4BAE451E6AA22000311790 /* WaterWeatherLocation.swift */,
+				FD4BAE461E6AA22000311790 /* WaterWeatherAstronomy.swift */,
+				FD4BAE471E6AA22000311790 /* WaterWeatherResult.swift */,
+				FD4BAE481E6AA22000311790 /* WaterWeatherRootClass.swift */,
+				FD4BAE491E6AA22000311790 /* WaterWeatherGuid.swift */,
 				FDB6DC151E57153500398E88 /* WaterVersionInfoModel.swift */,
 				FDB6DC121E5714F300398E88 /* WaterBinary.swift */,
 			);
@@ -737,7 +789,6 @@
 				FD8FDC191E4189C10009A61C /* WaterPlanControlCell.xib in Resources */,
 				FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */,
 				FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */,
-				FDEAA9031E374C6B00C04ADF /* Info.plist in Resources */,
 				FD8FDC1D1E418AD10009A61C /* WaterPlanSetCell.xib in Resources */,
 				FD8FDBB51E39F8E60009A61C /* Assets.xcassets in Resources */,
 				FDEAA9061E374CBA00C04ADF /* Main.storyboard in Resources */,
@@ -817,17 +868,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4BAE531E6AA22000311790 /* WaterWeatherLocation.swift in Sources */,
+				FD4BAE3B1E69998B00311790 /* WeatherCargador.swift in Sources */,
 				FD8FDC211E42D0380009A61C /* WaterAlarmModel.swift in Sources */,
+				FD4BAE561E6AA22000311790 /* WaterWeatherRootClass.swift in Sources */,
 				FD4EF5151E651E1E005A2A6C /* WaterAddLocationTableController.swift in Sources */,
+				FD4BAE551E6AA22000311790 /* WaterWeatherResult.swift in Sources */,
 				FD8CACC11E5FD01E00B8E443 /* UIImage+Color.swift in Sources */,
+				FD4BAE541E6AA22000311790 /* WaterWeatherAstronomy.swift in Sources */,
+				FD4BAE4B1E6AA22000311790 /* WaterWeatherItem.swift in Sources */,
+				FD4BAE4A1E6AA22000311790 /* WaterWeatherChannel.swift in Sources */,
 				FD8FDC301E45BFB30009A61C /* WaterAlarmInfos.xcdatamodeld in Sources */,
 				FD8FDC251E42D8410009A61C /* UIAlertViewControllerExtension.swift in Sources */,
+				FD4BAE521E6AA22000311790 /* WaterWeatherWind.swift in Sources */,
+				FD4BAE501E6AA22000311790 /* WaterWeatherUnit.swift in Sources */,
 				FD90CAF61E50A55A0054459E /* UITableViewExtension.swift in Sources */,
 				FD4EF5171E652940005A2A6C /* WaterAddLocationContentController.swift in Sources */,
 				FDAF1AD41E602C380065ED0F /* SpreadButton.swift in Sources */,
 				FD0BE3CD1E669E4A002ED9B4 /* Constant.swift in Sources */,
 				FD4EF5111E63C779005A2A6C /* WaterAddLocationMapController.swift in Sources */,
 				FDB6DC141E5714F300398E88 /* WaterBinary.swift in Sources */,
+				FD4BAE511E6AA22000311790 /* WaterWeatherCondition.swift in Sources */,
 				FD8FDC181E4189C10009A61C /* WaterPlanControlCell.swift in Sources */,
 				FD190C521E5DBF430027359A /* OChelper.m in Sources */,
 				FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */,
@@ -838,6 +899,7 @@
 				FD31419B1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift in Sources */,
 				FD8CACBD1E5FCBEF00B8E443 /* LXFPopMenu.swift in Sources */,
 				FDAF1AD21E602C380065ED0F /* ZYSpreadButton.m in Sources */,
+				FD4BAE4F1E6AA22000311790 /* WaterWeatherAtmosphere.swift in Sources */,
 				FDC4C73D1E52955100DD0131 /* UIViewController+Toast.swift in Sources */,
 				FD31419D1E6846F8005C75B7 /* UIColorExtension.swift in Sources */,
 				FD90CAF21E4AB0900054459E /* WaterAddAlarmItemController.swift in Sources */,
@@ -845,12 +907,16 @@
 				FD8FDC281E4314CE0009A61C /* NotificationUtil.swift in Sources */,
 				FD31419F1E6850C8005C75B7 /* Theme.swift in Sources */,
 				FD8CACBF1E5FCDB500B8E443 /* Common.swift in Sources */,
+				FD4BAE4C1E6AA22000311790 /* WaterWeatherForecast.swift in Sources */,
+				FD4BAE571E6AA22000311790 /* WaterWeatherGuid.swift in Sources */,
 				FDB6DC161E57153500398E88 /* WaterVersionInfoModel.swift in Sources */,
 				FD8CACBA1E5ECE8B00B8E443 /* QuickActionHandler.swift in Sources */,
+				FD4BAE4D1E6AA22000311790 /* WaterWeatherImage.swift in Sources */,
 				FD8FDC141E41876B0009A61C /* WaterMainController.swift in Sources */,
 				FDAF1AD31E602C380065ED0F /* ZYSpreadSubButton.m in Sources */,
 				FD190C491E5D90270027359A /* WaterScanViewController.swift in Sources */,
 				FDAF1AD51E602C380065ED0F /* SpreadSubButton.swift in Sources */,
+				FD4BAE4E1E6AA22000311790 /* WaterWeatherQuery.swift in Sources */,
 				FD8FDC1C1E418AD10009A61C /* WaterPlanSetCell.swift in Sources */,
 				FDEAA8FF1E374C6B00C04ADF /* AppDelegate.swift in Sources */,
 			);
@@ -935,7 +1001,7 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -962,7 +1028,7 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";

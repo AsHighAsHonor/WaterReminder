@@ -38,6 +38,8 @@ class WaterMainController: BaseViewController {
         super.viewDidLoad()
         //配置动态 label
         configure()
+        //更新天气
+        fetchWeaterData()
         //添加通知观察者更新界面  防止水量不自动清零
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil)
         self.view.addSubview(spreadBtn)
@@ -54,18 +56,6 @@ class WaterMainController: BaseViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil)
     }
     
-    func updateUI()  {
-        let progress =  progressResult
-        if progress != 0 {
-            waveIndicator.progress = progress
-        }else{
-            waveIndicator.progress = 0
-        }
-    }
-    
-    
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tabBarController?.tabBar.isHidden = false;
@@ -78,18 +68,46 @@ class WaterMainController: BaseViewController {
     }
     
     
+    func updateUI()  {
+        let progress =  progressResult
+        if progress != 0 {
+            waveIndicator.progress = progress
+        }else{
+            waveIndicator.progress = 0
+        }
+    
+
+    }
+    
+    //MARK: 获取天气1
+    func fetchWeaterData()  {
+        cargador.requestLoacteAuthorizationAndFetchWeaterData { (weather) in
+            self.weatherCompleted(response: weather)
+        }
+    }
+    //MARK: 获取天气2
+    func weatherCompleted(response : DataResponse<Any>) {
+        switch response.result {
+        case .success(let value):
+            let weatherModel = WaterWeatherRootClass(fromJson: JSON(value))
+            let temperature = cargador.temperatureTransfer(Fahrenheit: Double(weatherModel.query.results.channel.item.condition.temp!)!)
+            let tempStr = "国家: \(weatherModel.query.results.channel.location.country!) \n 城市:\(weatherModel.query.results.channel.location.city!) \n 日出:\(weatherModel.query.results.channel.astronomy.sunrise!) \n 日落:\(weatherModel.query.results.channel.astronomy.sunset!) \n 气温:\(temperature) ℃ \n  描述: \(weatherModel.query.results.channel.item.condition.text!) \n 更新时间: \(weatherModel.query.results.channel.item.condition.date!) \n"
+            self.temperature = tempStr
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+    }
     
     
-    
+    // MARK: 版本更新1
     func updateVersion() -> () {
-        //        toast(msg: "更新检测中...")
         let urlStr = "http://api.fir.im/apps/latest/589d9d7e959d6944d80000e6?api_token=2bc11ca72f6af8f858cf648342d6693b"
         let _=Alamofire.request(urlStr).responseJSON { (resopnse) in
             self.updateCompleted(response: resopnse)
         }
         
     }
-    
+    // MARK: 版本更新1
     func updateCompleted(response : DataResponse<Any>){
         //        self.hideToast()
         switch response.result {
@@ -128,12 +146,12 @@ class WaterMainController: BaseViewController {
         waveIndicator.drawProgressText()
         
         // TODO: 配置主题颜色
-//        self.ch.refreshBlock = { [weak self](now: Any, pre: Any?) -> Void in
-//            if let now = ChameleonHelper<String>.parse(now) {
-//                self?.waveIndicator.heavyColor = UIColor.colorWithHexString(now)
-//            }
-//            
-//        }
+        //        self.ch.refreshBlock = { [weak self](now: Any, pre: Any?) -> Void in
+        //            if let now = ChameleonHelper<String>.parse(now) {
+        //                self?.waveIndicator.heavyColor = UIColor.colorWithHexString(now)
+        //            }
+        //
+        //        }
         
     }
     
@@ -188,20 +206,13 @@ class WaterMainController: BaseViewController {
         let backImg = ZYSpreadSubButton.image(with: UIColor(red: 0.4376174212, green: 0.7448593974, blue: 0.9861226678, alpha: 1))
         
         
-        
-        //        let btn1 = ZYSpreadSubButton(backgroundImage: backImg, highlight: backImg, andTitle: "", clickedBlock: { (index, sender) in
-        //            self.showAlert()
-        //        })
-        
-        
-        
         let btn2 = ZYSpreadSubButton(backgroundImage: #imageLiteral(resourceName: "drinkmore"), highlight: #imageLiteral(resourceName: "drinkmore"), andTitle: "", clickedBlock: { (index, sender) in
             self.showAlert()
         })
         
         let btn3 = ZYSpreadSubButton(backgroundImage: #imageLiteral(resourceName: "cup2"), highlight: #imageLiteral(resourceName: "cup2"), andTitle: "", clickedBlock: { (index, sender) in
-            //            self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Add(300))
-            //            self.observeDrinkingResult = self.drinkResult
+            self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Add(300))
+            self.observeDrinkingResult = self.drinkResult
             //            UIApplication.ch.refresh(with: "#FFE1C5") //TODO: 切换主题颜色
             
         })
@@ -229,7 +240,7 @@ class WaterMainController: BaseViewController {
         zySpreadButton?.mode = SpreadModeFlowerSpread
         zySpreadButton?.direction = SpreadDirectionTop
         zySpreadButton?.radius = 120
-        zySpreadButton?.positionMode = SpreadPositionModeFixed
+        zySpreadButton?.positionMode = SpreadPositionModeTouchBorder
         zySpreadButton?.coverAlpha = 0.8
         
         zySpreadButton?.buttonWillSpreadBlock = { print($0?.frame.maxY ?? 0) }
@@ -287,6 +298,11 @@ class WaterMainController: BaseViewController {
     
     
     
+    /// 天气工具
+    lazy var cargador : WeatherCargador = {
+        return WeatherCargador()
+    }()
+    
     weak var popMenu: LXFPopMenu?
     
     var progressResult : Double{
@@ -339,6 +355,13 @@ class WaterMainController: BaseViewController {
         }
     }
     
+    var temperature : String?{
+        didSet{
+            weatherLabel.text = temperature
+        }
+    }
+    
+    @IBOutlet weak var weatherLabel: UILabel!
     
     
 }

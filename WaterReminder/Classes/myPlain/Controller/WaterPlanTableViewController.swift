@@ -32,10 +32,10 @@ class WaterPlanTableViewController: UITableViewController {
         //查询所有等待激活的通知
         waterAlarmModel.getPendingNotificationRequest()
         //从数据库查询全部
-        if let  infos = waterAlarmModel.searchAlarmInfosFromDatabase(identifier: nil) {
-            alarmInfosEntiys = infos
-        }
+        alarmInfosEntiys = waterAlarmModel.searchAlarmInfosFromDatabase(identifier: nil)
     }
+    
+    
     
     
     // MARK: - Table view data source
@@ -179,6 +179,10 @@ class WaterPlanTableViewController: UITableViewController {
     var alarmInfosEntiys : [AlarmInfosEntiy]?{
         didSet{
             self.tableView.reloadSections( IndexSet(integer: 1), with: UITableViewRowAnimation.left)
+            if alarmInfosEntiys == nil || alarmInfosEntiys?.count == 0 {
+                //数据库中没有保存的通知 移除所有待触发的PendingNotificationRequests
+                waterAlarmModel.removeNotification(alarmInfoEntitys: nil, fromDatabase: true)
+            }
         }
     }
     

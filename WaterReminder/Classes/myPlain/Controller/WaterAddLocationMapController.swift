@@ -26,7 +26,7 @@ class WaterAddLocationMapController: UIViewController {
                 mapUtil.startLocating() //开启定位
             }else{
                 // 尚未获取到定位权限/未开启定位
-                UIAlertController.showAuthorizationAlert(msg: "用户尚未允许定位权限或为开启定位服务,是否进入设置页面开启?", ancelHandler: { (act) in
+                UIAlertController.showAuthorizationAlert(msg: "用户尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { (act) in
                     _ = self.navigationController?.popToRootViewController(animated: true)
                 })
             }
@@ -124,6 +124,11 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
                     return
                 }
                 
+                guard (placeMarks != nil) else {
+                    YYPrint("获取地址信息失败")
+                    return
+                }
+                
                 guard !(placeMarks!.isEmpty) else {
                     YYPrint("找不到地址信息")
                     return
@@ -142,16 +147,32 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
         
     }
     
+    //显示在当前屏幕的地图区域改变则调用的代理方法
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.centerCoordinate
         YYPrint(center)
         
         //1.经纬度生成位置
         let location =  CLLocation(latitude: center.latitude, longitude: center.longitude)
+        
+        /*
+         使用位置前, 务必判断当前获取的位置是否有效
+         如果水平精确度小于零, 代表虽然可以获取位置对象, 但是数据错误, 不可用
+         */
+        if location.horizontalAccuracy < 0 {
+            YYPrint("数据错误不可用")
+            return
+        }
+        
         //2.反地理 查名称
         mapUtil.reverseGeocode(location: location) {[unowned self] (placeMarks, error) in
             guard (placeMarks != nil) && (error == nil)  else {
                 YYPrint("逆地理错误====>>> \(error)")
+                return
+            }
+            
+            guard (placeMarks != nil) else {
+                YYPrint("获取地址信息失败")
                 return
             }
             
@@ -160,7 +181,9 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
                 return
             }
             
-            YYPrint("选中地址信息:  \(placeMarks!.last?.addressDictionary!)")
+            YYPrint("选中地址信息: \n \(placeMarks!.last?.addressDictionary!)")
+            
+            
             if let addDict = placeMarks!.last?.addressDictionary{
                 let addressLines = (addDict["FormattedAddressLines"])!
                 let ss = addressLines as!Array<Any>
@@ -171,7 +194,7 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
                 }
                 //  保存 center 用于添加提醒
                 self.selectLocation = [addStr : center]
-                self.longToast(msg: "当前选中地址 ---->> \(addStr)")
+//                self.longToast(msg: "当前选中地址 ---->> \(addStr)")
                 self.title = addDict["Street"] as! String?
             }
             

@@ -56,7 +56,7 @@ class WaterAlarmModel: NSObject {
     /// 获取当前等待触发的通知
     func getPendingNotificationRequest() -> () {
         UNUserNotificationCenter.current().getPendingNotificationRequests {
-            print("已经添加的通知 ====>>> \($0.count)===>>>> \($0.description)")
+            YYPrint("已经添加的通知 ====>>>\n \($0.count)===>>>> \n\($0.description)")
         }
     }
     
@@ -95,7 +95,7 @@ class WaterAlarmModel: NSObject {
             let latitude = Double(locations.first!)
             let longitude = Double (locations.last!)
             let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            let region = CLCircularRegion(center: center, radius: 20.0, identifier: String(describing: Date()))
+            let region = CLCircularRegion(center: center, radius: 50.0, identifier: String(describing: Date()))
             region.notifyOnEntry = true
             region.notifyOnExit = true
             trigger = UNLocationNotificationTrigger(region: region, repeats: alarmInfo.isRepeat!)
@@ -149,7 +149,7 @@ class WaterAlarmModel: NSObject {
         content.body = "你ཀ拖ཀ延ཀ的ཀ5分ཀ钟ཀ ~~ 外ཀ星ཀ人ཀ都ཀ快ཀ占ཀ领ཀ地ཀ球ཀ了ཀ ~~ 快ཀ喝ཀ水ཀ!!!!!" //alarmInfo.contentBody
         content.badge = alarmInfo.contentBadge
         content.subtitle = alarmInfo.contentSubtitle!
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound(named: "sub.caf")
         content.userInfo = ["key": "value"]
         content.categoryIdentifier = RemindCategoryType.localRemind.rawValue //设置通知 action 簇
         
@@ -250,7 +250,7 @@ class WaterAlarmModel: NSObject {
         if  !identifirs.isEmpty  {
             
             center.getPendingNotificationRequests { (requestArray :[UNNotificationRequest]) in
-                print("已经添加的通知 ====>>> \(requestArray.count)===>>>> \(requestArray.description)")
+                YYPrint("已经添加的通知 ====>>>\n \(requestArray.count)===>>>> \n\(requestArray.description)")
                 for item in requestArray {
                     // 根据identifiers移除指定通知
                     let identifier = item.identifier
