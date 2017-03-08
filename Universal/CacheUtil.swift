@@ -37,6 +37,8 @@ public enum UserSetting : String{
     case AlarmToggle = "AlarmToggle"
     case TurnOffWhenFinished = "TurnOffWhenFinished"
     case DailyMark = "DailyMark"
+    case CurrentCity = "CurrentCity"
+    case CurrentCountry = "CurrentCountry"
 }
 
 
@@ -150,6 +152,22 @@ public class CacheUtil {
     }
         
 }
+    
+  /// 保存/读取 数据的共用方法
+  ///
+  /// - Parameters:
+  ///   - value: 需要保存的值 (传入nil 的时候为获取值)
+  ///   - forkey: key
+  /// - Returns:  读取的值
+  public class func userDefaultsOperation(value : Any? , key forkey : UserSetting) -> (Any?) {
+        if let value = value {
+            userDefaults.set(value, forKey:forkey.rawValue)
+            userDefaults.synchronize()
+            return nil
+        }else{
+            return userDefaults.object(forKey: forkey.rawValue)
+        }
+    }
     
     
 
