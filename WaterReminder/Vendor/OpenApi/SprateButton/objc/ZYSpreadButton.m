@@ -98,9 +98,9 @@
                     CGFloat magneticDistance = superViewSize.height * MAGNETIC_SCOPE_RATIO_VERTICAL;
                     CGPoint destinationLocation;
                     if (location.y < magneticDistance) {//上面区域
-                        destinationLocation = CGPointMake(location.x, self.bounds.size.width/2 + _touchBorderMargin);
+                        destinationLocation = CGPointMake(location.x, self.bounds.size.width/2 + _touchBorderMargin+64);
                     } else if (location.y > superViewSize.height - magneticDistance) {//下面
-                        destinationLocation = CGPointMake(location.x, superViewSize.height - self.bounds.size.height/2 - _touchBorderMargin);
+                        destinationLocation = CGPointMake(location.x, superViewSize.height - self.bounds.size.height/2 - _touchBorderMargin - 64);
                     } else if (location.x > superViewSize.width/2) {//右边
                         destinationLocation = CGPointMake(superViewSize.width - (self.bounds.size.width/2 + _touchBorderMargin), location.y);
                     } else {//左边
