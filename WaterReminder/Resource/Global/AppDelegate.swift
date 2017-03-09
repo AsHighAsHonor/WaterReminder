@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 import CoreData
 import IQKeyboardManagerSwift
-import ChameleonSwift
+import KSCrash
 
 
 
@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     static let updateUIName = "updateUIName"
 
-    private let umengAppKey = "58a6970af5ade43470001841"  //友盟推送
+    private let UmengAppKey = "58a6970af5ade43470001841"  //友盟推送
+    private let KSCrashGeneralKey = "58c13569a1de526ecc000013"  //KSCrash
+    
     //初始化 UNUserNotificationCenter 代理对象 ,NotificationUtil 实现了 UNUserNotificationCenter 2个代理方法  1.app 前台运行时提示通知  2.用户与通知交互时的回调方法
     let notificationHandler = NotificationUtil()
     
@@ -33,13 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = notificationHandler
         notificationHandler.registerNotiCategory()//注册本地通知action 簇
         
-        UMessage.start(withAppkey: umengAppKey, launchOptions: launchOptions, httpsenable: true)
+        UMessage.start(withAppkey: UmengAppKey, launchOptions: launchOptions, httpsenable: true)//注册友盟
         UMessage.registerForRemoteNotifications() // 注册远程通知
         UMessage.setLogEnabled(true)//开启日志
         notificationHandler.dailyCheck() //检测每日水量
         IQKeyboardManager.sharedManager().enable = true  //开启键盘自适应
-        // TODO: 重置颜色
-//        ThemeServiceConfig.shared.initTheme(data: ThemeStyle.day) //设置整个 app 的 theme
+        registerKSCrash()//注册kscrash
 
         
         return true
@@ -81,6 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
    private func pushNotifications()  {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil, userInfo: nil)
+    }
+    
+    
+    /// KSCrash 注册
+    func registerKSCrash() {
+       let installation = KSCrashInstallationStandard.sharedInstance()
+        installation?.url = URL(string: "https://collector.bughd.com/kscrash?key=\(KSCrashGeneralKey)")
+        installation?.install()
+        installation?.sendAllReports(completion: nil)
     }
     
     

@@ -13,7 +13,6 @@ import Alamofire
 import SwiftyJSON
 import JGProgressHUD
 import swiftScan
-import ChameleonSwift
 
 
 

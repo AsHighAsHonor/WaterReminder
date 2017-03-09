@@ -89,6 +89,7 @@ class NotificationUtil: NSObject ,UNUserNotificationCenterDelegate{
         let currentStr = dailyMark()
         if let savedMark = savedMark {
             YYPrint("保存的时间:\(savedMark) , 当前时间 :\(currentStr)")
+
             if savedMark != currentStr {
                 CacheUtil.deleteWater(type: .DrinkingWater(0))
                 CacheUtil.deleteWater(type: .TargetWater(0))

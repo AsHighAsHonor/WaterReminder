@@ -24,8 +24,8 @@ class LocationUtil: NSObject ,CLLocationManagerDelegate {
         }
         
         //2.检查是否允许获取位置信息
-        guard CLLocationManager.authorizationStatus() == .authorizedAlways else {
-            locateManager.requestAlwaysAuthorization()
+        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
+            locateManager.requestWhenInUseAuthorization()
             handler(false)
             return
         }
@@ -40,7 +40,7 @@ class LocationUtil: NSObject ,CLLocationManagerDelegate {
    private func setupLocate() -> () {
         locateManager.delegate = self
         locateManager.desiredAccuracy = kCLLocationAccuracyBest//定位精准度
-        locateManager.distanceFilter = 5000 //位置更新最小距离5000m
+        locateManager.distanceFilter = 500 //位置更新最小距离5000m
     }
     
    public func startLocating() -> () {

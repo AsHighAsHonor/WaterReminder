@@ -17,7 +17,7 @@ target 'WaterReminder' do
     pod 'Toast-Swift'
     pod 'IQKeyboardManagerSwift'
     pod 'swiftScan', :git => 'https://github.com/MxABC/swiftScan.git', :tag => '1.0.9'
-    pod 'ChameleonSwift'
+    pod 'KSCrash', '~> 1.8'
 
 end
 

@@ -9,17 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ChameleonSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>JGProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KSCrash.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,22 +57,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>179C0251C6626C7AD47462E9C655860B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>24F73826C21CBCBE186224114BD582A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>37EF2C0A306E9DFA8A78D21F29470C5B</key>
+		<key>306546296FAB4C9F5E786AAA3D9C6BBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B279CAC036ED2153A0349E8FC437C0E</key>
+		<key>3776706D3453BE8AE89F20EB4D4CB94E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44AA37839FF5CF5CD24F13387653B9E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>46A7C24C388072646D0CBFA0978C5B82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,17 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B5C15561F9699F8D7DD09A6D0E8B60C</key>
+		<key>94F03218AE26561E40326B66C29F2C06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>974E6AB8CA65AC79E41B6435138A2D10</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BE41FAC9348B693ABBD2FEA678FA86BE</key>
+		<key>B47B4D489C9BD7A1E6FEBA052EF58263</key>
 		<dict>
 			<key>primary</key>
 			<true/>

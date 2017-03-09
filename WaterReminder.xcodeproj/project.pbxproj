@@ -13,6 +13,8 @@
 		FD190C491E5D90270027359A /* WaterScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD190C481E5D90270027359A /* WaterScanViewController.swift */; };
 		FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD190C4A1E5D93F30027359A /* CodeScan.bundle */; };
 		FD190C521E5DBF430027359A /* OChelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD190C4E1E5DBF430027359A /* OChelper.m */; };
+		FD21E5E21E7188A8007F64AC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD21E5E11E7188A8007F64AC /* libc++.tbd */; };
+		FD21E5E41E7188B9007F64AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD21E5E31E7188B9007F64AC /* SystemConfiguration.framework */; };
 		FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD2B7BE51E6708FE00220F4C /* sub.caf */; };
 		FD31419B1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */; };
 		FD31419D1E6846F8005C75B7 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */; };
@@ -36,6 +38,7 @@
 		FD4EF5131E63CBC7005A2A6C /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */; };
 		FD4EF5151E651E1E005A2A6C /* WaterAddLocationTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */; };
 		FD4EF5171E652940005A2A6C /* WaterAddLocationContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5161E652940005A2A6C /* WaterAddLocationContentController.swift */; };
+		FD7CD6131E700B4700945A5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD7CD6151E700B4700945A5E /* Localizable.strings */; };
 		FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */; };
 		FD8CACBA1E5ECE8B00B8E443 /* QuickActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */; };
 		FD8CACBD1E5FCBEF00B8E443 /* LXFPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */; };
@@ -137,6 +140,8 @@
 		FD190C4A1E5D93F30027359A /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		FD190C4D1E5DBF430027359A /* OChelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OChelper.h; sourceTree = "<group>"; };
 		FD190C4E1E5DBF430027359A /* OChelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OChelper.m; sourceTree = "<group>"; };
+		FD21E5E11E7188A8007F64AC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		FD21E5E31E7188B9007F64AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD2B7BE51E6708FE00220F4C /* sub.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sub.caf; sourceTree = "<group>"; };
 		FD31419A1E67BC7C005C75B7 /* WaterAddAlarmTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddAlarmTableController.swift; sourceTree = "<group>"; };
 		FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -160,6 +165,10 @@
 		FD4EF5121E63CBC7005A2A6C /* LocationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
 		FD4EF5141E651E1E005A2A6C /* WaterAddLocationTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationTableController.swift; sourceTree = "<group>"; };
 		FD4EF5161E652940005A2A6C /* WaterAddLocationContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterAddLocationContentController.swift; sourceTree = "<group>"; };
+		FD7CD6101E700A4100945A5E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		FD7CD6141E700B4700945A5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD7CD6161E700B4C00945A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD7CD6171E700B4D00945A5E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Reflect.swift"; sourceTree = "<group>"; };
 		FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionHandler.swift; sourceTree = "<group>"; };
 		FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFPopMenu.swift; sourceTree = "<group>"; };
@@ -238,7 +247,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD21E5E41E7188B9007F64AC /* SystemConfiguration.framework in Frameworks */,
 				FDDFB30E1E56D117006743E7 /* libz.tbd in Frameworks */,
+				FD21E5E21E7188A8007F64AC /* libc++.tbd in Frameworks */,
 				FDDFB30C1E56D0ED006743E7 /* UserNotifications.framework in Frameworks */,
 				FDDFB30A1E56D011006743E7 /* libUMessage_Sdk_1.4.0.a in Frameworks */,
 				FD90CAF41E4DC0070054459E /* HealthKit.framework in Frameworks */,
@@ -253,6 +264,8 @@
 		545F2770C5FDAC24328630C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD21E5E31E7188B9007F64AC /* SystemConfiguration.framework */,
+				FD21E5E11E7188A8007F64AC /* libc++.tbd */,
 				FDDFB30D1E56D117006743E7 /* libz.tbd */,
 				FDDFB30B1E56D0ED006743E7 /* UserNotifications.framework */,
 				FDDFB3071E56D011006743E7 /* UMessage_Sdk_1.4.0 */,
@@ -518,6 +531,7 @@
 		FDEAA8C91E3721E500C04ADF = {
 			isa = PBXGroup;
 			children = (
+				FD7CD6151E700B4700945A5E /* Localizable.strings */,
 				FDEAA8D41E3721E500C04ADF /* WaterReminder */,
 				FD8FDBBD1E3B34FF0009A61C /* WaterReminderWidget */,
 				FD8FDBEB1E3EC8870009A61C /* Universal */,
@@ -753,6 +767,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = FDEAA8C91E3721E500C04ADF;
 			productRefGroup = FDEAA8D31E3721E500C04ADF /* Products */;
@@ -789,6 +804,7 @@
 				FD8FDC191E4189C10009A61C /* WaterPlanControlCell.xib in Resources */,
 				FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */,
 				FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */,
+				FD7CD6131E700B4700945A5E /* Localizable.strings in Resources */,
 				FD8FDC1D1E418AD10009A61C /* WaterPlanSetCell.xib in Resources */,
 				FD8FDBB51E39F8E60009A61C /* Assets.xcassets in Resources */,
 				FDEAA9061E374CBA00C04ADF /* Main.storyboard in Resources */,
@@ -938,10 +954,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FD7CD6151E700B4700945A5E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD7CD6141E700B4700945A5E /* Base */,
+				FD7CD6161E700B4C00945A5E /* en */,
+				FD7CD6171E700B4D00945A5E /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			path = WaterReminder/Resource/Global;
+			sourceTree = "<group>";
+		};
 		FD8FDBC01E3B34FF0009A61C /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FD8FDBC11E3B34FF0009A61C /* Base */,
+				FD7CD6101E700A4100945A5E /* zh-Hans */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1052,6 +1080,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1102,6 +1131,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1159,6 +1189,28 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WaterReminder/UMessage_Sdk_1.4.0",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"JGProgressHUD\"",
+					"-framework",
+					"\"KSCrash\"",
+					"-framework",
+					"\"LTMorphingLabel\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"Toast_Swift\"",
+					"-framework",
+					"\"swiftScan\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GZreminder.ztesoft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2ba2f4f6-7646-4fd4-a8b4-2e40122dae8c";
@@ -1185,6 +1237,28 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WaterReminder/UMessage_Sdk_1.4.0",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"JGProgressHUD\"",
+					"-framework",
+					"\"KSCrash\"",
+					"-framework",
+					"\"LTMorphingLabel\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"Toast_Swift\"",
+					"-framework",
+					"\"swiftScan\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GZreminder.ztesoft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
