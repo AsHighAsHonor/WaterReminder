@@ -74,6 +74,9 @@ public class CacheUtil {
         userDefaults.removeObject(forKey: DrinkingWater)
     }
     userDefaults.synchronize()
+    print("目标============>>\(userDefaults.object(forKey:TargetWater))")
+    print("完成============>>\(userDefaults.object(forKey:DrinkingWater))")
+
 
 }
     ///获取水量

@@ -37,8 +37,6 @@ class WaterMainController: BaseViewController {
         super.viewDidLoad()
         //配置动态 label
         configure()
-        //更新天气
-        fetchWeaterData()
         //添加通知观察者更新界面  防止水量不自动清零
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil)
         self.view.addSubview(spreadBtn)
@@ -49,6 +47,8 @@ class WaterMainController: BaseViewController {
         //检查版本更新
         updateVersion()
         updateUI()
+        //更新天气
+        fetchWeaterData()
     }
     
     deinit {
@@ -80,6 +80,10 @@ class WaterMainController: BaseViewController {
     
     //MARK: 获取天气1
     func fetchWeaterData()  {
+        guard weatherLabel.text == "Weather Loading" else {
+            return
+        }
+        
         cargador.requestLoacteAuthorizationAndFetchWeaterData { (weather) in
             self.weatherCompleted(response: weather)
         }
@@ -88,10 +92,8 @@ class WaterMainController: BaseViewController {
     func weatherCompleted(response : DataResponse<Any>) {
         switch response.result {
         case .success(let value):
-            let weatherModel = WaterWeatherRootClass(fromJson: JSON(value))
-            let temperature = cargador.temperatureTransfer(Fahrenheit: Double(weatherModel.query.results.channel.item.condition.temp!)!)
-            let tempStr = "国家: \(weatherModel.query.results.channel.location.country!) \n 城市:\(weatherModel.query.results.channel.location.city!) \n 日出:\(weatherModel.query.results.channel.astronomy.sunrise!) \n 日落:\(weatherModel.query.results.channel.astronomy.sunset!) \n 气温:\(temperature) ℃ \n  描述: \(weatherModel.query.results.channel.item.condition.text!) \n 更新时间: \(weatherModel.query.results.channel.item.condition.date!) \n"
-            self.temperature = tempStr
+            self.weatherModel = WaterWeatherRootClass(fromJson: JSON(value))
+            self.temperatureModel =  self.weatherModel
         case .failure(let error):
             print(error.localizedDescription)
         }
@@ -138,20 +140,10 @@ class WaterMainController: BaseViewController {
     
     
     func configure() {
-        
         animationLab.text = "今日补水目标 : \(targetResult) 毫升"
         animationLab.morphingEffect = LTMorphingEffect.fall
         waveIndicator.waveAmplitude = 45
         waveIndicator.drawProgressText()
-        
-        // TODO: 配置主题颜色
-        //        self.ch.refreshBlock = { [weak self](now: Any, pre: Any?) -> Void in
-        //            if let now = ChameleonHelper<String>.parse(now) {
-        //                self?.waveIndicator.heavyColor = UIColor.colorWithHexString(now)
-        //            }
-        //
-        //        }
-        
     }
     
     
@@ -359,6 +351,26 @@ class WaterMainController: BaseViewController {
             weatherLabel.text = temperature
         }
     }
+    
+    var weatherModel : WaterWeatherRootClass!
+    
+    var temperatureModel : WaterWeatherRootClass{
+        get{
+            return self.temperatureModel
+        }
+        set{
+            let temperature = cargador.temperatureTransfer(Fahrenheit: Float(weatherModel.query.results.channel.item.condition.temp!)!)
+            let country = weatherModel.query.results.channel.location.country!
+            let city = weatherModel.query.results.channel.location.city!
+            let sunRise = weatherModel.query.results.channel.astronomy.sunrise!
+            let sunSet = weatherModel.query.results.channel.astronomy.sunset!
+            let description = weatherModel.query.results.channel.item.condition.text!
+            let updateTime = weatherModel.query.results.channel.item.condition.date!
+            let tempStr = "国家: \(country) \n 城市:\(city) \n 日出:\(sunRise) \n 日落:\(sunSet) \n 气温:\(temperature) ℃ \n  描述: \(description) \n 更新时间: \(updateTime) \n"
+            self.temperature = tempStr
+        }
+    }
+
     
     @IBOutlet weak var weatherLabel: UILabel!
     

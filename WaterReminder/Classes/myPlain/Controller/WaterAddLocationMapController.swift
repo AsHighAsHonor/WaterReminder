@@ -26,7 +26,7 @@ class WaterAddLocationMapController: UIViewController {
                 mapUtil.startLocating() //开启定位
             }else{
                 // 尚未获取到定位权限/未开启定位
-                UIAlertController.showAuthorizationAlert(msg: "用户尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { (act) in
+                UIAlertController.showAuthorizationAlert(msg: "您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { (act) in
                     _ = self.navigationController?.popToRootViewController(animated: true)
                 })
             }

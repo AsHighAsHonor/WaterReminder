@@ -33,7 +33,7 @@ class WeatherCargador: NSObject {
                 }
             }else{
                 // 尚未获取到定位权限/未开启定位
-                UIAlertController.showAuthorizationAlert(msg: "用户尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { [unowned self](act) in
+                UIAlertController.showAuthorizationAlert(msg: "您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { [unowned self](act) in
                     
                     // 获取上次保存的位置   如果没保存位置 默认使用北京
                     let city = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCity)
@@ -64,7 +64,7 @@ class WeatherCargador: NSObject {
    ///
    /// - Parameter Fahrenheit: 华氏温度
    /// - Returns: 摄氏温度
-   public func temperatureTransfer(Fahrenheit : Double) -> Double {
+   public func temperatureTransfer(Fahrenheit : Float) -> Float {
         return (Fahrenheit - 32)/1.8
     }
     

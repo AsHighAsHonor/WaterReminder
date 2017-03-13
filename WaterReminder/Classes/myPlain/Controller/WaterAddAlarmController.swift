@@ -152,7 +152,7 @@ class WaterAddAlarmController: UIViewController  {
             if notificationSettings?.authorizationStatus != .authorized  {
                 //用户未获取到通知权限
                 //  提示跳转到系统设置 通知权限
-                UIAlertController.showAuthorizationAlert(msg : "用户尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务" , ancelHandler: nil)
+                UIAlertController.showAuthorizationAlert(msg : "您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务" , ancelHandler: nil)
             }
         }
     }
