@@ -24,7 +24,7 @@ class NotificationUtil: NSObject ,UNUserNotificationCenterDelegate{
     }
     
     
-    /// 向用户申请通知权限
+    /// 向用户申请通知授权
     ///
     public class func requestNotificationAuthorization() {
         

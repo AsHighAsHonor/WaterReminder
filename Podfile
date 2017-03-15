@@ -11,7 +11,7 @@ target 'WaterReminder' do
     pod 'Alamofire'
     pod 'SnapKit'
     pod 'SwiftyJSON'
-#    pod 'SpreadButton'
+    pod 'JZLocationConverter'
     pod 'LTMorphingLabel'
     pod 'JGProgressHUD'
     pod 'Toast-Swift'

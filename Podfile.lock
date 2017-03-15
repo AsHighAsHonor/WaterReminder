@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.3.0)
   - IQKeyboardManagerSwift (4.0.8)
   - JGProgressHUD (1.4)
+  - JZLocationConverter (1.0.0)
   - KSCrash (1.15.2):
     - KSCrash/Installations (= 1.15.2)
   - KSCrash/Installations (1.15.2):
@@ -75,6 +76,7 @@ DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
   - JGProgressHUD
+  - JZLocationConverter
   - KSCrash (~> 1.8)
   - LTMorphingLabel
   - SnapKit
@@ -96,6 +98,7 @@ SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
+  JZLocationConverter: 3d816bee6484aed9c155a6045a02ce444833e2f0
   KSCrash: 303b25eb0f5796009e9458fc35a55e2ae78b4c9e
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
@@ -103,6 +106,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 38342569ea192692bbb86c3ba17de9ee0c5648b2
+PODFILE CHECKSUM: bfb77e527da8750dc467f386cd067110101babce
 
 COCOAPODS: 1.2.0

@@ -74,16 +74,14 @@ class NotificationAction : NSObject {
         let request = response.notification.request
         //创建一个提醒的实体类
         var alarmInfo = AlarmInfo()
-        alarmInfo.time = ""
+        alarmInfo.time = "5"
         alarmInfo.isRepeat = false
         alarmInfo.on = true
-        alarmInfo.sound = ""
         alarmInfo.contentTitle = request.content.title
         alarmInfo.contentSubtitle = request.content.subtitle
-        alarmInfo.contentBody = request.content.body
+        alarmInfo.contentBody = "你ཀ拖ཀ延ཀ的ཀ5分ཀ钟ཀ ~~ 外ཀ星ཀ人ཀ都ཀ快ཀ占ཀ领ཀ地ཀ球ཀ了ཀ ~~ 快ཀ喝ཀ水ཀ!!!!!"
         alarmInfo.contentBadge = request.content.badge!
         alarmInfo.timeType = .Calendar
-        alarmInfo.showTitle = ""
         // 添加一条新的一次性通知
         alarmModel.sendDisposableNotification(alarmInfoEntity: nil, alarmInfo: alarmInfo, identifier: nil) { (error) in
         }

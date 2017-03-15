@@ -33,7 +33,7 @@ public enum AlarmType : String{
 }
 
 
-public struct AlarmInfo {
+public class AlarmInfo {
     var time : String?
     var isRepeat : Bool?
     var on : Bool?
@@ -44,6 +44,10 @@ public struct AlarmInfo {
     var contentBadge : NSNumber?
     var timeType : AlarmType?
     var showTitle : String?
+    var onEnter : Bool?
+    var onExit : Bool?
+    var radius : NSNumber?
+    
 }
 
 
@@ -95,18 +99,20 @@ class WaterAlarmModel: NSObject {
             let latitude = Double(locations.first!)
             let longitude = Double (locations.last!)
             let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            let region = CLCircularRegion(center: center, radius: 50.0, identifier: String(describing: Date()))
-            region.notifyOnEntry = true
-            region.notifyOnExit = true
+            let region = CLCircularRegion(center: center, radius: (alarmInfo.radius?.doubleValue)!, identifier: identifier!)
+            region.notifyOnEntry = alarmInfo.onEnter!
+            region.notifyOnExit = alarmInfo.onExit!
             trigger = UNLocationNotificationTrigger(region: region, repeats: alarmInfo.isRepeat!)
-        case .Interval:
-            let center = CLLocationCoordinate2D(latitude: 37.335400, longitude: -122.009201)
-            let region = CLCircularRegion(center: center, radius: 2000.0, identifier: String(describing: Date()))
-            region.notifyOnEntry = true
-            region.notifyOnExit = true
-            trigger = UNLocationNotificationTrigger(region: region, repeats: alarmInfo.isRepeat!)
+            
+            
+        case .Interval://待用
+            // Create a trigger to decide when/where to present the notification
+            guard let multiple = Double(alarmInfo.time!) else {
+                assert((Double(alarmInfo.time!) == nil), "check alarmInfo.time that must be covert to double")
+                return
+            }
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: multiple*60, repeats: alarmInfo.isRepeat!)
         }
-        
         
         
         
@@ -115,7 +121,7 @@ class WaterAlarmModel: NSObject {
         if identifier != nil{
             requestIdentifier = identifier!
         }else{
-            requestIdentifier = String(describing: Date())
+            requestIdentifier = UUID().uuidString
         }
         
         
@@ -134,11 +140,11 @@ class WaterAlarmModel: NSObject {
     }
     
     
-    /// 添加一条一次性通知在设定时间后提醒,用于拖延后的临时提醒 ;不保存到数据库,无 repeat
+    /// 添加一条一次性通知在设定时间后触发,临时提醒 ;不保存到数据库
     ///
     /// - Parameters:
     /// - Parameters:
-    ///   - alarmInfo: 新通知内容实体
+    ///   - alarmInfo: 新通知内容实体 (alarmInfo.time 传入触发时间间隔 如5 代表5 * 60= 300s 后触发)
     ///   - identifier: 要修改的identifier(备用  统一传 nil)
     ///   - alarmInfoEntity: 修改操作时需要传入的数据实体 (备用 统一传 nil)
     ///   - withCompletionHandler: 回调
@@ -146,40 +152,38 @@ class WaterAlarmModel: NSObject {
         // Create notification content
         let content = UNMutableNotificationContent()
         content.title = alarmInfo.contentTitle!
-        content.body = "你ཀ拖ཀ延ཀ的ཀ5分ཀ钟ཀ ~~ 外ཀ星ཀ人ཀ都ཀ快ཀ占ཀ领ཀ地ཀ球ཀ了ཀ ~~ 快ཀ喝ཀ水ཀ!!!!!" //alarmInfo.contentBody
+        content.body = alarmInfo.contentBody!
         content.badge = alarmInfo.contentBadge
         content.subtitle = alarmInfo.contentSubtitle!
         content.sound = UNNotificationSound(named: "sub.caf")
         content.userInfo = ["key": "value"]
-        content.categoryIdentifier = RemindCategoryType.localRemind.rawValue //设置通知 action 簇
         
-        
-        //设置提醒触发的trigger
-        // Create a trigger to decide when/where to present the notification
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (5*60), repeats: false)//5分钟后提醒 不重复
-        
+        //地理触发器 不需要 actionCategory
+        if alarmInfo.timeType != .Location {
+            content.categoryIdentifier = RemindCategoryType.localRemind.rawValue //设置通知 action 簇
+        }
         
         // Create an identifier for this notification. So you could manage it later. 每条通知的标识符
         var requestIdentifier : String?
         if identifier != nil{
             requestIdentifier = identifier!
         }else{
-            requestIdentifier = String(describing: Date())
+            requestIdentifier = UUID().uuidString
+        }
+        
+        //设置提醒触发的trigger
+        // Create a trigger to decide when/where to present the notification
+        guard let multiple = Double(alarmInfo.time!) else {
+            assert((Double(alarmInfo.time!) == nil), "check alarmInfo.time that must be covert to double")
+            return
         }
         
         
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (multiple*60.0), repeats: alarmInfo.isRepeat!)//设置提醒间隔
         // The request describes this notification.
         let request = UNNotificationRequest(identifier: requestIdentifier!, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: withCompletionHandler)
         
-        //        //将新通知存储到 CoreData
-        //        if (identifier != nil) && (alarmInfoEntity != nil){
-        //            //修改数据库对应提醒数据
-        //            updateAlarmFromDatabase(entity: alarmInfoEntity!, alarmInfo: alarmInfo)
-        //        }else{
-        //            //新增提醒信息到数据库
-        //            storeAlarmInfosToDatabase(alarmInfo: alarmInfo, andIdentifier: requestIdentifier!)
-        //        }
     }
     
     

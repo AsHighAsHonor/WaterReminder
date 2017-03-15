@@ -36,7 +36,7 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C1d-51-ZSs">
                                 <rect key="frame" x="287" y="24.5" width="51" height="31"/>
-                                <color key="onTintColor" red="0.44157841801643372" green="0.74878698587417603" blue="0.9900546669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="onTintColor" red="0.44313725490196076" green="0.74901960784313726" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="toggleValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="w2G-EI-PM0"/>
                                 </connections>

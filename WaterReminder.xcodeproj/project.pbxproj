@@ -40,6 +40,8 @@
 		FD4EF5171E652940005A2A6C /* WaterAddLocationContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EF5161E652940005A2A6C /* WaterAddLocationContentController.swift */; };
 		FD7CD6131E700B4700945A5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD7CD6151E700B4700945A5E /* Localizable.strings */; };
 		FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */; };
+		FD894EE81E77E6B100B835FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD894EE71E77E6B100B835FF /* MapKit.framework */; };
+		FD894EEA1E79309700B835FF /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD894EE91E79309700B835FF /* MKMapViewExtension.swift */; };
 		FD8CACBA1E5ECE8B00B8E443 /* QuickActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */; };
 		FD8CACBD1E5FCBEF00B8E443 /* LXFPopMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */; };
 		FD8CACBF1E5FCDB500B8E443 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CACBE1E5FCDB500B8E443 /* Common.swift */; };
@@ -77,6 +79,9 @@
 		FDAF1AD51E602C380065ED0F /* SpreadSubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF1AD11E602C380065ED0F /* SpreadSubButton.swift */; };
 		FDB6DC141E5714F300398E88 /* WaterBinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB6DC121E5714F300398E88 /* WaterBinary.swift */; };
 		FDB6DC161E57153500398E88 /* WaterVersionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB6DC151E57153500398E88 /* WaterVersionInfoModel.swift */; };
+		FDC161E21E77984400D8CAAE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC161E11E77984400D8CAAE /* UIViewControllerExtension.swift */; };
+		FDC161E51E77C73800D8CAAE /* case2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FDC161E31E77C73800D8CAAE /* case2.gpx */; };
+		FDC161E61E77C73800D8CAAE /* casa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FDC161E41E77C73800D8CAAE /* casa.gpx */; };
 		FDC4C73D1E52955100DD0131 /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4C73C1E52955100DD0131 /* UIViewController+Toast.swift */; };
 		FDC4C7401E547E6C00DD0131 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4C73F1E547E6C00DD0131 /* BaseViewController.swift */; };
 		FDC4C7441E548AE300DD0131 /* String+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC4C7431E548AE300DD0131 /* String+Time.swift */; };
@@ -170,6 +175,8 @@
 		FD7CD6161E700B4C00945A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD7CD6171E700B4D00945A5E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Reflect.swift"; sourceTree = "<group>"; };
+		FD894EE71E77E6B100B835FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FD894EE91E79309700B835FF /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
 		FD8CACB91E5ECE8B00B8E443 /* QuickActionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickActionHandler.swift; sourceTree = "<group>"; };
 		FD8CACBC1E5FCBEF00B8E443 /* LXFPopMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFPopMenu.swift; sourceTree = "<group>"; };
 		FD8CACBE1E5FCDB500B8E443 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -211,6 +218,9 @@
 		FDAF1AD11E602C380065ED0F /* SpreadSubButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadSubButton.swift; sourceTree = "<group>"; };
 		FDB6DC121E5714F300398E88 /* WaterBinary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterBinary.swift; sourceTree = "<group>"; };
 		FDB6DC151E57153500398E88 /* WaterVersionInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterVersionInfoModel.swift; sourceTree = "<group>"; };
+		FDC161E11E77984400D8CAAE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		FDC161E31E77C73800D8CAAE /* case2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = case2.gpx; sourceTree = "<group>"; };
+		FDC161E41E77C73800D8CAAE /* casa.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = casa.gpx; sourceTree = "<group>"; };
 		FDC4C73C1E52955100DD0131 /* UIViewController+Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
 		FDC4C73E1E5301B400DD0131 /* WaterReminder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaterReminder-Bridging-Header.h"; sourceTree = "<group>"; };
 		FDC4C73F1E547E6C00DD0131 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +261,7 @@
 				FDDFB30E1E56D117006743E7 /* libz.tbd in Frameworks */,
 				FD21E5E21E7188A8007F64AC /* libc++.tbd in Frameworks */,
 				FDDFB30C1E56D0ED006743E7 /* UserNotifications.framework in Frameworks */,
+				FD894EE81E77E6B100B835FF /* MapKit.framework in Frameworks */,
 				FDDFB30A1E56D011006743E7 /* libUMessage_Sdk_1.4.0.a in Frameworks */,
 				FD90CAF41E4DC0070054459E /* HealthKit.framework in Frameworks */,
 				FD8FDBF11E3EC8870009A61C /* Universal.framework in Frameworks */,
@@ -264,6 +275,7 @@
 		545F2770C5FDAC24328630C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD894EE71E77E6B100B835FF /* MapKit.framework */,
 				FD21E5E31E7188B9007F64AC /* SystemConfiguration.framework */,
 				FD21E5E11E7188A8007F64AC /* libc++.tbd */,
 				FDDFB30D1E56D117006743E7 /* libz.tbd */,
@@ -460,12 +472,14 @@
 		FD8FDC231E42D78A0009A61C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FD894EE91E79309700B835FF /* MKMapViewExtension.swift */,
 				FD8FDC241E42D8410009A61C /* UIAlertViewControllerExtension.swift */,
 				FDC4C73C1E52955100DD0131 /* UIViewController+Toast.swift */,
 				FD90CAF51E50A55A0054459E /* UITableViewExtension.swift */,
 				FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */,
 				FD8CACC01E5FD01E00B8E443 /* UIImage+Color.swift */,
 				FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */,
+				FDC161E11E77984400D8CAAE /* UIViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -604,6 +618,8 @@
 		FDEAA8F01E374C6B00C04ADF /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				FDC161E31E77C73800D8CAAE /* case2.gpx */,
+				FDC161E41E77C73800D8CAAE /* casa.gpx */,
 				FDEAA8F11E374C6B00C04ADF /* AppDelegate.swift */,
 				FDEAA8F41E374C6B00C04ADF /* Main.storyboard */,
 				FDC4C73E1E5301B400DD0131 /* WaterReminder-Bridging-Header.h */,
@@ -750,7 +766,13 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -803,8 +825,10 @@
 			files = (
 				FD8FDC191E4189C10009A61C /* WaterPlanControlCell.xib in Resources */,
 				FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */,
+				FDC161E61E77C73800D8CAAE /* casa.gpx in Resources */,
 				FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */,
 				FD7CD6131E700B4700945A5E /* Localizable.strings in Resources */,
+				FDC161E51E77C73800D8CAAE /* case2.gpx in Resources */,
 				FD8FDC1D1E418AD10009A61C /* WaterPlanSetCell.xib in Resources */,
 				FD8FDBB51E39F8E60009A61C /* Assets.xcassets in Resources */,
 				FDEAA9061E374CBA00C04ADF /* Main.storyboard in Resources */,
@@ -908,6 +932,7 @@
 				FD8FDC181E4189C10009A61C /* WaterPlanControlCell.swift in Sources */,
 				FD190C521E5DBF430027359A /* OChelper.m in Sources */,
 				FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */,
+				FD894EEA1E79309700B835FF /* MKMapViewExtension.swift in Sources */,
 				FDC4C7401E547E6C00DD0131 /* BaseViewController.swift in Sources */,
 				FD8FDC1F1E4227090009A61C /* WaterAddAlarmController.swift in Sources */,
 				FD4EF5131E63CBC7005A2A6C /* LocationUtil.swift in Sources */,
@@ -932,6 +957,7 @@
 				FDAF1AD31E602C380065ED0F /* ZYSpreadSubButton.m in Sources */,
 				FD190C491E5D90270027359A /* WaterScanViewController.swift in Sources */,
 				FDAF1AD51E602C380065ED0F /* SpreadSubButton.swift in Sources */,
+				FDC161E21E77984400D8CAAE /* UIViewControllerExtension.swift in Sources */,
 				FD4BAE4E1E6AA22000311790 /* WaterWeatherQuery.swift in Sources */,
 				FD8FDC1C1E418AD10009A61C /* WaterPlanSetCell.swift in Sources */,
 				FDEAA8FF1E374C6B00C04ADF /* AppDelegate.swift in Sources */,

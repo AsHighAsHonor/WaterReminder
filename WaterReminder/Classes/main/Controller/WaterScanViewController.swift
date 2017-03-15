@@ -86,10 +86,10 @@ import swiftScan
                     return
                 }
                 UIAlertController.showAlert(message: "确定打开地址 \(qrStr) 吗?", in: self, sureHandler: { (UIAlertAction) in
-                    _ = self.navigationController?.popViewController(animated: false)
+                    self.popVc()
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }, cancelHandler: { (UIAlertAction) in
-                   _ = self.navigationController?.popViewController(animated: false)
+                  self.popVc()
                 })
                 
             }

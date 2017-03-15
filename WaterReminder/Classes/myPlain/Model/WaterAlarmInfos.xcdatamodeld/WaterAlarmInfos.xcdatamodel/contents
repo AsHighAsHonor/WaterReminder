@@ -6,6 +6,9 @@
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="isOn" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isRepeat" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="onEnter" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="onExit" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="radius" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="showTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sound" attributeType="String" syncable="YES"/>
         <attribute name="subtitle" attributeType="String" syncable="YES"/>
@@ -14,6 +17,6 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AlarmInfosEntiy" positionX="-54" positionY="-9" width="128" height="210"/>
+        <element name="AlarmInfosEntiy" positionX="-54" positionY="-9" width="128" height="255"/>
     </elements>
 </model>

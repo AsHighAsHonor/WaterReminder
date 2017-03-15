@@ -14,15 +14,8 @@ import CoreLocation
 
 
 
-/// 保存子页面返回的值
-private struct RecivedValues {
-    var  recivedLocation : [String : CLLocationCoordinate2D]? //[地理位置Str : CLLocationCoordinate2D]
-    var  recivedContent : String? //提醒内容
-}
-
 class WaterAddLocationTableController: UITableViewController {
-    private var recivedValues = RecivedValues()
-    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +28,7 @@ class WaterAddLocationTableController: UITableViewController {
         if let alarmInfosEntiy = alarmInfosEntiy {
             deleteMapBtn.isHidden = false
             details = [alarmInfosEntiy.showTitle!,alarmInfosEntiy.body!]
-            locationStr = ""
+            alarmInfo.contentBody = alarmInfosEntiy.body
         }else{
             details = ["请点击选择地址","基于地理位置的提醒"]
         }
@@ -46,11 +39,20 @@ class WaterAddLocationTableController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setModifyAlarmPage()
+        
+        if let body = alarmInfo.contentBody {
+            self.details?[1] = body  //修改 table 对应数据源
+        }
+        if let showTitle  = alarmInfo.showTitle {
+            self.details?[0] = showTitle  //修改 table 对应数据源
+        }
+        
+
     }
     
     
-    
-    // MARK: - Table view data source
+    // MARK: - DelegateMethods
+    // MARK: Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -95,11 +97,6 @@ class WaterAddLocationTableController: UITableViewController {
     }
     
     
-    // MARK: - LifeCycle
-    
-    // MARK: - Initliazation
-    
-    // MARK: - DelegateMethods
     
     
     
@@ -108,14 +105,14 @@ class WaterAddLocationTableController: UITableViewController {
     @IBAction func deleteMapBtnClicked(_ sender: UIButton) {
         UIAlertController.showAlert(message: "挨千刀的  确定要删除洒家吗?!", in: self, sureHandler: { (UIAlertAction) in
             self.alarmModel.removeNotification(alarmInfoEntitys : [self.alarmInfosEntiy!], fromDatabase: true)
-            _ = self.navigationController?.popViewController(animated: true)
+           self.popVc()
         }, cancelHandler: nil)
 
     }
     
     func saveBtnClicked()  {
         //1.检查是否选择了位置
-        guard (recivedValues.recivedLocation != nil) else {
+        guard (alarmInfo.time != nil) else {
             toast(msg : "请到先选择地址!")
             return
         }
@@ -146,22 +143,28 @@ class WaterAddLocationTableController: UITableViewController {
     
     private func addAlarm() -> () {
         
-        var identifier : String?
+        var identifier : String? //围栏通知触发需要设置notification / regionMonitor 的 identifier 相同
         if alarmInfosEntiy != nil {//判断是否是修改
             identifier = alarmInfosEntiy?.identifier
+        }else{
+            identifier = UUID().uuidString
         }
         
+        
         //提交提醒请求
-        alarmModel.sendNotification(alarmInfoEntity : alarmInfosEntiy , alarmInfo: assignedAlarmInfo, identifier : identifier , withCompletionHandler: { error in
+        //1.添加一个UNLocationNotificationTrigger 2.添加一个区域检测 3.确保 1.2的identifier相同
+        alarmModel.sendNotification(alarmInfoEntity : alarmInfosEntiy , alarmInfo: alarmInfo, identifier : identifier , withCompletionHandler: {[unowned self] error in
             if let error = error {
-                UIAlertController.showConfirmAlert(message: error.localizedDescription , in : self)
+                self.toast(msg: error.localizedDescription )
             }else{
-                DispatchQueue.global().async {
-                    DispatchQueue.main.async {
-                        _ = self.navigationController?.popViewController(animated: true)
-                    }
-                    
-                }
+                //TODO: 添加一个区域监听
+//                let Location = self.recivedValues.recivedLocation?.values.first
+//                let region = CLCircularRegion(center: Location!, radius: 10, identifier: identifier!)
+//                region.notifyOnEntry = true
+//                region.notifyOnExit = true
+//                self.locationUtil.startMonitoring(region: region)
+                //pop
+                self.popVc()
             }
         })
     }
@@ -174,21 +177,17 @@ class WaterAddLocationTableController: UITableViewController {
         switch destinationVc {
         case is WaterAddLocationContentController:
             let vc  =   (destinationVc as!WaterAddLocationContentController)
+            vc.alarmInfo = self.alarmInfo
+
             if let alarmInfosEntiy = alarmInfosEntiy { //修改进入
                 vc.content = alarmInfosEntiy.body!
             }
-            //设置 vc 的回调方法
-            vc.deliverContentClosuer = {content in
-                self.details?[1] = content  //修改 table 对应数据源
-                self.recivedValues.recivedContent = content  //保存内容到recivedValues中
-            }
+           
+
         case is WaterAddLocationMapController:
             let vc : WaterAddLocationMapController =  (destinationVc as! WaterAddLocationMapController)
+            vc.alarmInfo = self.alarmInfo
 
-            vc.selectedLocationClosuer = { location in
-                self.details?[0] = location.keys.first!  //修改 table 对应数据源
-                self.recivedValues.recivedLocation = location //保存地址到recivedValues中
-            }
         default:
             break
         }
@@ -198,6 +197,10 @@ class WaterAddLocationTableController: UITableViewController {
     
     //接受上个页面传入的提醒信息
     var alarmInfosEntiy : AlarmInfosEntiy? = nil
+    
+    
+    /// 传值属性
+    var alarmInfo = AlarmInfo()
     
     var notificationSettings : UNNotificationSettings?{
         didSet{
@@ -213,53 +216,7 @@ class WaterAddLocationTableController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-    //计算属性 用于创建提醒实体对象
-    var assignedAlarmInfo : AlarmInfo{
-        get{
-            var alarmInfo = AlarmInfo()
-            alarmInfo.time = locationStr
-            alarmInfo.isRepeat = true
-            alarmInfo.on = true
-            alarmInfo.sound = ""
-            alarmInfo.contentTitle = locationStr
-            alarmInfo.contentSubtitle = ""
-            alarmInfo.contentBody = contentBody
-            alarmInfo.contentBadge = 0
-            alarmInfo.timeType = AlarmType.Location
-            alarmInfo.showTitle = recivedValues.recivedLocation!.keys.first
-            return alarmInfo
-        }
-    }
-    
-    
-    var contentBody : String{
-        get{
-            if let content = recivedValues.recivedContent{
-                return content
-            }else{
-                return "您收到了基于位置的提醒~"
-            }
-            
-        }
-    }
-    
-    var locationStr : String{
-        set{
-            if let alarmInfosEntiy = alarmInfosEntiy {
-                let locations = alarmInfosEntiy.time?.components(separatedBy: "+")//从alarmInfo.time是由"latitude + longitude "拼接的字符串
-                let latitude = Double(locations!.first!)
-                let longitude = Double (locations!.last!)
-                let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-                recivedValues.recivedLocation = [alarmInfosEntiy.showTitle! :center]
-            }
-        }
-        get{
-            let Location = recivedValues.recivedLocation?.values.first
-            let str = "\(Location!.latitude)+\(Location!.longitude)"  //强制 upward 防止出现Optional(39.91571070111064)+Optional(116.40955360471135)
-            return str
-        }
-    }
+
     
     
     //lazy init
@@ -281,6 +238,9 @@ class WaterAddLocationTableController: UITableViewController {
     lazy var alarmModel : WaterAlarmModel = {
         return WaterAlarmModel()
     }()
+    
+    private let locationUtil = LocationUtil()
+
     
     @IBOutlet weak var deleteMapBtn: UIButton!
 }

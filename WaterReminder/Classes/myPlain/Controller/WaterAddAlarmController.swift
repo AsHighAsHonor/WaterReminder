@@ -18,7 +18,7 @@ class WaterAddAlarmController: UIViewController  {
     @IBOutlet weak var dateDisplayLab: LTMorphingLabel!
     
     @IBOutlet weak var timePicker: UIDatePicker!
-        
+    
     @IBOutlet weak var deleteBtn: UIButton!
     
     
@@ -38,6 +38,7 @@ class WaterAddAlarmController: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setModifyAlarmPage()
+        setValue()
     }
     
     
@@ -59,6 +60,23 @@ class WaterAddAlarmController: UIViewController  {
         
     }
     
+    func setValue() {
+        guard dateStr != nil else {
+            return
+        }
+        
+        alarmInfo.time = dateStr!
+        alarmInfo.isRepeat = true
+        alarmInfo.on = true
+        alarmInfo.sound = ""
+        alarmInfo.contentTitle = "#该喝水了#"
+        alarmInfo.contentSubtitle = ""
+        alarmInfo.contentBody = contentBody
+        alarmInfo.contentBadge = badgeNum
+        alarmInfo.timeType = AlarmType.Calendar
+        alarmInfo.showTitle = dateStr!
+    }
+    
     private func addAlarm() -> () {
         
         
@@ -68,16 +86,11 @@ class WaterAddAlarmController: UIViewController  {
         }
         
         //提交提醒请求
-        alarmModel.sendNotification(alarmInfoEntity : alarmInfosEntiy , alarmInfo: assignedAlarmInfo, identifier : identifier , withCompletionHandler: { error in
+        alarmModel.sendNotification(alarmInfoEntity : alarmInfosEntiy , alarmInfo:alarmInfo , identifier : identifier , withCompletionHandler: { error in
             if let error = error {
                 UIAlertController.showConfirmAlert(message: error.localizedDescription , in : self)
             }else{
-                DispatchQueue.global().async {
-                    DispatchQueue.main.async {
-                        _ = self.navigationController?.popViewController(animated: true)
-                    }
-                    
-                }
+                self.popVc()
             }
         })
     }
@@ -88,7 +101,6 @@ class WaterAddAlarmController: UIViewController  {
             UIAlertController.showConfirmAlert(message: "尚未设定提醒时间!", in:  self)
             return
         }
-        
         
         //2.检查通知权限
         //authorizationStatus 有三种状态  notDetermined(未请求)/denied(拒绝)/authorized(通过)
@@ -105,7 +117,7 @@ class WaterAddAlarmController: UIViewController  {
     @IBAction func deleteBtnClicked(_ sender: UIButton) {
         UIAlertController.showAlert(message: "挨千刀的  确定要删除洒家吗?!", in: self, sureHandler: { (UIAlertAction) in
             self.alarmModel.removeNotification(alarmInfoEntitys : [self.alarmInfosEntiy!], fromDatabase: true)
-            _ = self.navigationController?.popViewController(animated: true)
+            self.popVc()
         }, cancelHandler: nil)
     }
     
@@ -129,13 +141,16 @@ class WaterAddAlarmController: UIViewController  {
         case is WaterAddAlarmTableController:
             let vc  =   (destinationVc as!WaterAddAlarmTableController)
             vc.alarmInfosEntiy = alarmInfosEntiy
-            vc.alarmContentClosuer = {self.customBody = $0}
-       
+            vc.alarmInfo = self.alarmInfo
+            
         default:
             break
         }
     }
     
+    
+    /// 传值属性
+    var alarmInfo = AlarmInfo()
     
     
     //observing property
@@ -158,7 +173,7 @@ class WaterAddAlarmController: UIViewController  {
     }
     
     
-    var timeType : AlarmType?
+    
     
     
     //lazy init
@@ -189,36 +204,19 @@ class WaterAddAlarmController: UIViewController  {
         return NSNumber(value: targetResult-drinkResult)
     }
     
-    var customBody : String?
     
     var contentBody : String{
         get{
-            if customBody == nil {
+            if alarmInfo.contentBody == nil {
                 return    "今日补水目标 : \(targetResult)ML ~~~~~~加油喝啊~~~~~一再一杯啊"
             }else{
-                return "今日补水目标 : \(targetResult)ML ~~~~~~\(customBody!)"
+                return "今日补水目标 : \(targetResult)ML ~~~~~~\(alarmInfo.contentBody!)"
             }
         }
         
     }
     
-    //计算属性 用于创建提醒实体对象
-    var assignedAlarmInfo : AlarmInfo{
-        get{
-            var alarmInfo = AlarmInfo()
-            alarmInfo.time = dateStr!
-            alarmInfo.isRepeat = true
-            alarmInfo.on = true
-            alarmInfo.sound = ""
-            alarmInfo.contentTitle = "#该喝水了#"
-            alarmInfo.contentSubtitle = ""
-            alarmInfo.contentBody = contentBody
-            alarmInfo.contentBadge = badgeNum
-            alarmInfo.timeType = timeType ?? AlarmType.Calendar
-            alarmInfo.showTitle = dateStr!
-            return alarmInfo
-        }
-    }
+    
     
     
     

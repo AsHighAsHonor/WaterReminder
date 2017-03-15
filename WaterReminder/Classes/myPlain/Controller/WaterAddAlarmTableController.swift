@@ -9,17 +9,15 @@
 import UIKit
 
 class WaterAddAlarmTableController: UITableViewController {
-    public var alarmContentClosuer : ((_ content : String)->Void)?//提醒内容输入完成后的回调
+    
     
     // MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         if let alarmInfosEntiy = alarmInfosEntiy {
             details = [alarmInfosEntiy.body!]
-            self.alarmContentClosuer!(alarmInfosEntiy.body!) //传递到主控制器回调
         }else{
             details = ["你该喝水了!"]
-            self.alarmContentClosuer!((details?[0])!) //传递到主控制器回调
         }
     }
     
@@ -29,7 +27,9 @@ class WaterAddAlarmTableController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        if let content  = alarmInfo.contentBody {
+            details?[0] = content
+        }
     }
     
     
@@ -85,14 +85,11 @@ class WaterAddAlarmTableController: UITableViewController {
         switch destinationVc {
         case is WaterAddLocationContentController:
             let vc  =   (destinationVc as!WaterAddLocationContentController)
+            vc.alarmInfo = self.alarmInfo
             if let alarmInfosEntiy = alarmInfosEntiy { //修改进入
                 vc.content = alarmInfosEntiy.body!
             }
-            //设置 vc 的回调方法
-            vc.deliverContentClosuer = {content in
-                self.details?[0] = content  //修改 table 对应数据源
-                self.alarmContentClosuer!(content) //传递到主控制器回调
-            }
+            
         default:
             break
         }
@@ -109,7 +106,8 @@ class WaterAddAlarmTableController: UITableViewController {
     //根据是否有 AlarmInfosEntiy 来判断是否是修改模式
     var alarmInfosEntiy : AlarmInfosEntiy?
     
-   
+    //持有传值
+    var alarmInfo : AlarmInfo!
     
     
 }

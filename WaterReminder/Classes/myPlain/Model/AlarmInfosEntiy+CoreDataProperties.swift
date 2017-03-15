@@ -28,6 +28,11 @@ extension AlarmInfosEntiy {
     @NSManaged public var sound: String
     @NSManaged public var timeType: String
     @NSManaged public var showTitle: String
+    @NSManaged public var onEnter: Bool
+    @NSManaged public var onExit: Bool
+    @NSManaged public var radius: Double
+
+
 
 
 }

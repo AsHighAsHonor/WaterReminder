@@ -15,7 +15,7 @@ import Universal
 class WeatherCargador: NSObject {
     let mapUtil = LocationUtil()
     
-   public func requestLoacteAuthorizationAndFetchWeaterData(completionHandler : @escaping (DataResponse<Any>) -> Void) {
+    public func requestLoacteAuthorizationAndFetchWeaterData(completionHandler : @escaping (DataResponse<Any>) -> Void) {
         mapUtil.requestLocateAuthorization { (result) in
             if result{
                 mapUtil.startLocating() //开启定位
@@ -25,11 +25,25 @@ class WeatherCargador: NSObject {
                     let city = placemark.locality
                     let country = placemark.isoCountryCode
                     YYPrint("\(city)---------\(country)")
+                    
+                    //获取缓存的城市
+                    //                    let savedCity = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCity) as? String
+                    //                    let savedCountry = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCountry) as? String
+                    
+                    
+                    //                    guard savedCity != city! , savedCountry != country! else{
+                    //                        return //当前定位位置和缓存的位置相同的时候 不再请求天气数据
+                    //                    }
+                    
+                    //根据当前地理位置查询城市天气
+                    self.fetchWeatherData(cityName: city!, Code: country!, completionHandler: completionHandler)
+                    
                     //保存当前的位置
                     _ = CacheUtil.userDefaultsOperation(value: city, key: UserSetting.CurrentCity)
                     _ = CacheUtil.userDefaultsOperation(value: country, key: UserSetting.CurrentCountry)
-                    //根据当前地理位置查询城市天气
-                    self.fetchWeatherData(cityName: city!, Code: country!, completionHandler: completionHandler)
+                    //停止定位，节省电量，只获取一次定位
+//                    self.mapUtil.endLocating()
+                    
                 }
             }else{
                 // 尚未获取到定位权限/未开启定位
@@ -60,11 +74,11 @@ class WeatherCargador: NSObject {
     }
     
     
-   /// 华氏->摄氏
-   ///
-   /// - Parameter Fahrenheit: 华氏温度
-   /// - Returns: 摄氏温度
-   public func temperatureTransfer(Fahrenheit : Float) -> Float {
+    /// 华氏->摄氏
+    ///
+    /// - Parameter Fahrenheit: 华氏温度
+    /// - Returns: 摄氏温度
+    public func temperatureTransfer(Fahrenheit : Float) -> Float {
         return (Fahrenheit - 32)/1.8
     }
     
