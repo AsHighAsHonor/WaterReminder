@@ -13,6 +13,7 @@
 		FD190C491E5D90270027359A /* WaterScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD190C481E5D90270027359A /* WaterScanViewController.swift */; };
 		FD190C4B1E5D93F30027359A /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD190C4A1E5D93F30027359A /* CodeScan.bundle */; };
 		FD190C521E5DBF430027359A /* OChelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD190C4E1E5DBF430027359A /* OChelper.m */; };
+		FD1BCACB1E7A82CA00AA2E97 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BCACA1E7A82CA00AA2E97 /* UITextViewExtension.swift */; };
 		FD21E5E21E7188A8007F64AC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD21E5E11E7188A8007F64AC /* libc++.tbd */; };
 		FD21E5E41E7188B9007F64AC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD21E5E31E7188B9007F64AC /* SystemConfiguration.framework */; };
 		FD2B7BE61E6708FE00220F4C /* sub.caf in Resources */ = {isa = PBXBuildFile; fileRef = FD2B7BE51E6708FE00220F4C /* sub.caf */; };
@@ -145,6 +146,7 @@
 		FD190C4A1E5D93F30027359A /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		FD190C4D1E5DBF430027359A /* OChelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OChelper.h; sourceTree = "<group>"; };
 		FD190C4E1E5DBF430027359A /* OChelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OChelper.m; sourceTree = "<group>"; };
+		FD1BCACA1E7A82CA00AA2E97 /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		FD21E5E11E7188A8007F64AC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		FD21E5E31E7188B9007F64AC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD2B7BE51E6708FE00220F4C /* sub.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sub.caf; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				FD8CACC01E5FD01E00B8E443 /* UIImage+Color.swift */,
 				FD31419C1E6846F8005C75B7 /* UIColorExtension.swift */,
 				FDC161E11E77984400D8CAAE /* UIViewControllerExtension.swift */,
+				FD1BCACA1E7A82CA00AA2E97 /* UITextViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -959,6 +962,7 @@
 				FDAF1AD51E602C380065ED0F /* SpreadSubButton.swift in Sources */,
 				FDC161E21E77984400D8CAAE /* UIViewControllerExtension.swift in Sources */,
 				FD4BAE4E1E6AA22000311790 /* WaterWeatherQuery.swift in Sources */,
+				FD1BCACB1E7A82CA00AA2E97 /* UITextViewExtension.swift in Sources */,
 				FD8FDC1C1E418AD10009A61C /* WaterPlanSetCell.swift in Sources */,
 				FDEAA8FF1E374C6B00C04ADF /* AppDelegate.swift in Sources */,
 			);

@@ -11,19 +11,15 @@ import MapKit
 import CoreLocation
 import JZLocationConverter
 
-class WaterAddLocationMapController: UIViewController {
+class WaterAddLocationMapController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.navigationItem.rightBarButtonItem = saveBtn
-        //默认进入区域提醒开启 离开区域关闭
-        alarmInfo.onEnter = true
-        alarmInfo.onExit = false
+        requestLocal()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.requestLocal()
     }
     
     
@@ -34,7 +30,10 @@ class WaterAddLocationMapController: UIViewController {
     
     //持有传值
     var alarmInfo : AlarmInfo!
-   
+    
+    //接受上个页面传入的提醒信息  != nil  修改模式
+    var alarmInfosEntiy : AlarmInfosEntiy?
+    
     //地图工具
     fileprivate let mapUtil = LocationUtil()
     
@@ -49,34 +48,16 @@ class WaterAddLocationMapController: UIViewController {
     // 半径 textfield
     @IBOutlet weak var radiusTextField: UITextField!
     
+    /// 离开区域
+    @IBOutlet weak var leaveSwitch: UISwitch!
     
-    
-    //    //lazy init
-    //    lazy var saveBtn : UIBarButtonItem = {
-    //        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 44))
-    //        button.titleLabel?.textAlignment = NSTextAlignment.right
-    //        button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-    //        //        if self.alarmInfosEntiy != nil{
-    //        //            button.setTitle("保存修改", for: .normal)
-    //        //        }else{
-    //        //            button.setTitle("保存", for: .normal)
-    //        //        }
-    //        button.setTitle("保存", for: .normal)
-    //
-    //
-    //        button.addTarget(self, action: #selector(saveBtnClicked), for: .touchUpInside)
-    //        let rightItem = UIBarButtonItem(customView: button)
-    //        return rightItem
-    //    }()
-    
+    /// 进入区域
+    @IBOutlet weak var enterSwitch: UISwitch!
 }
 
 // MARK: - EventResponses
 extension WaterAddLocationMapController{
     
-    func saveBtnClicked(){
-        
-    }
     
     //回到设备所在位置
     @IBAction func currectLocationClicked(_ sender: UIButton) {
@@ -117,7 +98,40 @@ extension WaterAddLocationMapController{
 // MARK: - PrivateMethods
 extension WaterAddLocationMapController {
     
+    func setUp() {
+        //配置 textview 边框
+        placeTextView.setFrameBorder(width: 1, cornerRadius: 5, borderColor: "CFCFCF")
+        
+        
+        if let alarmInfosEntiy = alarmInfosEntiy {
+            //修改模式
+            //读取开关状态
+            alarmInfo.onEnter = alarmInfosEntiy.onEnter
+            alarmInfo.onExit = alarmInfosEntiy.onExit
+            //设置 switch 状态
+            leaveSwitch.setOn((alarmInfosEntiy.onExit), animated: true)
+            enterSwitch.setOn((alarmInfosEntiy.onEnter), animated: true)
+            //读取半径
+            radiusTextField.text = String(describing: alarmInfosEntiy.radius)
+            //            placeTextView.text = "\(alarmInfosEntiy.showTitle) \n \(alarmInfosEntiy.time)"
+            //读取位置
+            let locations = alarmInfosEntiy.time!.components(separatedBy: "+")//从alarmInfo.time是由"latitude + longitude "拼接的字符串
+            let center = CLLocationCoordinate2D(latitude: Double(locations.first!)!, longitude: Double (locations.last!)!)
+            //设置地图中心 并缩放
+            myMapView.setMapCenterAndZoom(center: center)
+
+        }else{
+            //默认进入区域提醒开启 离开区域关闭
+            alarmInfo.onEnter = true
+            alarmInfo.onExit = false
+        }
+    }
+    
     func setupMap() -> () {
+        
+        guard alarmInfosEntiy == nil else {
+            return
+        }
         //设置地图用户位置追踪模式  定位后自动缩放显示当前位置
         self.myMapView.setUserTrackingMode(.follow, animated: true)
     }
@@ -138,7 +152,7 @@ extension WaterAddLocationMapController {
         }
         let radius = NSNumber(value: radiusDou)
         alarmInfo.radius = radius
-       
+        
         
     }
     
@@ -148,7 +162,9 @@ extension WaterAddLocationMapController {
         mapUtil.requestLocateAuthorization { (result) in
             if result{
                 setupMap() //配置地图
+                setUp() //配置页面
                 mapUtil.startLocating() //开启定位
+                
             }else{
                 // 尚未获取到定位权限/未开启定位
                 UIAlertController.showAuthorizationAlert(msg: "您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { (act) in
@@ -202,7 +218,17 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        
+        guard !hud.isVisible  else {
+            return
+        }
+        //        showHud(msg: "位置获取中...")
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        //        guard !hud.isVisible  else {
+        //            return
+        //        }
+        //        showHud(msg: "加载中...")
     }
     
     //显示在当前屏幕的地图区域改变则调用的代理方法
@@ -258,12 +284,13 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
                 self.alarmInfo.time =  "\(wgsCenter.latitude)+\(wgsCenter.longitude)"
                 self.alarmInfo.contentTitle = addStr
                 self.alarmInfo.showTitle = addStr
-               
-
+                
+                
                 //显示地址 GPS 坐标
                 self.title = addDict["Street"] as! String?
                 self.placeTextView.text = "\(addStr) \n \(wgsCenter.latitude) \(wgsCenter.longitude)"
                 
+                //                self.hideHud()
             }
             
         }

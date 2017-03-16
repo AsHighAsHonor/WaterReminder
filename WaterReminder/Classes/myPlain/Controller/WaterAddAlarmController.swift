@@ -38,7 +38,6 @@ class WaterAddAlarmController: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setModifyAlarmPage()
-        setValue()
     }
     
     
@@ -61,9 +60,6 @@ class WaterAddAlarmController: UIViewController  {
     }
     
     func setValue() {
-        guard dateStr != nil else {
-            return
-        }
         
         alarmInfo.time = dateStr!
         alarmInfo.isRepeat = true
@@ -85,6 +81,7 @@ class WaterAddAlarmController: UIViewController  {
             identifier = alarmInfosEntiy?.identifier
         }
         
+        
         //提交提醒请求
         alarmModel.sendNotification(alarmInfoEntity : alarmInfosEntiy , alarmInfo:alarmInfo , identifier : identifier , withCompletionHandler: { error in
             if let error = error {
@@ -102,6 +99,8 @@ class WaterAddAlarmController: UIViewController  {
             return
         }
         
+        setValue()
+
         //2.检查通知权限
         //authorizationStatus 有三种状态  notDetermined(未请求)/denied(拒绝)/authorized(通过)
         UNUserNotificationCenter.current().getNotificationSettings {

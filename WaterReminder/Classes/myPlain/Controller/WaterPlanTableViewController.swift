@@ -154,7 +154,7 @@ class WaterPlanTableViewController: UITableViewController {
             self.performSegue(withIdentifier: SegueId.AddLocationSegue.rawValue, sender: nil)
         }
         
-        let intervalAct = UIAlertAction(title: "倒计时提醒", style: .default) { (act) in
+        _ = UIAlertAction(title: "倒计时提醒", style: .default) { (act) in
             
         }
         
@@ -166,7 +166,7 @@ class WaterPlanTableViewController: UITableViewController {
     }
     
     var setInfos  = [
-        ["setLab" : "开启提醒" ,"toggle" :CacheUtil.userSettingOperation(toggle: nil, setting: .AlarmToggle) ?? false ],
+        ["setLab" : "开启所有提醒" ,"toggle" :CacheUtil.userSettingOperation(toggle: nil, setting: .AlarmToggle) ?? false ],
         //        ["setLab" : "点击此处删除所有提醒" ,"toggle" : false ],
         //        ["setLab" : "目标完成后关闭当日提醒" ,"toggle" :false ],
     ]
@@ -179,8 +179,9 @@ class WaterPlanTableViewController: UITableViewController {
     var alarmInfosEntiys : [AlarmInfosEntiy]?{
         didSet{
             self.tableView.reloadSections( IndexSet(integer: 1), with: UITableViewRowAnimation.left)
+            
+            //数据库中没有保存的通知 移除所有待触发的PendingNotificationRequests
             if alarmInfosEntiys == nil || alarmInfosEntiys?.count == 0 {
-                //数据库中没有保存的通知 移除所有待触发的PendingNotificationRequests
                 waterAlarmModel.removeNotification(alarmInfoEntitys: nil, fromDatabase: true)
             }
         }

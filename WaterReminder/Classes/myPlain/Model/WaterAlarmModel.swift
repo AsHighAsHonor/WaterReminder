@@ -79,8 +79,14 @@ class WaterAlarmModel: NSObject {
         content.body = alarmInfo.contentBody!
         content.badge = alarmInfo.contentBadge!
         content.subtitle = alarmInfo.contentSubtitle!
-        content.sound = UNNotificationSound(named: "sub.caf")
         content.userInfo = ["key": "value"]
+        
+        if alarmInfo.sound != nil && alarmInfo.sound != ""{
+            content.sound = UNNotificationSound(named: alarmInfo.sound!)
+        }else{
+            content.sound = UNNotificationSound(named: "sub.caf")
+        }
+        
         //三种notify    Calendar  location Interval
         var trigger : UNNotificationTrigger
         switch alarmInfo.timeType! {
@@ -155,7 +161,11 @@ class WaterAlarmModel: NSObject {
         content.body = alarmInfo.contentBody!
         content.badge = alarmInfo.contentBadge
         content.subtitle = alarmInfo.contentSubtitle!
-        content.sound = UNNotificationSound(named: "sub.caf")
+        if alarmInfo.sound != nil && alarmInfo.sound != ""{
+            content.sound = UNNotificationSound(named: alarmInfo.sound!)
+        }else{
+            content.sound = UNNotificationSound(named: "sub.caf")
+        }
         content.userInfo = ["key": "value"]
         
         //地理触发器 不需要 actionCategory
@@ -200,7 +210,11 @@ class WaterAlarmModel: NSObject {
             content.body = entity.body!
             content.badge = entity.badge as NSNumber?
             content.subtitle = entity.subtitle!
-            content.sound = UNNotificationSound.default()
+            if entity.sound != nil && entity.sound != ""{
+                content.sound = UNNotificationSound(named: entity.sound!)
+            }else{
+                content.sound = UNNotificationSound(named: "sub.caf")
+            }
             content.userInfo = ["key": "value"]
             
             
@@ -322,6 +336,9 @@ class WaterAlarmModel: NSObject {
         managedObject.isOn = alarmInfo.on!
         managedObject.time =  alarmInfo.time
         managedObject.showTitle =  alarmInfo.showTitle!
+        managedObject.onExit = alarmInfo.onExit!
+        managedObject.onEnter = alarmInfo.onEnter!
+        managedObject.radius = Double(alarmInfo.radius!)
         var type = ""
         switch alarmInfo.timeType! {
         case .Calendar:
@@ -337,7 +354,7 @@ class WaterAlarmModel: NSObject {
         do {
             try managedContext.save()
         } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            assert(false, error.userInfo.debugDescription)
         }
     }
     
@@ -366,7 +383,7 @@ class WaterAlarmModel: NSObject {
             let infos = results as! [AlarmInfosEntiy]
             return infos
         } catch let error as NSError {
-            print("Could not search \(error), \(error.userInfo)")
+            assert(false, error.userInfo.debugDescription)
             return nil
         }
         
@@ -382,7 +399,7 @@ class WaterAlarmModel: NSObject {
                 do {
                     try managedContext.save()
                 } catch let error as NSError  {
-                    print("Could not delete \(error), \(error.userInfo)")
+                    assert(false, error.userInfo.debugDescription)
                 }
                 
             }
@@ -394,9 +411,7 @@ class WaterAlarmModel: NSObject {
                 try storeCoordinator.execute(deleteRequest, with: managedContext)
                 
             } catch let error as NSError {
-                
-                print("Could not delete all  \(error), \(error.userInfo)")
-                
+                assert(false, error.userInfo.debugDescription)
             }
             
         }
@@ -420,6 +435,9 @@ class WaterAlarmModel: NSObject {
             targetEntity.isOn = alarmInfo.on!
             targetEntity.time =  alarmInfo.time!
             targetEntity.showTitle =  alarmInfo.showTitle!
+            targetEntity.onExit = alarmInfo.onExit!
+            targetEntity.onEnter = alarmInfo.onEnter!
+            targetEntity.radius = Double(alarmInfo.radius!)
             var type = ""
             switch alarmInfo.timeType! {
             case .Calendar:
@@ -434,7 +452,7 @@ class WaterAlarmModel: NSObject {
             do {
                 try managedContext.save()
             } catch let error as NSError  {
-                print("Could not Update \(error), \(error.userInfo)")
+                assert(false, error.userInfo.debugDescription)
             }
         }
         
@@ -469,7 +487,7 @@ class WaterAlarmModel: NSObject {
             
             
         } catch let error as NSError {
-            print("Could not update \(error), \(error.userInfo)")
+            assert(false, error.userInfo.debugDescription)
         }
         
     }

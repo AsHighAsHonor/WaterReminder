@@ -27,8 +27,8 @@ class LocationUtil: NSObject ,CLLocationManagerDelegate {
         }
         
         //2.检查是否允许获取位置信息
-        guard CLLocationManager.authorizationStatus() == .authorizedWhenInUse else {
-            locateManager.requestWhenInUseAuthorization()
+        guard CLLocationManager.authorizationStatus() == .authorizedAlways else {
+            locateManager.requestAlwaysAuthorization()
             handler(false)
             return
         }

@@ -25,12 +25,12 @@ class WaterAddLocationTableController: UITableViewController {
         //申请通知权限
         NotificationUtil.requestNotificationAuthorization()
         
-        if let alarmInfosEntiy = alarmInfosEntiy {
+        if let alarmInfosEntiy = alarmInfosEntiy {//修改模式
             deleteMapBtn.isHidden = false
             details = [alarmInfosEntiy.showTitle!,alarmInfosEntiy.body!]
             alarmInfo.contentBody = alarmInfosEntiy.body
         }else{
-            details = ["请点击选择地址","基于地理位置的提醒"]
+            details = ["请点击选择地址","前方危险!非战斗人员撤离!这不是演习!"]
         }
 
     }
@@ -117,7 +117,12 @@ class WaterAddLocationTableController: UITableViewController {
             return
         }
         
-        //2.检查通知权限
+        //2.检查提醒内容
+        if alarmInfo.contentBody == nil  {
+            alarmInfo.contentBody = details?[1]
+        }
+        
+        //3.检查通知权限
         //authorizationStatus 有三种状态  notDetermined(未请求)/denied(拒绝)/authorized(通过)
         UNUserNotificationCenter.current().getNotificationSettings {
             self.notificationSettings = $0
@@ -177,16 +182,16 @@ class WaterAddLocationTableController: UITableViewController {
         switch destinationVc {
         case is WaterAddLocationContentController:
             let vc  =   (destinationVc as!WaterAddLocationContentController)
-            vc.alarmInfo = self.alarmInfo
-
-            if let alarmInfosEntiy = alarmInfosEntiy { //修改进入
+            vc.alarmInfo = self.alarmInfo//传值对象
+            if let alarmInfosEntiy = alarmInfosEntiy { //修改模式
                 vc.content = alarmInfosEntiy.body!
             }
            
 
         case is WaterAddLocationMapController:
             let vc : WaterAddLocationMapController =  (destinationVc as! WaterAddLocationMapController)
-            vc.alarmInfo = self.alarmInfo
+            vc.alarmInfo = self.alarmInfo//传值对象
+            vc.alarmInfosEntiy = self.alarmInfosEntiy//修改模式
 
         default:
             break
