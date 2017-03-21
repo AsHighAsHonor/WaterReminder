@@ -86,9 +86,53 @@ class LocationUtil: NSObject ,CLLocationManagerDelegate {
     /// - Parameters:
     ///   - location: 地理位置信息
     ///   - completionHandler: 回调
-    public func reverseGeocode(location: CLLocation, completionHandler: @escaping CLGeocodeCompletionHandler)  {
-        CLGeocoder().reverseGeocodeLocation(location, completionHandler: completionHandler)
+    public func reverseGeocode(location: CLLocation, placeMarksHandler : @escaping (((_ : [CLPlacemark])?) ->Void))  {
+        CLGeocoder().reverseGeocodeLocation(location) { (placeMarks, error) in
+            guard (placeMarks != nil) && (error == nil)  else {
+                YYPrint("逆地理错误====>>> \(error)")
+                return
+            }
+            guard (placeMarks != nil) else {
+                YYPrint("获取地址信息失败")
+                return
+            }
+            guard !(placeMarks!.isEmpty) else {
+                YYPrint("找不到地址信息")
+                return
+            }
+            placeMarksHandler(placeMarks);
+        }
+        
+        
     }
+    
+    
+    /// 地理编码
+    ///
+    /// - Parameters:
+    ///   - locationStr: 查询地址
+    ///   - placeMarksHandler: 回调
+    public func GeocodeAddrStr(locationStr: String, placeMarksHandler : @escaping (((_ : [CLPlacemark])) ->Void))  {
+        CLGeocoder().geocodeAddressString(locationStr) { (placeMarks, error) in
+            guard (placeMarks != nil) && (error == nil)  else {
+                YYPrint("逆地理错误====>>> \(error)")
+                return
+            }
+            guard (placeMarks != nil) else {
+                YYPrint("获取地址信息失败")
+                return
+            }
+            guard !(placeMarks!.isEmpty) else {
+                YYPrint("找不到地址信息")
+                return
+            }
+            placeMarksHandler(placeMarks!);
+        }
+        
+        
+    }
+    
+    
     
     
     

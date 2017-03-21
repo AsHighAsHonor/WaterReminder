@@ -26,7 +26,14 @@ class WaterAddLocationMapController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.backValue()
+        
     }
+    
+    deinit {
+        timer.invalidate()
+    }
+    
+     // MARK: - Properties
     
     //持有传值
     var alarmInfo : AlarmInfo!
@@ -36,6 +43,23 @@ class WaterAddLocationMapController: BaseViewController {
     
     //地图工具
     fileprivate let mapUtil = LocationUtil()
+    
+    
+    /// 菊花定时器
+    lazy var timer : Timer = {
+      return  Timer.scheduledTimer(withTimeInterval: 30, repeats: false) {[unowned self] (Timer) in
+            guard self.hud.isVisible else{
+                return
+            }
+            self.hideHud()
+            self.toast(msg: "当前网络状态较差,加载地图失败,请稍后重试".localized())
+            self.popVc()
+        }
+
+    }()
+    
+    /// 判断是否是第一次定位
+    fileprivate var isFirst =  true
     
     
     //MKMap
@@ -69,12 +93,12 @@ extension WaterAddLocationMapController{
         switch sender.tag {
         case 20:
             if sender.isOn {
-                toast(msg: "当进入指定区域时提醒开启")
+                toast(msg: "当进入指定区域时提醒开启".localized())
             }
             alarmInfo.onEnter = sender.isOn
         case 21:
             if sender.isOn {
-                toast(msg: "当离开指定区域时提醒开启")
+                toast(msg: "当离开指定区域时提醒开启".localized())
             }
             alarmInfo.onExit = sender.isOn
         default:
@@ -119,22 +143,16 @@ extension WaterAddLocationMapController {
             let center = CLLocationCoordinate2D(latitude: Double(locations.first!)!, longitude: Double (locations.last!)!)
             //设置地图中心 并缩放
             myMapView.setMapCenterAndZoom(center: center)
-
+            
         }else{
             //默认进入区域提醒开启 离开区域关闭
             alarmInfo.onEnter = true
             alarmInfo.onExit = false
+            //设置地图中心 并缩放
         }
     }
     
-    func setupMap() -> () {
-        
-        guard alarmInfosEntiy == nil else {
-            return
-        }
-        //设置地图用户位置追踪模式  定位后自动缩放显示当前位置
-        self.myMapView.setUserTrackingMode(.follow, animated: true)
-    }
+    
     
     
     /// 返回页面时候传值
@@ -161,13 +179,12 @@ extension WaterAddLocationMapController {
     fileprivate func requestLocal()  {
         mapUtil.requestLocateAuthorization { (result) in
             if result{
-                setupMap() //配置地图
                 setUp() //配置页面
                 mapUtil.startLocating() //开启定位
                 
             }else{
                 // 尚未获取到定位权限/未开启定位
-                UIAlertController.showAuthorizationAlert(msg: "您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { (act) in
+                UIAlertController.showAuthorizationAlert(msg: "您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?".localized(), ancelHandler: { (act) in
                     _ = self.navigationController?.popToRootViewController(animated: true)
                 })
             }
@@ -192,27 +209,18 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
             }
             
             //反地理信息获取详细地址信息
-            self.mapUtil.reverseGeocode(location: location) { (placeMarks, error) in
-                guard (placeMarks != nil) && (error == nil)  else {
-                    YYPrint("逆地理错误====>>> \(error)")
-                    return
-                }
-                
-                guard (placeMarks != nil) else {
-                    YYPrint("获取地址信息失败")
-                    return
-                }
-                
-                guard !(placeMarks!.isEmpty) else {
-                    YYPrint("找不到地址信息")
-                    return
-                }
-                
+            self.mapUtil.reverseGeocode(location: location, placeMarksHandler: {[unowned self] (placeMarks) in
                 //设置地图上显示的内容  (placeMarks?.last? 当前详细地标)
                 userLocation.title = placeMarks?.last?.locality
                 userLocation.subtitle = placeMarks?.last?.name
                 
-            }
+                //缩放到当前位置
+                if self.isFirst{
+                    self.myMapView.setGcjMapAndZoom(center: self.myMapView.userLocation.coordinate)
+                    self.isFirst = false
+                }
+                
+            })
             
         }
     }
@@ -221,18 +229,14 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
         guard !hud.isVisible  else {
             return
         }
-        //        showHud(msg: "位置获取中...")
-    }
-    
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        //        guard !hud.isVisible  else {
-        //            return
-        //        }
-        //        showHud(msg: "加载中...")
+        showHud(msg: "位置获取中...".localized())
+        //每次定位的时候都开启定时器 防止 菊花不消失
+//       _ = timer.userInfo
     }
     
     //显示在当前屏幕的地图区域改变则调用的代理方法
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        
         let center = mapView.centerCoordinate
         YYPrint("当前地图中央坐标 =====>> \(center)")
         
@@ -249,24 +253,8 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
         }
         
         //2.反地理 查名称
-        mapUtil.reverseGeocode(location: location) {[unowned self] (placeMarks, error) in
-            guard (placeMarks != nil) && (error == nil)  else {
-                YYPrint("逆地理错误====>>> \(error)")
-                return
-            }
-            
-            guard (placeMarks != nil) else {
-                YYPrint("获取地址信息失败")
-                return
-            }
-            
-            guard !(placeMarks!.isEmpty) else {
-                YYPrint("找不到地址信息")
-                return
-            }
-            
+        mapUtil.reverseGeocode(location: location) {[unowned self] (placeMarks) in
             YYPrint("选中地址信息: \n \(placeMarks!.last?.addressDictionary!)")
-            
             
             if let addDict = placeMarks!.last?.addressDictionary{
                 let addressLines = (addDict["FormattedAddressLines"])!
@@ -289,13 +277,39 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
                 //显示地址 GPS 坐标
                 self.title = addDict["Street"] as! String?
                 self.placeTextView.text = "\(addStr) \n \(wgsCenter.latitude) \(wgsCenter.longitude)"
-                
-                //                self.hideHud()
+                self.hideHud()
             }
             
         }
+        
+      
+
     }
     
+    
+}
+
+// MARK: - Navigation
+extension WaterAddLocationMapController{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVc = segue.destination
+        
+        switch destinationVc {
+        case is UINavigationController:
+            let vc  = (destinationVc as!UINavigationController).topViewController as! WaterAddLocationSearchController
+            vc.selectedPlaceClosure = {[unowned self] (place : CLPlacemark) in
+                YYPrint(place.debugDescription)
+                //1.地图 坐标位置 显示到当前查询地址
+                let gps = place.location?.coordinate
+                self.myMapView.setGcjMapAndZoom(center: JZLocationConverter.wgs84(toGcj02: gps!)
+                )
+                
+            }
+        default:
+            break
+        }
+        
+    }
 }
 
 

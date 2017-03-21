@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let updateUIName = "updateUIName"
 
     private let UmengAppKey = "58a6970af5ade43470001841"  //友盟推送
-    private let KSCrashGeneralKey = "58c13569a1de526ecc000013"  //KSCrash
+    private let KSCrashGeneralKey = "f50de92aa96b4b8e3842b458fe0f5373"  //KSCrash
     
     //初始化 UNUserNotificationCenter 代理对象 ,NotificationUtil 实现了 UNUserNotificationCenter 2个代理方法  1.app 前台运行时提示通知  2.用户与通知交互时的回调方法
     let notificationHandler = NotificationUtil()

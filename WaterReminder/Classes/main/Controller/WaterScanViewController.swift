@@ -38,7 +38,7 @@ import swiftScan
     
     override  func viewDidLoad() {
         super.viewDidLoad()
-        title = "更加NB闪闪的扫码器"
+        title = "更加NB闪闪的扫码器".localized()
         
         //需要识别后的图像
         setNeedCodeImage(needCodeImg: true)
@@ -85,7 +85,7 @@ import swiftScan
                     UIAlertController.showConfirmAlert(message: result.strScanned!, in: self)
                     return
                 }
-                UIAlertController.showAlert(message: "确定打开地址 \(qrStr) 吗?", in: self, sureHandler: { (UIAlertAction) in
+                UIAlertController.showAlert(message: "确定打开地址 ".localized() + "\(qrStr)" + "?", in: self, sureHandler: { (UIAlertAction) in
                     self.popVc()
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }, cancelHandler: { (UIAlertAction) in

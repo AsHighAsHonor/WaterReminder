@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  WaterReminder
+
+  Created by YYang on 21/03/2017.
+  Copyright © 2017 YYang. All rights reserved.
+*/
+
+CFBundleDisplayName = "喝死你";

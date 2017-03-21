@@ -66,6 +66,7 @@ PODS:
     - KSCrash/Reporting/Tools
   - KSCrash/Reporting/Tools (1.15.2):
     - KSCrash/Recording
+  - Localize-Swift (1.7.1)
   - LTMorphingLabel (0.4.0)
   - SnapKit (3.1.2)
   - swiftScan (1.0.8)
@@ -78,6 +79,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - JZLocationConverter
   - KSCrash (~> 1.8)
+  - Localize-Swift (~> 1.7)
   - LTMorphingLabel
   - SnapKit
   - swiftScan (from `https://github.com/MxABC/swiftScan.git`, tag `1.0.9`)
@@ -100,12 +102,13 @@ SPEC CHECKSUMS:
   JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
   JZLocationConverter: 3d816bee6484aed9c155a6045a02ce444833e2f0
   KSCrash: 303b25eb0f5796009e9458fc35a55e2ae78b4c9e
+  Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
   LTMorphingLabel: d9a85f16ac306f0e07321d6819964deb2dc69638
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   swiftScan: 2dc76303bc7c2dcb7bde9c539f9bd6a7520abc8e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: bfb77e527da8750dc467f386cd067110101babce
+PODFILE CHECKSUM: a5d54b59e08fef09775042e2edf7d38f596b768e
 
 COCOAPODS: 1.2.0

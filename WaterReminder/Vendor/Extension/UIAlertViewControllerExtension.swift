@@ -18,7 +18,7 @@ extension UIAlertController {
     ///   - viewController:  Owner
     static func showConfirmAlert(message: String, in viewController: UIViewController) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "确定", style: .cancel))
+        alert.addAction(UIAlertAction(title: "确定".localized(), style: .cancel))
         viewController.present(alert, animated: true)
     }
     
@@ -39,12 +39,12 @@ extension UIAlertController {
     ///   - viewController:  owner
     ///   - Handler: 点击确定回调
     static func showAlert(message: String, in viewController: UIViewController ,sureHandler sure : ((UIAlertAction)->Void)? , cancelHandler cancel:((UIAlertAction)->Void)?) {
-        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "提示".localized(), message: message, preferredStyle: .alert)
         
-        let sureAct = UIAlertAction(title: "确定", style: .default
+        let sureAct = UIAlertAction(title: "确定".localized(), style: .default
             , handler: sure)
         alert.addAction(sureAct)
-        alert.addAction(UIAlertAction(title: "取消", style: .default , handler: cancel))
+        alert.addAction(UIAlertAction(title: "取消".localized(), style: .default , handler: cancel))
         
         viewController.present(alert, animated: true)
     }

@@ -36,4 +36,14 @@ extension MKMapView {
         self.setRegion(MKCoordinateRegionMakeWithDistance(wgsCenter, 200, 200), animated: true) //缩放到所选位置
     }
     
+    
+    /// 根据火星坐标 设置地图中心 并缩放
+    ///
+    /// - Parameter center: 火星坐标
+    func setGcjMapAndZoom(center : CLLocationCoordinate2D)  {
+        //移动到设置的位置
+        self.setCenter(center, animated: true)
+        self.setRegion(MKCoordinateRegionMakeWithDistance(center, 200, 200), animated: true) //缩放到所选位置
+    }
+    
 }

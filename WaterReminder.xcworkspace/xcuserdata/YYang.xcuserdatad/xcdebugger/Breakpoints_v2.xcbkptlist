@@ -27,28 +27,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WaterReminder/Classes/setting/SettingTableViewController.swift"
-            timestampString = "507546490.853223"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Universal/CacheUtil.swift"
-            timestampString = "511063473.394442"
+            timestampString = "511512173.614127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "deleteWater(type:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -60,11 +44,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Universal/CacheUtil.swift"
-            timestampString = "511064303.222"
+            timestampString = "511512173.614127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "deleteWater(type:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -76,11 +60,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Universal/CacheUtil.swift"
-            timestampString = "511064379.798778"
+            timestampString = "511512173.614127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "readWater(type:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -92,11 +76,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Universal/CacheUtil.swift"
-            timestampString = "511064380.870573"
+            timestampString = "511512173.614127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "readWater(type:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,11 +92,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Universal/CacheUtil.swift"
-            timestampString = "511064466.088071"
+            timestampString = "511512173.614127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "readWater(type:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -124,11 +108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Universal/CacheUtil.swift"
-            timestampString = "511064468.418289"
+            timestampString = "511512173.614127"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "readWater(type:)"
             landmarkType = "7">
          </BreakpointContent>

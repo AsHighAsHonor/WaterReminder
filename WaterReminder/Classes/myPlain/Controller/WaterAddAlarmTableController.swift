@@ -17,7 +17,7 @@ class WaterAddAlarmTableController: UITableViewController {
         if let alarmInfosEntiy = alarmInfosEntiy {
             details = [alarmInfosEntiy.body!]
         }else{
-            details = ["你该喝水了!"]
+            details = ["你该喝水了!".localized()]
         }
     }
     
@@ -57,7 +57,7 @@ class WaterAddAlarmTableController: UITableViewController {
 
         switch indexPath.row {
         case 0:
-            cell?.textLabel?.text = "提醒内容:"
+            cell?.textLabel?.text = "提醒内容:".localized()
         default:
             break
         }

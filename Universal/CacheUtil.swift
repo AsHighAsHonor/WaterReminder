@@ -39,6 +39,7 @@ public enum UserSetting : String{
     case DailyMark = "DailyMark"
     case CurrentCity = "CurrentCity"
     case CurrentCountry = "CurrentCountry"
+    case LocationHistory = "LocationHistory"
 }
 
 

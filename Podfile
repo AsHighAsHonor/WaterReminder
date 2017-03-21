@@ -18,6 +18,7 @@ target 'WaterReminder' do
     pod 'IQKeyboardManagerSwift'
     pod 'swiftScan', :git => 'https://github.com/MxABC/swiftScan.git', :tag => '1.0.9'
     pod 'KSCrash', '~> 1.8'
+    pod 'Localize-Swift', '~> 1.7'
 
 end
 

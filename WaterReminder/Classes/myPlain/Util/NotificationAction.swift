@@ -73,7 +73,7 @@ class NotificationAction : NSObject {
         //获取到当前通知的内容
         let request = response.notification.request
         //创建一个提醒的实体类
-        var alarmInfo = AlarmInfo()
+        let alarmInfo = AlarmInfo()
         alarmInfo.time = "5"
         alarmInfo.isRepeat = false
         alarmInfo.on = true

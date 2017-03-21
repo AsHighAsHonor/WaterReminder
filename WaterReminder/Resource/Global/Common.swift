@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // MARK:- 自定义打印方法
 func YYPrint<T>(_ message : T, file : String = #file, funcName : String = #function, lineNum : Int = #line) {
     
@@ -15,7 +16,7 @@ func YYPrint<T>(_ message : T, file : String = #file, funcName : String = #funct
         
         let fileName = (file as NSString).lastPathComponent
         
-        print("\(fileName):(\(lineNum))-\(message)")
+        print("\(fileName):(\(lineNum))- \n \(funcName) \n \(message)")
         
     #endif
 }

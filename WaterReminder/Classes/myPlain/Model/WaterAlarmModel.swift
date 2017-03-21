@@ -44,10 +44,11 @@ public class AlarmInfo {
     var contentBadge : NSNumber?
     var timeType : AlarmType?
     var showTitle : String?
-    var onEnter : Bool?
-    var onExit : Bool?
-    var radius : NSNumber?
-    
+    //值可能为 nil 的属性需要 添加默认值 否则保存到 coredata 时 force unwrap crash
+    var onEnter : Bool? = false
+    var onExit : Bool? = false
+    var radius : NSNumber? = NSNumber(value: 0)
+
 }
 
 

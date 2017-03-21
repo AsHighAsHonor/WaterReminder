@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Localize-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-WaterReminder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>004224659D7964BB1D14CAA9BE620B59</key>
+		<key>20FF0B5D401965A94C1DF7DCA435F0D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3ED2B9CBDE637DDDD1A290F9224FD586</key>
+		<key>43969BCBF5243B53CB11A9E3E6F06F4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>44AA37839FF5CF5CD24F13387653B9E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C495D91ADA7FEE96487DE065A9D8419</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64AC4ED963A909994E3E2851A8D79BBD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3F660199DDE8A74405E84C3A040DABC</key>
+		<key>CB92BF55AA131D3602A3B3C1B082D6AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C356F9985D5E9C94E39DF800CA42FD95</key>
+		<key>E631C0A3007D734D6493A8B95ED7945C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC00A2B118650C6C90D34FB24F60280D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "64AC4ED963A909994E3E2851A8D79BBD"
+               BlueprintIdentifier = "4C495D91ADA7FEE96487DE065A9D8419"
                BuildableName = "Pods_WaterReminder.framework"
                BlueprintName = "Pods-WaterReminder"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "64AC4ED963A909994E3E2851A8D79BBD"
+            BlueprintIdentifier = "4C495D91ADA7FEE96487DE065A9D8419"
             BuildableName = "Pods_WaterReminder.framework"
             BlueprintName = "Pods-WaterReminder"
             ReferencedContainer = "container:Pods.xcodeproj">

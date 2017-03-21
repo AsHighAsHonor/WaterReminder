@@ -65,7 +65,7 @@ class WaterAddAlarmController: UIViewController  {
         alarmInfo.isRepeat = true
         alarmInfo.on = true
         alarmInfo.sound = ""
-        alarmInfo.contentTitle = "#该喝水了#"
+        alarmInfo.contentTitle = "#该喝水了#".localized()
         alarmInfo.contentSubtitle = ""
         alarmInfo.contentBody = contentBody
         alarmInfo.contentBadge = badgeNum
@@ -95,7 +95,7 @@ class WaterAddAlarmController: UIViewController  {
     func saveBtnClicked(){
         //1.检查用户是否设置了提醒时间
         if self.dateStr == nil {
-            UIAlertController.showConfirmAlert(message: "尚未设定提醒时间!", in:  self)
+            UIAlertController.showConfirmAlert(message: "尚未设定提醒时间!".localized(), in:  self)
             return
         }
         
@@ -155,7 +155,7 @@ class WaterAddAlarmController: UIViewController  {
     //observing property
     var dateStr : String?{
         didSet{
-            dateDisplayLab.text = "提醒时间为: \(dateStr!)"
+            dateDisplayLab.text = "提醒时间为: ".localized() + "\(dateStr!)"
         }
     }
     
@@ -166,7 +166,7 @@ class WaterAddAlarmController: UIViewController  {
             if notificationSettings?.authorizationStatus != .authorized  {
                 //用户未获取到通知权限
                 //  提示跳转到系统设置 通知权限
-                UIAlertController.showAuthorizationAlert(msg : "您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务" , ancelHandler: nil)
+                UIAlertController.showAuthorizationAlert(msg : "您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务".localized() , ancelHandler: nil)
             }
         }
     }
@@ -177,13 +177,13 @@ class WaterAddAlarmController: UIViewController  {
     
     //lazy init
     lazy var saveBtn : UIBarButtonItem = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 44))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 44))
         button.titleLabel?.textAlignment = NSTextAlignment.right
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         if self.alarmInfosEntiy != nil{
-            button.setTitle("保存修改", for: .normal)
+            button.setTitle("保存修改".localized() , for: .normal)
         }else{
-            button.setTitle("保存", for: .normal)
+            button.setTitle("保存".localized() , for: .normal)
         }
         
         button.addTarget(self, action: #selector(saveBtnClicked), for: .touchUpInside)
@@ -207,9 +207,9 @@ class WaterAddAlarmController: UIViewController  {
     var contentBody : String{
         get{
             if alarmInfo.contentBody == nil {
-                return    "今日补水目标 : \(targetResult)ML ~~~~~~加油喝啊~~~~~一再一杯啊"
+                return    "今日补水目标 : ".localized() + " \(targetResult)" + "ML ~~~~~~加油喝啊~~~~~一再一杯啊"
             }else{
-                return "今日补水目标 : \(targetResult)ML ~~~~~~\(alarmInfo.contentBody!)"
+                return "今日补水目标 : ".localized() + "\(targetResult)" + "ML ~~~~~~\(alarmInfo.contentBody!)"
             }
         }
         

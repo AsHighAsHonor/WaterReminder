@@ -27,7 +27,6 @@ class WaterPlanTableViewController: UITableViewController {
     
     
     
-    
     override func viewWillAppear(_ animated: Bool) {
         //查询所有等待激活的通知
         waterAlarmModel.getPendingNotificationRequest()
@@ -145,28 +144,28 @@ class WaterPlanTableViewController: UITableViewController {
     
     
     func navRightBtnClicked() -> () {
-        let alert = UIAlertController(title: "请选择", message: "想要添加的提醒类型", preferredStyle: .actionSheet)
-        let calendarAct = UIAlertAction(title: "定時提醒", style: .default) {[unowned self]  (act) in
+        let alert = UIAlertController(title: "请选择".localized(), message: "想要添加的提醒类型".localized(), preferredStyle: .actionSheet)
+        let calendarAct = UIAlertAction(title: "定時提醒".localized(), style: .default) {[unowned self]  (act) in
            self.performSegue(withIdentifier: SegueId.AddCalendarSegue.rawValue, sender: nil)
         }
         
-        let loactionAct = UIAlertAction(title: "定位提醒", style: .default) { (act) in
+        let loactionAct = UIAlertAction(title: "定位提醒(测试中...)".localized(), style: .default) { (act) in
             self.performSegue(withIdentifier: SegueId.AddLocationSegue.rawValue, sender: nil)
         }
         
-        _ = UIAlertAction(title: "倒计时提醒", style: .default) { (act) in
+        _ = UIAlertAction(title: "倒计时提醒".localized() , style: .default) { (act) in
             
         }
         
         alert.addAction(calendarAct)
         alert.addAction(loactionAct)
 //        alert.addAction(intervalAct)
-        alert.addAction(UIAlertAction(title: "取消", style: .destructive){(act) in})
+        alert.addAction(UIAlertAction(title: "取消".localized(), style: .destructive){(act) in})
         self.present(alert, animated: true)
     }
     
     var setInfos  = [
-        ["setLab" : "开启所有提醒" ,"toggle" :CacheUtil.userSettingOperation(toggle: nil, setting: .AlarmToggle) ?? false ],
+        ["setLab" : "开启所有提醒".localized() ,"toggle" :CacheUtil.userSettingOperation(toggle: nil, setting: .AlarmToggle) ?? false ],
         //        ["setLab" : "点击此处删除所有提醒" ,"toggle" : false ],
         //        ["setLab" : "目标完成后关闭当日提醒" ,"toggle" :false ],
     ]
@@ -196,7 +195,7 @@ class WaterPlanTableViewController: UITableViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 44))
         button.titleLabel?.textAlignment = NSTextAlignment.right
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-        button.setTitle("添加", for: .normal)
+        button.setTitle("添加".localized() , for: .normal)
         button.addTarget(self, action: #selector(navRightBtnClicked), for: .touchUpInside)
         let rightItem = UIBarButtonItem(customView: button)
         return rightItem

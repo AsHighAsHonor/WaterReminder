@@ -30,7 +30,7 @@ class WaterAddLocationTableController: UITableViewController {
             details = [alarmInfosEntiy.showTitle!,alarmInfosEntiy.body!]
             alarmInfo.contentBody = alarmInfosEntiy.body
         }else{
-            details = ["请点击选择地址","前方危险!非战斗人员撤离!这不是演习!"]
+            details = ["请点击选择地址".localized(),"前方危险 ! 非战斗人员请撤离 ! 这不是演习 ! 这不是演习 ! 这不是演习 !".localized()]
         }
 
     }
@@ -75,9 +75,9 @@ class WaterAddLocationTableController: UITableViewController {
         cell?.accessoryType = .disclosureIndicator
         switch indexPath.row {
         case 0:
-            cell?.textLabel?.text = "地址:"
+            cell?.textLabel?.text = "地址:".localized()
         case 1:
-            cell?.textLabel?.text = "内容:"
+            cell?.textLabel?.text = "内容:".localized()
         default:
             break
         }
@@ -103,7 +103,7 @@ class WaterAddLocationTableController: UITableViewController {
     // MARK: - EventResponses
     
     @IBAction func deleteMapBtnClicked(_ sender: UIButton) {
-        UIAlertController.showAlert(message: "挨千刀的  确定要删除洒家吗?!", in: self, sureHandler: { (UIAlertAction) in
+        UIAlertController.showAlert(message: "挨千刀的  确定要删除洒家吗?!".localized(), in: self, sureHandler: { (UIAlertAction) in
             self.alarmModel.removeNotification(alarmInfoEntitys : [self.alarmInfosEntiy!], fromDatabase: true)
            self.popVc()
         }, cancelHandler: nil)
@@ -113,7 +113,7 @@ class WaterAddLocationTableController: UITableViewController {
     func saveBtnClicked()  {
         //1.检查是否选择了位置
         guard (alarmInfo.time != nil) else {
-            toast(msg : "请到先选择地址!")
+            toast(msg : "请先选择地址!".localized())
             return
         }
         
@@ -203,7 +203,6 @@ class WaterAddLocationTableController: UITableViewController {
     //接受上个页面传入的提醒信息
     var alarmInfosEntiy : AlarmInfosEntiy? = nil
     
-    
     /// 传值属性
     var alarmInfo = AlarmInfo()
     
@@ -212,7 +211,7 @@ class WaterAddLocationTableController: UITableViewController {
             if notificationSettings?.authorizationStatus != .authorized  {
                 //用户未获取到通知权限
                 //  提示跳转到系统设置 通知权限
-                UIAlertController.showAuthorizationAlert(msg : "您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务" , ancelHandler:nil)
+                UIAlertController.showAuthorizationAlert(msg : "您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务".localized() , ancelHandler:nil)
             }
         }
     }
@@ -226,13 +225,13 @@ class WaterAddLocationTableController: UITableViewController {
     
     //lazy init
     lazy var saveBtn : UIBarButtonItem = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 44))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 44))
         button.titleLabel?.textAlignment = NSTextAlignment.right
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         if self.alarmInfosEntiy != nil{
-            button.setTitle("保存修改", for: .normal)
+            button.setTitle("保存修改".localized(), for: .normal)
         }else{
-            button.setTitle("保存", for: .normal)
+            button.setTitle("保存".localized(), for: .normal)
         }
         
         button.addTarget(self, action: #selector(saveBtnClicked), for: .touchUpInside)
