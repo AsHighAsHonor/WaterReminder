@@ -5,4 +5,18 @@
   Created by YYang on 21/03/2017.
   Copyright © 2017 YYang. All rights reserved.
 */
+
+
 CFBundleDisplayName = "YYWater";
+
+"定位"="Location";
+"设置"="Settings";
+"NB 扫码"="QRScan";
+
+/*
+ *Permission Required
+ */
+"跪求使用摄像头/(ㄒoㄒ)/~~" = "Required premission of using your camera :-D";
+"跪求使用后台定位/(ㄒoㄒ)/~~"="Required premission of using your background location :-D";
+"跪求使用定位/(ㄒoㄒ)/~~"="Required premission of using your location :-D";
+"跪求使用相册/(ㄒoㄒ)/~~"="Required premission of using your album :-D";

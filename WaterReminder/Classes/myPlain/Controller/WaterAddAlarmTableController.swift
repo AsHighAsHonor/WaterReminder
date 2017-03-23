@@ -15,7 +15,7 @@ class WaterAddAlarmTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let alarmInfosEntiy = alarmInfosEntiy {
-            details = [alarmInfosEntiy.body!]
+            details = [alarmInfosEntiy.body]
         }else{
             details = ["你该喝水了!".localized()]
         }
@@ -87,7 +87,7 @@ class WaterAddAlarmTableController: UITableViewController {
             let vc  =   (destinationVc as!WaterAddLocationContentController)
             vc.alarmInfo = self.alarmInfo
             if let alarmInfosEntiy = alarmInfosEntiy { //修改进入
-                vc.content = alarmInfosEntiy.body!
+                vc.content = alarmInfosEntiy.body
             }
             
         default:

@@ -86,8 +86,8 @@ class WaterPlanTableViewController: UITableViewController {
             
         }else{
             let cell : WaterPlanControlCell  = tableView.dequeue(IndexPath: indexPath)
-            cell.timeLab.text = alarmInfosEntiys?[indexPath.row].showTitle!
-            cell.timeTypeLab.text = alarmInfosEntiys?[indexPath.row].timeType!
+            cell.timeLab.text = alarmInfosEntiys?[indexPath.row].showTitle
+            cell.timeTypeLab.text = alarmInfosEntiys?[indexPath.row].timeType
             cell.toggle.isOn = (alarmInfosEntiys?[indexPath.row].isOn)!
             //设置 cell 上 switch 的开关的回调
             configureCell(indexPath: indexPath, cell: cell)

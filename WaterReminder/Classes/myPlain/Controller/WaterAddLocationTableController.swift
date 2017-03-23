@@ -27,7 +27,7 @@ class WaterAddLocationTableController: UITableViewController {
         
         if let alarmInfosEntiy = alarmInfosEntiy {//修改模式
             deleteMapBtn.isHidden = false
-            details = [alarmInfosEntiy.showTitle!,alarmInfosEntiy.body!]
+            details = [alarmInfosEntiy.showTitle,alarmInfosEntiy.body]
             alarmInfo.contentBody = alarmInfosEntiy.body
         }else{
             details = ["请点击选择地址".localized(),"前方危险 ! 非战斗人员请撤离 ! 这不是演习 ! 这不是演习 ! 这不是演习 !".localized()]
@@ -184,7 +184,7 @@ class WaterAddLocationTableController: UITableViewController {
             let vc  =   (destinationVc as!WaterAddLocationContentController)
             vc.alarmInfo = self.alarmInfo//传值对象
             if let alarmInfosEntiy = alarmInfosEntiy { //修改模式
-                vc.content = alarmInfosEntiy.body!
+                vc.content = alarmInfosEntiy.body
             }
            
 
@@ -225,7 +225,7 @@ class WaterAddLocationTableController: UITableViewController {
     
     //lazy init
     lazy var saveBtn : UIBarButtonItem = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 44))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         button.titleLabel?.textAlignment = NSTextAlignment.right
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         if self.alarmInfosEntiy != nil{

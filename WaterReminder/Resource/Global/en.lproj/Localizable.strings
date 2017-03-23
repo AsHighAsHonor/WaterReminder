@@ -59,7 +59,7 @@
  */
 
 "请选择"="Select";
-"想要添加的提醒类型"="What reminder type you want add";
+"想要添加的提醒类型"="Which type you want add";
 "定時提醒"="Schedule";
 "定位提醒(测试中...)"="Location(testing...)";
 "倒计时提醒"="IntervalReaminder";
@@ -77,9 +77,9 @@
 
 
 "#该喝水了#"="#It's time to drink !#";
-"尚未设定提醒时间!"="尚未设定提醒时间!";
+"尚未设定提醒时间!"="You should set time first !";
 "提醒时间为: "="Remind time is : ";
-"您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务"="您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务";
+"您尚未允许通知权限 , 请到先进入 设置>通知> WaterRemainder 中开启 , 允许通知服务"="Application can not work without permission of user notifications ";
 "保存修改"="SaveModify";
 "保存"="Save";
 
@@ -104,10 +104,10 @@
 "前方危险 ! 非战斗人员请撤离 ! 这不是演习 ! 这不是演习 ! 这不是演习 !"="前方危险 ! 非战斗人员请撤离 ! 这不是演习 ! 这不是演习 ! 这不是演习 !";
 
 
-"请点击选择地址"="Tap me to select address";
+"请点击选择地址"="Tap me to add address";
 "地址:"="address:";
 "内容:"="content:";
-"请先选择地址!"="Choose your address fist !";
+"请先选择地址!"="There is no any locations. Add some first.";
 
 
 /*
@@ -120,7 +120,7 @@
 "当前网络状态较差,加载地图失败,请稍后重试"="The current network state is not well, loading map failed, please try again later";
 "当进入指定区域时提醒开启"="Turn on  remind when you enter into the region";
 "当离开指定区域时提醒开启"="Turn on  remind when you leavel into the region";
-"您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?"="您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?";
+"您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?"="Application can not work without permission of monitoring location changes and will be terminated. Do you want enable the Service ?";
 "位置获取中..."="Locating...";
 
 /*
@@ -133,6 +133,17 @@
 
 "确定清除历史记录吗?"="Are you sure clear all search history ?";
 "请输入要搜索的地名"="Search for palce or address";
-"请先输入地址!"="please input the address first";
+"请先输入地址!"="There is no any locations. Add some first.";
 
+
+/*
+ *------------------------WaterAlarmModel------------------------------
+ */
+/*
+ *预留
+ */
+
+"倒计时" = "倒计时";
+"地理位置" = "倒计时";
+"时间" = "倒计时";
 

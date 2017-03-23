@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WaterReminder/Classes/myPlain/Model/AlarmInfosEntiy+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:WaterReminder/Classes/myPlain/Model/AlarmInfosEntiy+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:WaterReminder.xcodeproj">
    </FileRef>
    <FileRef

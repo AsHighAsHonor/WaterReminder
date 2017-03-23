@@ -29,9 +29,9 @@ class WaterAddLocationMapController: BaseViewController {
         
     }
     
-    deinit {
-        timer.invalidate()
-    }
+//    deinit {
+//        timer.invalidate()
+//    }
     
      // MARK: - Properties
     
@@ -139,7 +139,7 @@ extension WaterAddLocationMapController {
             radiusTextField.text = String(describing: alarmInfosEntiy.radius)
             //            placeTextView.text = "\(alarmInfosEntiy.showTitle) \n \(alarmInfosEntiy.time)"
             //读取位置
-            let locations = alarmInfosEntiy.time!.components(separatedBy: "+")//从alarmInfo.time是由"latitude + longitude "拼接的字符串
+            let locations = alarmInfosEntiy.time.components(separatedBy: "+")//从alarmInfo.time是由"latitude + longitude "拼接的字符串
             let center = CLLocationCoordinate2D(latitude: Double(locations.first!)!, longitude: Double (locations.last!)!)
             //设置地图中心 并缩放
             myMapView.setMapCenterAndZoom(center: center)

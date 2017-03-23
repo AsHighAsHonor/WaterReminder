@@ -177,7 +177,7 @@ class WaterAddAlarmController: UIViewController  {
     
     //lazy init
     lazy var saveBtn : UIBarButtonItem = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 44))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         button.titleLabel?.textAlignment = NSTextAlignment.right
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         if self.alarmInfosEntiy != nil{
