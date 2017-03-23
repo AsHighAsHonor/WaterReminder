@@ -24,7 +24,7 @@ class NotificationUtil: NSObject ,UNUserNotificationCenterDelegate{
     }
     
     
-    /// 向用户申请通知权限
+    /// 向用户申请通知授权
     ///
     public class func requestNotificationAuthorization() {
         
@@ -87,6 +87,7 @@ class NotificationUtil: NSObject ,UNUserNotificationCenterDelegate{
     public func dailyCheck() -> () {
         let savedMark = UserDefaults(suiteName: "group.com.ZTESoft.app")!.object(forKey: UserSetting.DailyMark.rawValue) as? String
         let currentStr = dailyMark()
+        
         if let savedMark = savedMark {
             YYPrint("保存的时间:\(savedMark) , 当前时间 :\(currentStr)")
             if savedMark != currentStr {

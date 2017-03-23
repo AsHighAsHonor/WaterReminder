@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ChameleonSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,7 +19,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JZLocationConverter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KSCrash.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LTMorphingLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Localize-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,7 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>179C0251C6626C7AD47462E9C655860B</key>
+		<key>20FF0B5D401965A94C1DF7DCA435F0D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>24DC10C678E41F3BD692715378B64091</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>37EF2C0A306E9DFA8A78D21F29470C5B</key>
+		<key>43969BCBF5243B53CB11A9E3E6F06F4A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B279CAC036ED2153A0349E8FC437C0E</key>
+		<key>44AA37839FF5CF5CD24F13387653B9E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4C495D91ADA7FEE96487DE065A9D8419</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,17 +137,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B5C15561F9699F8D7DD09A6D0E8B60C</key>
+		<key>CB92BF55AA131D3602A3B3C1B082D6AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>974E6AB8CA65AC79E41B6435138A2D10</key>
+		<key>E631C0A3007D734D6493A8B95ED7945C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE41FAC9348B693ABBD2FEA678FA86BE</key>
+		<key>FC00A2B118650C6C90D34FB24F60280D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

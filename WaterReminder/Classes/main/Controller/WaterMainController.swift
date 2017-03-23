@@ -13,7 +13,8 @@ import Alamofire
 import SwiftyJSON
 import JGProgressHUD
 import swiftScan
-import ChameleonSwift
+import Localize_Swift
+
 
 
 
@@ -38,8 +39,6 @@ class WaterMainController: BaseViewController {
         super.viewDidLoad()
         //配置动态 label
         configure()
-        //更新天气
-        fetchWeaterData()
         //添加通知观察者更新界面  防止水量不自动清零
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil)
         self.view.addSubview(spreadBtn)
@@ -50,6 +49,8 @@ class WaterMainController: BaseViewController {
         //检查版本更新
         updateVersion()
         updateUI()
+        //更新天气
+        fetchWeaterData()
     }
     
     deinit {
@@ -81,6 +82,10 @@ class WaterMainController: BaseViewController {
     
     //MARK: 获取天气1
     func fetchWeaterData()  {
+        guard weatherLabel.text == "Weather Loading" else {
+            return
+        }
+        
         cargador.requestLoacteAuthorizationAndFetchWeaterData { (weather) in
             self.weatherCompleted(response: weather)
         }
@@ -89,10 +94,8 @@ class WaterMainController: BaseViewController {
     func weatherCompleted(response : DataResponse<Any>) {
         switch response.result {
         case .success(let value):
-            let weatherModel = WaterWeatherRootClass(fromJson: JSON(value))
-            let temperature = cargador.temperatureTransfer(Fahrenheit: Double(weatherModel.query.results.channel.item.condition.temp!)!)
-            let tempStr = "国家: \(weatherModel.query.results.channel.location.country!) \n 城市:\(weatherModel.query.results.channel.location.city!) \n 日出:\(weatherModel.query.results.channel.astronomy.sunrise!) \n 日落:\(weatherModel.query.results.channel.astronomy.sunset!) \n 气温:\(temperature) ℃ \n  描述: \(weatherModel.query.results.channel.item.condition.text!) \n 更新时间: \(weatherModel.query.results.channel.item.condition.date!) \n"
-            self.temperature = tempStr
+            self.weatherModel = WaterWeatherRootClass(fromJson: JSON(value))
+            self.temperatureModel =  self.weatherModel
         case .failure(let error):
             print(error.localizedDescription)
         }
@@ -120,7 +123,9 @@ class WaterMainController: BaseViewController {
                 print("response=======>>>>" + String(describing: JSON(value)))
                 
                 if version != versionModel.version && UIApplication.shared.canOpenURL(updateUrl){
-                    UIAlertController.showAlert(message: "发现新版本,请更新\(versionModel.changelog!)", in: self, sureHandler: { (UIAlertAction) in
+                    
+                    let updateStr = "发现新版本,请更新 ".localized() + "\(versionModel.changelog!)"
+                    UIAlertController.showAlert(message: updateStr, in: self, sureHandler: { (UIAlertAction) in
                         //更新
                         UIApplication.shared.open(updateUrl, options: [:], completionHandler: { (Bool) in
                         })
@@ -139,25 +144,16 @@ class WaterMainController: BaseViewController {
     
     
     func configure() {
-        
-        animationLab.text = "今日补水目标 : \(targetResult) 毫升"
+
+        animationLab.text = "今日补水目标 : ".localized() + "\(targetResult)"+" 毫升".localized()
         animationLab.morphingEffect = LTMorphingEffect.fall
         waveIndicator.waveAmplitude = 45
         waveIndicator.drawProgressText()
-        
-        // TODO: 配置主题颜色
-        //        self.ch.refreshBlock = { [weak self](now: Any, pre: Any?) -> Void in
-        //            if let now = ChameleonHelper<String>.parse(now) {
-        //                self?.waveIndicator.heavyColor = UIColor.colorWithHexString(now)
-        //            }
-        //
-        //        }
-        
     }
     
     
     @IBAction func AnimationLabTap(_ sender: UITapGestureRecognizer) {
-        if animationLab.text.contains("当前") {
+        if animationLab.text.contains("当前".localized()) {
             observeTargetResult = targetResult
         }else{
             observeDrinkingResult = drinkResult
@@ -165,8 +161,8 @@ class WaterMainController: BaseViewController {
     }
     
     func showAlert() -> () {
-        let alertVc = UIAlertController(title: "设置水量", message: "请输入今日的目标补水量", preferredStyle: UIAlertControllerStyle.alert)
-        let act1 = UIAlertAction(title: "确定", style: UIAlertActionStyle.default) { (UIAlertAction) in
+        let alertVc = UIAlertController(title: "设置水量".localized(), message: "请输入今日的目标补水量".localized() , preferredStyle: UIAlertControllerStyle.alert)
+        let act1 = UIAlertAction(title: "确定".localized(), style: UIAlertActionStyle.default) { (UIAlertAction) in
             let text = alertVc.textFields?.first?.text
             if  (text != nil) && !(text?.isEmpty)! && CacheUtil.waterChecker(water: Double(text!)!){
                 //用户已输入
@@ -177,14 +173,14 @@ class WaterMainController: BaseViewController {
                 print("请输入水量")
             }
         }
-        let act2 = UIAlertAction(title: "取消", style:  UIAlertActionStyle.cancel) { (UIAlertAction) in
+        let act2 = UIAlertAction(title: "取消".localized(), style:  UIAlertActionStyle.cancel) { (UIAlertAction) in
             print("取消")
         }
         
         alertVc.addAction(act1)
         alertVc.addAction(act2)
         alertVc.addTextField { (textField) in
-            textField.placeholder = "水量单位 : 毫升"
+            textField.placeholder = "水量单位 : 毫升".localized()
             textField.keyboardType = UIKeyboardType.numberPad
         }
         
@@ -266,16 +262,16 @@ class WaterMainController: BaseViewController {
             switch i {
             case 0:
                 image = #imageLiteral(resourceName: "contacts_add_scan")
-                title = "扫一扫"
+                title = "扫一扫".localized()
             case 1:
                 image = #imageLiteral(resourceName: "contacts_add_newmessage")
-                title = "别点会炸"
+                title = "别点会炸".localized()
             case 2:
                 image = #imageLiteral(resourceName: "contacts_add_friend")
-                title = "别点会炸!"
+                title = "别点会炸!".localized()
             case 3:
                 image = #imageLiteral(resourceName: "contacts_add_mycard")
-                title = "别点会炸!!"
+                title = "别点会炸!!".localized()
             default: break
             }
             let popMenuItem = LXFPopMenuItem(image: image, title: title)
@@ -321,7 +317,7 @@ class WaterMainController: BaseViewController {
         get{
             let target = CacheUtil.readWater(type: WaterType.TargetWater(0))
             if target == 1 {
-                UIAlertController.showAlert(message: "是否使用为您推荐的2000毫升补水目标?", in: self, sureHandler: { (UIAlertAction) in
+                UIAlertController.showAlert(message: "是否使用为您推荐的2000毫升补水目标?".localized() , in: self, sureHandler: { (UIAlertAction) in
                     self.sureClicked(action: UIAlertAction) //点击确定使用目标水量
                 }, cancelHandler: { (UIAlertAction) in
                     self.cancelClicked(action: UIAlertAction)//点击取消不使用目标水量  弹出设置水量
@@ -345,13 +341,13 @@ class WaterMainController: BaseViewController {
     
     var observeTargetResult : Double?{
         didSet{
-            animationLab.text = "今日补水目标 : \(targetResult) 毫升"
+            animationLab.text = "今日补水目标 : ".localized() + " \(targetResult)" + " 毫升".localized()
         }
     }
     
     var observeDrinkingResult : Double?{
         didSet{
-            animationLab.text = "当前补水量 : \(drinkResult) 毫升"
+            animationLab.text = "当前补水量 : ".localized() + "\(drinkResult)" + " 毫升".localized()
         }
     }
     
@@ -360,6 +356,26 @@ class WaterMainController: BaseViewController {
             weatherLabel.text = temperature
         }
     }
+    
+    var weatherModel : WaterWeatherRootClass!
+    
+    var temperatureModel : WaterWeatherRootClass{
+        get{
+            return self.temperatureModel
+        }
+        set{
+            let temperature = cargador.temperatureTransfer(Fahrenheit: Float(weatherModel.query.results.channel.item.condition.temp!)!)
+            let country = weatherModel.query.results.channel.location.country!
+            let city = weatherModel.query.results.channel.location.city!
+            let sunRise = weatherModel.query.results.channel.astronomy.sunrise!
+            let sunSet = weatherModel.query.results.channel.astronomy.sunset!
+            let description = weatherModel.query.results.channel.item.condition.text!
+            let updateTime = weatherModel.query.results.channel.item.condition.date!
+            let tempStr = "国家: ".localized() + "\(country) \n" + "城市: ".localized() + "\(city) \n " + "日出: ".localized() + "\(sunRise) \n" + "日落: ".localized()  + "\(sunSet) \n" + "气温: ".localized() + "\(temperature) ℃ \n " + "描述: ".localized() + "\(description) \n " + "更新时间: ".localized() + "\(updateTime) \n"
+            self.temperature = tempStr
+        }
+    }
+
     
     @IBOutlet weak var weatherLabel: UILabel!
     

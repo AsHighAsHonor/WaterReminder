@@ -64,32 +64,7 @@ extension UIViewController {
 
     
     
-    /// 获取当前页面显示的ViewController
-    ///
-    /// - Returns: Current ViewController
-    func getCurrentViewController() -> UIViewController {
-        var resultVc : UIViewController!
-        var window = UIApplication.shared.keyWindow
-        if window?.windowLevel != UIWindowLevelNormal{
-            let windows = UIApplication.shared.windows
-            for win in windows {
-                guard win.windowLevel != UIWindowLevelNormal else {
-                    window = win
-                    break
-                }
-            }
-        }
-        let frontView = window?.subviews.first
-        let nextResponder = frontView?.next
-        if nextResponder.self === UIViewController.self  {
-            resultVc = nextResponder as! UIViewController!
-        }else{
-            resultVc = window?.rootViewController
-        }
-        return resultVc
-
-    }
-    
+        
     
  
     

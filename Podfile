@@ -11,13 +11,14 @@ target 'WaterReminder' do
     pod 'Alamofire'
     pod 'SnapKit'
     pod 'SwiftyJSON'
-#    pod 'SpreadButton'
+    pod 'JZLocationConverter'
     pod 'LTMorphingLabel'
     pod 'JGProgressHUD'
     pod 'Toast-Swift'
     pod 'IQKeyboardManagerSwift'
     pod 'swiftScan', :git => 'https://github.com/MxABC/swiftScan.git', :tag => '1.0.9'
-    pod 'ChameleonSwift'
+    pod 'KSCrash', '~> 1.8'
+    pod 'Localize-Swift', '~> 1.7'
 
 end
 

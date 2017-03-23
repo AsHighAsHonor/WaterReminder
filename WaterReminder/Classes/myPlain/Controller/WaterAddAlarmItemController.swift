@@ -84,7 +84,7 @@ class WaterAddAlarmItemController: UITableViewController , UITextFieldDelegate{
             
             if let alarmInfosEntiy = alarmInfosEntiy {
                 //修改模式  只需要改变alarmInfosEntiy 的 timeType  然后 reload
-                alarmInfosEntiy.timeType =  tableView.cellForRow(at: indexPath)?.textLabel?.text
+                alarmInfosEntiy.timeType =  (tableView.cellForRow(at: indexPath)?.textLabel?.text)!
                 
             }else{
                 //新加模式

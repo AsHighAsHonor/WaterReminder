@@ -33,17 +33,22 @@ public enum AlarmType : String{
 }
 
 
-public struct AlarmInfo {
+public class AlarmInfo {
     var time : String?
     var isRepeat : Bool?
     var on : Bool?
-    var sound : String?
+    var sound : String? = "sub.caf"
     var contentTitle : String?
     var contentSubtitle : String?
     var contentBody : String?
     var contentBadge : NSNumber?
     var timeType : AlarmType?
     var showTitle : String?
+    //值可能为 nil 的属性需要 添加默认值 否则保存到 coredata 时 force unwrap crash
+    var onEnter : Bool? = false
+    var onExit : Bool? = false
+    var radius : NSNumber? = NSNumber(value: 0)
+
 }
 
 
@@ -75,8 +80,14 @@ class WaterAlarmModel: NSObject {
         content.body = alarmInfo.contentBody!
         content.badge = alarmInfo.contentBadge!
         content.subtitle = alarmInfo.contentSubtitle!
-        content.sound = UNNotificationSound(named: "sub.caf")
         content.userInfo = ["key": "value"]
+        
+        if alarmInfo.sound != nil && alarmInfo.sound != ""{
+            content.sound = UNNotificationSound(named: alarmInfo.sound!)
+        }else{
+            content.sound = UNNotificationSound(named: "sub.caf")
+        }
+        
         //三种notify    Calendar  location Interval
         var trigger : UNNotificationTrigger
         switch alarmInfo.timeType! {
@@ -95,18 +106,20 @@ class WaterAlarmModel: NSObject {
             let latitude = Double(locations.first!)
             let longitude = Double (locations.last!)
             let center = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            let region = CLCircularRegion(center: center, radius: 50.0, identifier: String(describing: Date()))
-            region.notifyOnEntry = true
-            region.notifyOnExit = true
+            let region = CLCircularRegion(center: center, radius: (alarmInfo.radius?.doubleValue)!, identifier: identifier!)
+            region.notifyOnEntry = alarmInfo.onEnter!
+            region.notifyOnExit = alarmInfo.onExit!
             trigger = UNLocationNotificationTrigger(region: region, repeats: alarmInfo.isRepeat!)
-        case .Interval:
-            let center = CLLocationCoordinate2D(latitude: 37.335400, longitude: -122.009201)
-            let region = CLCircularRegion(center: center, radius: 2000.0, identifier: String(describing: Date()))
-            region.notifyOnEntry = true
-            region.notifyOnExit = true
-            trigger = UNLocationNotificationTrigger(region: region, repeats: alarmInfo.isRepeat!)
+            
+            
+        case .Interval://待用
+            // Create a trigger to decide when/where to present the notification
+            guard let multiple = Double(alarmInfo.time!) else {
+                assert((Double(alarmInfo.time!) == nil), "check alarmInfo.time that must be covert to double")
+                return
+            }
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: multiple*60, repeats: alarmInfo.isRepeat!)
         }
-        
         
         
         
@@ -115,7 +128,7 @@ class WaterAlarmModel: NSObject {
         if identifier != nil{
             requestIdentifier = identifier!
         }else{
-            requestIdentifier = String(describing: Date())
+            requestIdentifier = UUID().uuidString
         }
         
         
@@ -134,11 +147,11 @@ class WaterAlarmModel: NSObject {
     }
     
     
-    /// 添加一条一次性通知在设定时间后提醒,用于拖延后的临时提醒 ;不保存到数据库,无 repeat
+    /// 添加一条一次性通知在设定时间后触发,临时提醒 ;不保存到数据库
     ///
     /// - Parameters:
     /// - Parameters:
-    ///   - alarmInfo: 新通知内容实体
+    ///   - alarmInfo: 新通知内容实体 (alarmInfo.time 传入触发时间间隔 如5 代表5 * 60= 300s 后触发)
     ///   - identifier: 要修改的identifier(备用  统一传 nil)
     ///   - alarmInfoEntity: 修改操作时需要传入的数据实体 (备用 统一传 nil)
     ///   - withCompletionHandler: 回调
@@ -146,40 +159,42 @@ class WaterAlarmModel: NSObject {
         // Create notification content
         let content = UNMutableNotificationContent()
         content.title = alarmInfo.contentTitle!
-        content.body = "你ཀ拖ཀ延ཀ的ཀ5分ཀ钟ཀ ~~ 外ཀ星ཀ人ཀ都ཀ快ཀ占ཀ领ཀ地ཀ球ཀ了ཀ ~~ 快ཀ喝ཀ水ཀ!!!!!" //alarmInfo.contentBody
+        content.body = alarmInfo.contentBody!
         content.badge = alarmInfo.contentBadge
         content.subtitle = alarmInfo.contentSubtitle!
-        content.sound = UNNotificationSound(named: "sub.caf")
+        if alarmInfo.sound != nil && alarmInfo.sound != ""{
+            content.sound = UNNotificationSound(named: alarmInfo.sound!)
+        }else{
+            content.sound = UNNotificationSound(named: "sub.caf")
+        }
         content.userInfo = ["key": "value"]
-        content.categoryIdentifier = RemindCategoryType.localRemind.rawValue //设置通知 action 簇
         
-        
-        //设置提醒触发的trigger
-        // Create a trigger to decide when/where to present the notification
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (5*60), repeats: false)//5分钟后提醒 不重复
-        
+        //地理触发器 不需要 actionCategory
+        if alarmInfo.timeType != .Location {
+            content.categoryIdentifier = RemindCategoryType.localRemind.rawValue //设置通知 action 簇
+        }
         
         // Create an identifier for this notification. So you could manage it later. 每条通知的标识符
         var requestIdentifier : String?
         if identifier != nil{
             requestIdentifier = identifier!
         }else{
-            requestIdentifier = String(describing: Date())
+            requestIdentifier = UUID().uuidString
+        }
+        
+        //设置提醒触发的trigger
+        // Create a trigger to decide when/where to present the notification
+        guard let multiple = Double(alarmInfo.time!) else {
+            assert((Double(alarmInfo.time!) == nil), "check alarmInfo.time that must be covert to double")
+            return
         }
         
         
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (multiple*60.0), repeats: alarmInfo.isRepeat!)//设置提醒间隔
         // The request describes this notification.
         let request = UNNotificationRequest(identifier: requestIdentifier!, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: withCompletionHandler)
         
-        //        //将新通知存储到 CoreData
-        //        if (identifier != nil) && (alarmInfoEntity != nil){
-        //            //修改数据库对应提醒数据
-        //            updateAlarmFromDatabase(entity: alarmInfoEntity!, alarmInfo: alarmInfo)
-        //        }else{
-        //            //新增提醒信息到数据库
-        //            storeAlarmInfosToDatabase(alarmInfo: alarmInfo, andIdentifier: requestIdentifier!)
-        //        }
     }
     
     
@@ -192,15 +207,19 @@ class WaterAlarmModel: NSObject {
         for entity in alarmInfoEntitys {
             // Create notification content
             let content = UNMutableNotificationContent()
-            content.title = entity.title!
-            content.body = entity.body!
+            content.title = entity.title
+            content.body = entity.body
             content.badge = entity.badge as NSNumber?
-            content.subtitle = entity.subtitle!
-            content.sound = UNNotificationSound.default()
+            content.subtitle = entity.subtitle
+            if entity.sound != ""{
+                content.sound = UNNotificationSound(named: entity.sound)
+            }else{
+                content.sound = UNNotificationSound(named: "sub.caf")
+            }
             content.userInfo = ["key": "value"]
             
             
-            let times = entity.time!.components(separatedBy: ":")
+            let times = entity.time.components(separatedBy: ":")
             var date = DateComponents()
             date.hour = Int(times.first!)
             date.minute = Int(times.last!)
@@ -209,14 +228,14 @@ class WaterAlarmModel: NSObject {
             let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: entity.isRepeat)
             
             // Create an identifier for this notification. So you could manage it later.
-            let requestIdentifier = entity.identifier!
+            let requestIdentifier = entity.identifier
             // The request describes this notification.
             let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
                 if let error = error {
                     print(" restore notification fail : \(error.localizedDescription)")
                 } else {
-                    print("Notification request restored: \(entity.identifier!) ")
+                    print("Notification request restored: \(entity.identifier) ")
                 }
                 
             })
@@ -237,7 +256,7 @@ class WaterAlarmModel: NSObject {
         var identifirs = [String]()
         if  let alarmInfoEntitys = alarmInfoEntitys  {
             for entity in alarmInfoEntitys {
-                identifirs.append(entity.identifier!)
+                identifirs.append(entity.identifier)
             }
         }
         //移除数据库记录
@@ -288,7 +307,7 @@ class WaterAlarmModel: NSObject {
         
         //2.更新数据库数据 isOn 字段
         if alarmInfoEntitys.count == 1 {
-            updateAlarmsFromDatabase(propertiesToUpdate: ["isOn" : toggle], identifier: alarmInfoEntitys.first?.identifier!)
+            updateAlarmsFromDatabase(propertiesToUpdate: ["isOn" : toggle], identifier: alarmInfoEntitys.first?.identifier)
         }else{
             updateAlarmsFromDatabase(propertiesToUpdate: ["isOn" : toggle], identifier: nil)
         }
@@ -310,30 +329,24 @@ class WaterAlarmModel: NSObject {
         //3
         managedObject.isRepeat = alarmInfo.isRepeat!
         managedObject.identifier = andIdentifier
-        managedObject.title = alarmInfo.contentTitle
-        managedObject.subtitle = alarmInfo.contentSubtitle
-        managedObject.body = alarmInfo.contentBody
+        managedObject.title = alarmInfo.contentTitle!
+        managedObject.subtitle = alarmInfo.contentSubtitle!
+        managedObject.body = alarmInfo.contentBody!
         managedObject.badge = Int16(alarmInfo.contentBadge!)
-        managedObject.sound = alarmInfo.sound
+        managedObject.sound = alarmInfo.sound!
         managedObject.isOn = alarmInfo.on!
-        managedObject.time =  alarmInfo.time
+        managedObject.time =  alarmInfo.time!
         managedObject.showTitle =  alarmInfo.showTitle!
-        var type = ""
-        switch alarmInfo.timeType! {
-        case .Calendar:
-            type = "时间"
-        case .Location:
-            type = "地理位置"
-        case .Interval:
-            type = "倒计时"
-        }
-        managedObject.timeType = type
+        managedObject.onExit = alarmInfo.onExit!
+        managedObject.onEnter = alarmInfo.onEnter!
+        managedObject.radius = Double(alarmInfo.radius!)
+        managedObject.timeType = alarmInfo.timeType!.rawValue
         
         //4
         do {
             try managedContext.save()
         } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
+            assert(false, error.userInfo.debugDescription)
         }
     }
     
@@ -362,7 +375,7 @@ class WaterAlarmModel: NSObject {
             let infos = results as! [AlarmInfosEntiy]
             return infos
         } catch let error as NSError {
-            print("Could not search \(error), \(error.userInfo)")
+            assert(false, error.userInfo.debugDescription)
             return nil
         }
         
@@ -378,7 +391,7 @@ class WaterAlarmModel: NSObject {
                 do {
                     try managedContext.save()
                 } catch let error as NSError  {
-                    print("Could not delete \(error), \(error.userInfo)")
+                    assert(false, error.userInfo.debugDescription)
                 }
                 
             }
@@ -390,9 +403,7 @@ class WaterAlarmModel: NSObject {
                 try storeCoordinator.execute(deleteRequest, with: managedContext)
                 
             } catch let error as NSError {
-                
-                print("Could not delete all  \(error), \(error.userInfo)")
-                
+                assert(false, error.userInfo.debugDescription)
             }
             
         }
@@ -412,25 +423,20 @@ class WaterAlarmModel: NSObject {
             targetEntity.subtitle = alarmInfo.contentSubtitle!
             targetEntity.body = alarmInfo.contentBody!
             targetEntity.badge = Int16(alarmInfo.contentBadge!)
-            targetEntity.sound = alarmInfo.sound
+            targetEntity.sound = alarmInfo.sound!
             targetEntity.isOn = alarmInfo.on!
             targetEntity.time =  alarmInfo.time!
             targetEntity.showTitle =  alarmInfo.showTitle!
-            var type = ""
-            switch alarmInfo.timeType! {
-            case .Calendar:
-                type = "时间"
-            case .Location:
-                type = "地理位置"
-            case .Interval:
-                type = "倒计时"
-            }
-            targetEntity.timeType = type
+            targetEntity.onExit = alarmInfo.onExit!
+            targetEntity.onEnter = alarmInfo.onEnter!
+            targetEntity.radius = Double(alarmInfo.radius!)
+            targetEntity.timeType = alarmInfo.timeType!.rawValue
+
             //保存
             do {
                 try managedContext.save()
             } catch let error as NSError  {
-                print("Could not Update \(error), \(error.userInfo)")
+                assert(false, error.userInfo.debugDescription)
             }
         }
         
@@ -465,7 +471,7 @@ class WaterAlarmModel: NSObject {
             
             
         } catch let error as NSError {
-            print("Could not update \(error), \(error.userInfo)")
+            assert(false, error.userInfo.debugDescription)
         }
         
     }
