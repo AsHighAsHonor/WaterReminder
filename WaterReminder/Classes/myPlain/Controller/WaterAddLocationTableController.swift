@@ -118,7 +118,7 @@ class WaterAddLocationTableController: UITableViewController {
         }
         
         //2.检查提醒内容
-        if alarmInfo.contentBody == nil  {
+        if alarmInfo.contentBody == nil {
             alarmInfo.contentBody = details?[1]
         }
         

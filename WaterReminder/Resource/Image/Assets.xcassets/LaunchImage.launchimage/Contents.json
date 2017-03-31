@@ -1,31 +1,37 @@
 {
   "images" : [
     {
-      "orientation" : "portrait",
-      "idiom" : "ipad",
       "extent" : "full-screen",
-      "minimum-system-version" : "7.0",
-      "scale" : "1x"
+      "idiom" : "iphone",
+      "subtype" : "736h",
+      "filename" : "Slice 1.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
     },
     {
-      "orientation" : "landscape",
-      "idiom" : "ipad",
       "extent" : "full-screen",
-      "minimum-system-version" : "7.0",
-      "scale" : "1x"
+      "idiom" : "iphone",
+      "subtype" : "667h",
+      "filename" : "Slice 2.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "2x"
     },
     {
       "orientation" : "portrait",
-      "idiom" : "ipad",
+      "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
     },
     {
-      "orientation" : "landscape",
-      "idiom" : "ipad",
       "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "retina4",
+      "filename" : "LunchImage.png",
       "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
       "scale" : "2x"
     }
   ],

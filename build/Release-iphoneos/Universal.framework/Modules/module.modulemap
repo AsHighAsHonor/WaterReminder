@@ -1,0 +1,10 @@
+framework module Universal {
+  umbrella header "Universal.h"
+
+  export *
+  module * { export * }
+}
+
+module Universal.Swift {
+    header "Universal-Swift.h"
+}

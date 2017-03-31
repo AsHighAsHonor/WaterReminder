@@ -609,9 +609,9 @@
 			children = (
 				FDB901E81E8263A70051E026 /* AppDelegate.swift */,
 				FD0301F71E80FF8500B57DB0 /* Main.storyboard */,
+				FDB901A91E8263580051E026 /* Main */,
 				FDB9018E1E8263580051E026 /* Setting */,
 				FDB9018F1E8263580051E026 /* MyPlain */,
-				FDB901A91E8263580051E026 /* Main */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1247,6 +1247,7 @@
 				CODE_SIGN_ENTITLEMENTS = WaterReminder/WaterReminder.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = ZLV92V5957;
+				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/WaterReminder/Resource/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1284,6 +1285,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WaterReminder/Resource/Global/WaterReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1298,6 +1300,7 @@
 				CODE_SIGN_ENTITLEMENTS = WaterReminder/WaterReminder.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = ZLV92V5957;
+				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = "$(SRCROOT)/WaterReminder/Resource/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1335,6 +1338,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WaterReminder/Resource/Global/WaterReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

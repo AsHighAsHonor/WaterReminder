@@ -1,0 +1,78 @@
+
+/* Class = "UITableViewController"; title = "我的计划"; ObjectID = "1Gi-Ik-OLn"; */
+"1Gi-Ik-OLn.title" = "我的计划";
+
+/* Class = "UINavigationItem"; title = "地名搜索"; ObjectID = "25Q-Hw-FCQ"; */
+"25Q-Hw-FCQ.title" = "地名搜索";
+
+/* Class = "UILabel"; text = "Weather Loading"; ObjectID = "3i3-Ab-s2L"; */
+"3i3-Ab-s2L.text" = "Weather Loading";
+
+/* Class = "UIViewController"; title = "添加提醒"; ObjectID = "61u-XO-9aY"; */
+"61u-XO-9aY.title" = "添加提醒";
+
+/* Class = "UILabel"; text = "选中地址:"; ObjectID = "70E-hz-p86"; */
+"70E-hz-p86.text" = "选中地址:";
+
+/* Class = "UITextView"; text = "位置提醒内容"; ObjectID = "9JZ-Uj-TER"; */
+"9JZ-Uj-TER.text" = "位置提醒内容";
+
+/* Class = "UIButton"; normalTitle = "清空历史记录"; ObjectID = "BGV-OA-6i7"; */
+"BGV-OA-6i7.normalTitle" = "清空历史记录";
+
+/* Class = "UIViewController"; title = "我的提醒"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "我的提醒";
+
+/* Class = "UIButton"; normalTitle = "删   除   提   醒"; ObjectID = "Beo-mm-UCY"; */
+"Beo-mm-UCY.normalTitle" = "删   除   提   醒";
+
+/* Class = "UILabel"; text = "离开区域:"; ObjectID = "Dp4-HE-BFH"; */
+"Dp4-HE-BFH.text" = "离开区域:";
+
+/* Class = "UILabel"; text = "每日提醒"; ObjectID = "Dri-RD-Xr6"; */
+"Dri-RD-Xr6.text" = "每日提醒";
+
+/* Class = "UINavigationItem"; title = "我的计划"; ObjectID = "FLK-80-E9q"; */
+"FLK-80-E9q.title" = "我的计划";
+
+/* Class = "UILabel"; text = "已补充水量:"; ObjectID = "HQh-Qt-nZr"; */
+"HQh-Qt-nZr.text" = "已补充水量:";
+
+/* Class = "UINavigationItem"; title = "我的提醒"; ObjectID = "J5f-RM-kIj"; */
+"J5f-RM-kIj.title" = "我的提醒";
+
+/* Class = "UILabel"; text = "提醒位置"; ObjectID = "OKp-sc-wed"; */
+"OKp-sc-wed.text" = "提醒位置";
+
+/* Class = "UIViewController"; title = "提示内容"; ObjectID = "UaN-er-O6g"; */
+"UaN-er-O6g.title" = "提示内容";
+
+/* Class = "UITabBarItem"; title = "我的提醒"; ObjectID = "aZL-xf-QyG"; */
+"aZL-xf-QyG.title" = "我的提醒";
+
+/* Class = "UITextField"; placeholder = "默认半径为 20米"; ObjectID = "e4S-7f-gef"; */
+"e4S-7f-gef.placeholder" = "默认半径为 20米";
+
+/* Class = "UILabel"; text = "滑动滚轴设置提醒时间"; ObjectID = "ggU-FV-mkE"; */
+"ggU-FV-mkE.text" = "滑动滚轴设置提醒时间";
+
+/* Class = "UILabel"; text = "半 径:"; ObjectID = "ivu-x4-cu1"; */
+"ivu-x4-cu1.text" = "半 径:";
+
+/* Class = "UITextField"; placeholder = "这里可以输入提醒内容哦~"; ObjectID = "ngd-aX-ibb"; */
+"ngd-aX-ibb.placeholder" = "这里可以输入提醒内容哦~";
+
+/* Class = "UITabBarItem"; title = "我的计划"; ObjectID = "oyr-hp-qNi"; */
+"oyr-hp-qNi.title" = "我的计划";
+
+/* Class = "UILabel"; text = "进入区域:"; ObjectID = "pC0-36-66X"; */
+"pC0-36-66X.text" = "进入区域:";
+
+/* Class = "UIButton"; normalTitle = "删 除 提 醒"; ObjectID = "v05-SG-GDc"; */
+"v05-SG-GDc.normalTitle" = "删 除 提 醒";
+
+/* Class = "UINavigationItem"; title = "设置"; ObjectID = "w4P-vg-7rm"; */
+"w4P-vg-7rm.title" = "设置";
+
+/* Class = "UIViewController"; title = "地图选点"; ObjectID = "wED-QR-wVy"; */
+"wED-QR-wVy.title" = "地图选点";

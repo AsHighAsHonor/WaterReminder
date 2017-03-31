@@ -1,0 +1,10 @@
+framework module Localize_Swift {
+  umbrella header "Localize-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Localize_Swift.Swift {
+    header "Localize_Swift-Swift.h"
+}

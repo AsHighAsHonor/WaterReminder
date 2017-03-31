@@ -10,6 +10,7 @@ import UIKit
 import NotificationCenter
 import Universal
 
+
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     
@@ -23,6 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Add(0))
+        waveIndicator.content = String(drinkResult) + " ml"
     }
     
     
@@ -34,10 +36,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     // 设置进度
     func configure() -> () {
-        
         waveIndicator.waveAmplitude = 30
         waveIndicator.drawProgressText()
-        
+        waveIndicator.content = String(drinkResult) + " ml"
+        waveIndicator.isPercentage = false
     }
     @IBAction func WidgetBtnClicked(_ sender: UIButton){
         let target = CacheUtil.readWater(type: WaterType.TargetWater(0))
@@ -49,11 +51,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         let tag = sender.tag
         switch tag {
-        case 0: 
+        case 0: //点击了喝一杯
             self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Add(200))
-        case 1:
+            waveIndicator.content = String(drinkResult) + " ml"
+            
+        case 1: //点击了拖延一杯
             self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Subtract(200))
-
+            waveIndicator.content = String(drinkResult) + " ml"
+            
         default:
             self.waveIndicator.progress = 0.0
             break
@@ -62,6 +67,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     
+    var drinkResult : Double{
+        get{
+            return CacheUtil.readWater(type: WaterType.DrinkingWater(0))
+        }
+    }
     
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
