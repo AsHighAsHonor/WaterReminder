@@ -24,7 +24,7 @@ class WeatherCargador: NSObject {
                 mapUtil.placeMarkHandler = {[unowned self] placemark in
                     let city = placemark.locality
                     let country = placemark.isoCountryCode
-                    YYPrint("\(city)---------\(country)")
+                    YYPrint("\(String(describing: city))---------\(String(describing: country))")
                     
                     //根据当前地理位置查询城市天气
                     self.fetchWeatherData(cityName: city!, Code: country!, completionHandler: completionHandler)

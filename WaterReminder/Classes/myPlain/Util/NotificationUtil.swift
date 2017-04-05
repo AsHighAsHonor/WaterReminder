@@ -83,29 +83,7 @@ class NotificationUtil: NSObject ,UNUserNotificationCenterDelegate{
     }
     
     
-    // MARK: - 每日水量重置
-    public func dailyCheck() -> () {
-        let savedMark = UserDefaults(suiteName: "group.com.ZTESoft.app")!.object(forKey: UserSetting.DailyMark.rawValue) as? String
-        let currentStr = dailyMark()
-        
-        if let savedMark = savedMark {
-            YYPrint("保存的时间:\(savedMark) , 当前时间 :\(currentStr)")
-            if savedMark != currentStr {
-                CacheUtil.deleteWater(type: .DrinkingWater(0))
-                CacheUtil.deleteWater(type: .TargetWater(0))
-            }
-        }
-        
-    }
     
-    private func dailyMark() -> String {
-        let date  = Date()
-        let formatter =   DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        let dateStr = formatter.string(from: date)
-        print("dailyMark--------->>\(dateStr)")
-        return dateStr
-    }
     
     
     

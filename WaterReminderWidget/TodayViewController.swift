@@ -11,6 +11,9 @@ import NotificationCenter
 import Universal
 
 
+/// widget 上每次点击按钮的量
+fileprivate let quantity = 100.00
+
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     
@@ -52,11 +55,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let tag = sender.tag
         switch tag {
         case 0: //点击了喝一杯
-            self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Add(200))
+            self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Add(quantity))
             waveIndicator.content = String(drinkResult) + " ml"
             
         case 1: //点击了拖延一杯
-            self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Subtract(200))
+            self.waveIndicator.progress = CacheUtil.progressCalculatorBy(operation: .Subtract(quantity))
             waveIndicator.content = String(drinkResult) + " ml"
             
         default:

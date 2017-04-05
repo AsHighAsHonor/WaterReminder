@@ -8,15 +8,14 @@
 
 import Foundation
 
- extension String{
+extension String{
     
-    /// 每天的时间戳  "年月日"
-    ///
-    /// - Returns: 时间戳
-    func dailyMark() -> String {
+   static public func dateStr(fromat : String) -> String {
         let date  = Date()
         let formatter =   DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return formatter.string(from: date)
+        formatter.dateFormat = fromat
+        let dateStr = formatter.string(from: date)
+        print("dateStr--------->>\(dateStr)")
+        return dateStr
     }
 }

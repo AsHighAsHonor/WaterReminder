@@ -38,7 +38,7 @@
 "描述: "="Des: ";
 "更新时间: "="Update: ";
 "发现新版本,请更新 " = "Discover new version, please update";
-
+"轻按上方指纹处设置今日补水目标" = "Press the fingerprint to set today's drinking goals";
 
 /*
  *------------------------------WaterScanViewController----------------------------------

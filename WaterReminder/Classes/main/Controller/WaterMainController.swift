@@ -24,6 +24,7 @@ enum QuickActionType : String{
     case QrScan
 }
 
+
 class WaterMainController: BaseViewController {
     
     var quickActStr : String?
@@ -32,8 +33,6 @@ class WaterMainController: BaseViewController {
         super.viewDidLoad()
         //配置动态 label
         configure()
-        //添加通知观察者更新界面  防止水量不自动清零
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil)
         self.view.addSubview(spreadBtn)
         
     }
@@ -47,9 +46,6 @@ class WaterMainController: BaseViewController {
         fetchWeaterData()
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil)
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -62,37 +58,43 @@ class WaterMainController: BaseViewController {
         popMenu?.dismissPopMenuAnimatedOnMenu(selected: false)
     }
     
+    
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        YYPrint("touches======>>>>>>\(touches) \n event======>>>> \(String(describing: event))")
+        //1.是否水量模式
+        guard settingMode else {return}
+        guard let touch = touches.first else {return}
+        //2.是否支持3d touch
+        guard  TouchUtil.sharedInstance.fourceTouchCapability(controller: self) else {return}
+        //3.是否是settingImageView在响应事件
+        guard touch.view === settingImageView else {return}
         
-        //1.设置水量模式
-        guard settingModel else {
-            return
+        if touch.force >= touch.maximumPossibleForce{
+            //超出3000ml
+            self.waveIndicator.progress = 1
+            self.waveIndicator.content = String(WaterMainController.DefaultTarget) + "毫升".localized()
+        } else {
+            let force = touch.force/touch.maximumPossibleForce
+            self.waveIndicator.progress = Double(force)
+            self.waveIndicator.content = String("\(force * CGFloat(WaterMainController.DefaultTarget))") + "毫升".localized()
         }
-        //2.系统版本
-        guard #available(iOS 9.0, *) else {
-             return
-        }
-        //3.判读是否支持forceTouch
-        guard traitCollection.forceTouchCapability == UIForceTouchCapability.available else {
-            return
-        }
-        guard let touch = touches.first else {
-            return
-        }
-        
-//        if touch.force >= touch.maximumPossibleForce{
-//            //超出3000ml
-//            self.waveIndicator.progress = 1
-//            self.waveIndicator.content = String("3000") + "毫升".localized()
-//        } else {
-//            let force = touch.force/touch.maximumPossibleForce
-//            self.waveIndicator.progress = Double(force)
-//            self.waveIndicator.content = String("\(force * 3000)") + "毫升".localized()
-//        }
-        
-        
+
     }
     
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        YYPrint("++++++++++++touchesBegan+++++++++++ \n touches======>>>>>>\(touches) \n event======>>>> \(String(describing: event))")
+//
+//    }
+//    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        YYPrint("++++++++++++touchesEnded+++++++++++ \n touches======>>>>>>\(touches) \n event======>>>> \(String(describing: event))")
+//
+//    }
+//    
+//    override func touchesEstimatedPropertiesUpdated(_ touches: Set<UITouch>) {
+//        YYPrint("++++++++++++touchesEnded+++++++++++ \n touches======>>>>>>\(touches)")
+//    }
     
     func configure() {
         animationLab.text = "今日补水目标 : ".localized() + "\(targetResult)"+"毫升".localized()
@@ -100,10 +102,15 @@ class WaterMainController: BaseViewController {
         waveIndicator.waveAmplitude = 45
         waveIndicator.isPercentage = false
         waveIndicator.drawProgressText()
+        
     }
     
     
     // MARK: - Properties
+    
+    ///默认最大水量
+    fileprivate static let DefaultTarget = 3000.0
+
     lazy var spreadBtn : ZYSpreadButton = {
         
         let backImg = ZYSpreadSubButton.image(with: UIColor(red: 0.4376174212, green: 0.7448593974, blue: 0.9861226678, alpha: 1))
@@ -149,15 +156,22 @@ class WaterMainController: BaseViewController {
         return zySpreadButton!
     }()
     
-    var settingModel : Bool = false{
+    var settingMode : Bool = false{
         didSet{
-            if settingModel == true{
-                //1. 判断是否支持3d touch  控制隐藏显示 imageview
+            if settingMode == true{
                 
-                //2.切换 indicator 的显示模式
+                settingImageView.isHidden = true
+                settingSilder.value = Float(targetResult/WaterMainController.DefaultTarget)
+// TODO: 压力感应设置水量
+//                //支持3dtouch 的显示指纹 view
+//                if TouchUtil.sharedInstance.fourceTouchCapability(controller: self){
+//                    settingSilder.isHidden = true
+//                    settingTipsLabel.text = "轻按上方指纹处设置今日补水目标".localized()
+//                }else{
+//                    settingImageView.isHidden = true
+//                }
                 
-                //3.设置当前的水量.
-                
+
             } else{
                 //1.保存当前水量
                 self.observeTargetResult = self.targetResult
@@ -174,7 +188,6 @@ class WaterMainController: BaseViewController {
     ///显示水量的动画waveIndicator
     @IBOutlet weak var waveIndicator: WaveLoadingIndicator!
 
-    
     /// 天气工具
     lazy var cargador : WeatherCargador = {
         return WeatherCargador()
@@ -256,12 +269,16 @@ class WaterMainController: BaseViewController {
 
 
     
+    ///  设置水量下方提示label
+    @IBOutlet weak var settingTipsLabel: UILabel!
+    
+    /// 展示天气的 label
     @IBOutlet weak var weatherLabel: UILabel!
     
     ///view2上设置水量的silder
     @IBOutlet weak var settingSilder: UISlider!
     
-    ///view2上设置水量的imageview
+    ///view2上设置水量的指纹image
     @IBOutlet weak var settingImageView: UIImageView!
     
     ///控制底部天气所在 view 的约束
@@ -302,7 +319,7 @@ extension WaterMainController{
     
     //silderBar值改变
     @IBAction func sliderBarValueDidChanged(_ sender: AnyObject) {
-        let value = lroundf(settingSilder.value*3000)
+        let value = lroundf(settingSilder.value * Float(WaterMainController.DefaultTarget))
         waveIndicator.content = String(value) + "毫升".localized()
         waveIndicator.progress = Double(settingSilder.value)
         CacheUtil.saveWaterBy(waterType: WaterType.TargetWater(Double(value)))
@@ -311,7 +328,7 @@ extension WaterMainController{
     ///切换水量设置模式
     @IBAction func indicatorPressed(_ sender: Any) {
         view1TrailingPriority = UILayoutPriorityDefaultLow
-        settingModel = !settingModel
+        settingMode = !settingMode
     }
     
     fileprivate func sureClicked(action : UIAlertAction) {
@@ -405,7 +422,7 @@ extension WaterMainController{
             return
         }
         
-        cargador.requestLoacteAuthorizationAndFetchWeaterData { (weather) in
+        cargador.requestLoacteAuthorizationAndFetchWeaterData {[unowned self] (weather) in
             self.weatherCompleted(response: weather)
         }
     }

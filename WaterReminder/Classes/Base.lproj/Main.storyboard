@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vOx-1m-MwA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vOx-1m-MwA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="heavyColor">
-                                        <color key="value" red="0.44313725490196076" green="0.74878698587417603" blue="0.9900546669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.44313725490196076" green="0.74901960784313726" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
                                         <color key="value" red="0.64783185720443726" green="0.84878593683242798" blue="0.99889165163040161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,23 +93,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhX-6l-Ifu" userLabel="Container2">
                                 <rect key="frame" x="390" y="404" width="375" height="209"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sqq-kL-i4s">
-                                        <rect key="frame" x="8" y="89.5" width="359" height="31"/>
-                                        <color key="tintColor" red="0.64783185720000003" green="0.84878593680000003" blue="0.99889165160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" minimumValueImage="Main-WaterSubtract" maximumValueImage="Main-WaterAdd" translatesAutoresizingMaskIntoConstraints="NO" id="sqq-kL-i4s">
+                                        <rect key="frame" x="8" y="89" width="359" height="32"/>
+                                        <color key="tintColor" red="0.4431372549" green="0.74901960779999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="sliderBarValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="AWO-Qm-AMv"/>
                                         </connections>
                                     </slider>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-CJ-jZ6">
-                                        <rect key="frame" x="162.5" y="79.5" width="50" height="50"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="printness" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-CJ-jZ6">
+                                        <rect key="frame" x="155.5" y="82" width="64" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="rit-iG-RCI"/>
-                                            <constraint firstAttribute="height" constant="50" id="scG-zS-R7T"/>
+                                            <constraint firstAttribute="width" secondItem="8q8-CJ-jZ6" secondAttribute="height" multiplier="1:0.71111" id="Mee-QP-4lZ"/>
+                                            <constraint firstAttribute="width" constant="64" id="rit-iG-RCI"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拖动滑竿上方设置今日目标水量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-d9-Yiy">
-                                        <rect key="frame" x="5" y="191" width="365" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拖动滑竿上方设置今日目标水量" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-d9-Yiy">
+                                        <rect key="frame" x="5" y="189.5" width="365" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.4431372549" green="0.74901960779999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -124,6 +124,7 @@
                                     <constraint firstAttribute="trailing" secondItem="nvN-d9-Yiy" secondAttribute="trailing" constant="5" id="V1N-xn-y04"/>
                                     <constraint firstItem="sqq-kL-i4s" firstAttribute="centerX" secondItem="rhX-6l-Ifu" secondAttribute="centerX" id="aB9-wU-1M8"/>
                                     <constraint firstAttribute="trailing" secondItem="sqq-kL-i4s" secondAttribute="trailing" constant="10" id="c6h-de-EFB"/>
+                                    <constraint firstItem="nvN-d9-Yiy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8q8-CJ-jZ6" secondAttribute="bottom" constant="5" id="iPK-Bd-trV"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -156,6 +157,7 @@
                         <outlet property="animationLab" destination="HQh-Qt-nZr" id="Xqi-Dv-tQN"/>
                         <outlet property="settingImageView" destination="8q8-CJ-jZ6" id="ho9-fY-awh"/>
                         <outlet property="settingSilder" destination="sqq-kL-i4s" id="ROH-yv-wBM"/>
+                        <outlet property="settingTipsLabel" destination="nvN-d9-Yiy" id="KuN-tB-SaL"/>
                         <outlet property="view1LeadingConstraint" destination="zfF-QU-0wK" id="Go4-HQ-joh"/>
                         <outlet property="view1TrailingConstraint" destination="CpB-bH-20G" id="bKr-xN-96T"/>
                         <outlet property="view2LeadingConstraint" destination="HyY-9W-y5s" id="vyy-NY-Zpz"/>
@@ -837,10 +839,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Main-WaterAdd" width="32" height="32"/>
+        <image name="Main-WaterSubtract" width="32" height="32"/>
         <image name="alarm" width="32" height="32"/>
         <image name="book" width="32" height="32"/>
         <image name="location1" width="48" height="48"/>
         <image name="location2" width="48" height="48"/>
+        <image name="printness" width="90" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RzI-Hx-5DS"/>
