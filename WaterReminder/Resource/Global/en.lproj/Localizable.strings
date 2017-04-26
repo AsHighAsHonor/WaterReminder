@@ -18,18 +18,18 @@
 "别点会炸!!"="Boom!!";
 
 
-"今日补水目标 : "="Today Drink Goal : ";
-" 毫升"=" ML";
-"当前"="Drinked";
-"当前补水量 : " = "You Drinked Water : ";
+"今日补水目标 : "="Today's drinking goal : ";
+"毫升"="ml";
+"当前"="drinked";
+"当前补水量 : " = "You drinked water : ";
 "设置水量"="Set water level";
-"请输入今日的目标补水量"="Input today drink goal";
+"请输入今日的目标补水量"="Input today's drinking goal";
 "确定"="Sure";
 "取消"="Cancel";
-"提示"="Warning";
+"提示"="Oops";
 "水量单位 : 毫升"="Water unitage : ML";
 "扫一扫"="QRScan";
-"是否使用为您推荐的2000毫升补水目标?"="Would you like use 2000ML as your today drink goal?";
+"是否使用为您推荐的2000毫升补水目标?"="Would you like use 2000ML as your today's drinking goal?";
 "国家: "="Contury: ";
 "城市: "="City: ";
 "日出: "="Sunrise: ";
@@ -38,7 +38,7 @@
 "描述: "="Des: ";
 "更新时间: "="Update: ";
 "发现新版本,请更新 " = "Discover new version, please update";
-
+"轻按上方指纹处设置今日补水目标" = "Press the fingerprint to set today's drinking goals";
 
 /*
  *------------------------------WaterScanViewController----------------------------------
@@ -61,7 +61,7 @@
 "请选择"="Select";
 "想要添加的提醒类型"="Which type you want add";
 "定時提醒"="Schedule";
-"定位提醒(测试中...)"="Location(testing...)";
+"定位提醒(测试中...)"="Location(testing)";
 "倒计时提醒"="IntervalReaminder";
 "开启所有提醒"="EnableAllReminder";
 "添加"="Add";

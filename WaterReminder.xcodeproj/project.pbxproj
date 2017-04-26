@@ -21,6 +21,8 @@
 		FD31419F1E6850C8005C75B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31419E1E6850C8005C75B7 /* Theme.swift */; };
 		FD69552A1E81628700A4F0AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD69552C1E81628700A4F0AF /* InfoPlist.strings */; };
 		FD7CD6131E700B4700945A5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD7CD6151E700B4700945A5E /* Localizable.strings */; };
+		FD7D91791E8E85B000EBE892 /* WeatherCargador.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D91781E8E85B000EBE892 /* WeatherCargador.swift */; };
+		FD7D917B1E8E860800EBE892 /* 3DTouchUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7D917A1E8E860800EBE892 /* 3DTouchUtil.swift */; };
 		FD7EB7021E5E7E2B005A1BA4 /* String+Reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */; };
 		FD894EE81E77E6B100B835FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD894EE71E77E6B100B835FF /* MapKit.framework */; };
 		FD894EEA1E79309700B835FF /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD894EE91E79309700B835FF /* MKMapViewExtension.swift */; };
@@ -86,7 +88,6 @@
 		FDB901E41E8263580051E026 /* WaterWeatherRootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB901BB1E8263580051E026 /* WaterWeatherRootClass.swift */; };
 		FDB901E51E8263580051E026 /* WaterWeatherUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB901BC1E8263580051E026 /* WaterWeatherUnit.swift */; };
 		FDB901E61E8263580051E026 /* WaterWeatherWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB901BD1E8263580051E026 /* WaterWeatherWind.swift */; };
-		FDB901E71E8263580051E026 /* WeatherCargador.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB901C01E8263580051E026 /* WeatherCargador.swift */; };
 		FDC161E21E77984400D8CAAE /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC161E11E77984400D8CAAE /* UIViewControllerExtension.swift */; };
 		FDC161E51E77C73800D8CAAE /* case2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FDC161E31E77C73800D8CAAE /* case2.gpx */; };
 		FDC161E61E77C73800D8CAAE /* casa.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FDC161E41E77C73800D8CAAE /* casa.gpx */; };
@@ -166,6 +167,8 @@
 		FD7CD6141E700B4700945A5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD7CD6161E700B4C00945A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD7CD6171E700B4D00945A5E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FD7D91781E8E85B000EBE892 /* WeatherCargador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCargador.swift; sourceTree = "<group>"; };
+		FD7D917A1E8E860800EBE892 /* 3DTouchUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 3DTouchUtil.swift; sourceTree = "<group>"; };
 		FD7EB7011E5E7E2B005A1BA4 /* String+Reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Reflect.swift"; sourceTree = "<group>"; };
 		FD894EE71E77E6B100B835FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FD894EE91E79309700B835FF /* MKMapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
@@ -235,7 +238,6 @@
 		FDB901BB1E8263580051E026 /* WaterWeatherRootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherRootClass.swift; sourceTree = "<group>"; };
 		FDB901BC1E8263580051E026 /* WaterWeatherUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherUnit.swift; sourceTree = "<group>"; };
 		FDB901BD1E8263580051E026 /* WaterWeatherWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterWeatherWind.swift; sourceTree = "<group>"; };
-		FDB901C01E8263580051E026 /* WeatherCargador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCargador.swift; sourceTree = "<group>"; };
 		FDB901E81E8263A70051E026 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDC161E11E77984400D8CAAE /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		FDC161E31E77C73800D8CAAE /* case2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = case2.gpx; sourceTree = "<group>"; };
@@ -339,6 +341,15 @@
 				FD2B7BE51E6708FE00220F4C /* sub.caf */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		FD7D91771E8E85B000EBE892 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FD7D91781E8E85B000EBE892 /* WeatherCargador.swift */,
+				FD7D917A1E8E860800EBE892 /* 3DTouchUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		FD8CACBB1E5FCBEF00B8E443 /* PopoverMenu */ = {
@@ -506,10 +517,10 @@
 		FDB901A91E8263580051E026 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FD7D91771E8E85B000EBE892 /* Util */,
 				FDB901AA1E8263580051E026 /* Controller */,
 				FDB901AD1E8263580051E026 /* Model */,
 				FDB901BE1E8263580051E026 /* View */,
-				FDB901BF1E8263580051E026 /* WeatherUtil */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -551,14 +562,6 @@
 			children = (
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		FDB901BF1E8263580051E026 /* WeatherUtil */ = {
-			isa = PBXGroup;
-			children = (
-				FDB901C01E8263580051E026 /* WeatherCargador.swift */,
-			);
-			path = WeatherUtil;
 			sourceTree = "<group>";
 		};
 		FDDFB3071E56D011006743E7 /* UMessage_Sdk_1.4.0 */ = {
@@ -609,9 +612,9 @@
 			children = (
 				FDB901E81E8263A70051E026 /* AppDelegate.swift */,
 				FD0301F71E80FF8500B57DB0 /* Main.storyboard */,
+				FDB901A91E8263580051E026 /* Main */,
 				FDB9018E1E8263580051E026 /* Setting */,
 				FDB9018F1E8263580051E026 /* MyPlain */,
-				FDB901A91E8263580051E026 /* Main */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -945,8 +948,8 @@
 				FDB901DA1E8263580051E026 /* WaterWeatherAtmosphere.swift in Sources */,
 				FDAF1AD41E602C380065ED0F /* SpreadButton.swift in Sources */,
 				FD0BE3CD1E669E4A002ED9B4 /* Constant.swift in Sources */,
+				FD7D91791E8E85B000EBE892 /* WeatherCargador.swift in Sources */,
 				FDB901D61E8263580051E026 /* WaterScanViewController.swift in Sources */,
-				FDB901E71E8263580051E026 /* WeatherCargador.swift in Sources */,
 				FDB901E61E8263580051E026 /* WaterWeatherWind.swift in Sources */,
 				FD190C521E5DBF430027359A /* OChelper.m in Sources */,
 				FDB901DE1E8263580051E026 /* WaterWeatherGuid.swift in Sources */,
@@ -967,6 +970,7 @@
 				FDB901D71E8263580051E026 /* WaterBinary.swift in Sources */,
 				FDB901E11E8263580051E026 /* WaterWeatherLocation.swift in Sources */,
 				FDB901CD1E8263580051E026 /* LocationUtil.swift in Sources */,
+				FD7D917B1E8E860800EBE892 /* 3DTouchUtil.swift in Sources */,
 				FDB901C61E8263580051E026 /* WaterAddLocationSearchController.swift in Sources */,
 				FD8CACBD1E5FCBEF00B8E443 /* LXFPopMenu.swift in Sources */,
 				FDAF1AD21E602C380065ED0F /* ZYSpreadButton.m in Sources */,
@@ -1247,6 +1251,7 @@
 				CODE_SIGN_ENTITLEMENTS = WaterReminder/WaterReminder.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = ZLV92V5957;
+				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "$(SRCROOT)/WaterReminder/Resource/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1284,6 +1289,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WaterReminder/Resource/Global/WaterReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1298,6 +1304,7 @@
 				CODE_SIGN_ENTITLEMENTS = WaterReminder/WaterReminder.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = ZLV92V5957;
+				ENABLE_BITCODE = NO;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = "$(SRCROOT)/WaterReminder/Resource/Plist/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1335,6 +1342,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WaterReminder/Resource/Global/WaterReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -33,6 +33,12 @@ public class WaveLoadingIndicator: UIView {
     fileprivate var position = 40.0//X轴所在的Y坐标（在代码中重新计算）, where the x axis of wave position
     
     
+    /// 是否显示百分百  默认 true
+    @IBInspectable public var isPercentage : Bool = true
+    
+    /// 要显示的内容
+    @IBInspectable  public var content : String?
+    
     @IBInspectable var waveMoveSpan : Double = 5.0//波浪移动单位跨度, the span wave move in a unit time
     fileprivate let animationUnitTime = 0.08//重画单位时间, redraw unit time
     
@@ -181,11 +187,19 @@ public class WaveLoadingIndicator: UIView {
     
     
     public func drawProgressText() {
-        //Avoid negative
-        var validProgress = progress * 100
-        validProgress = validProgress < 1 ? 0 : validProgress
         
-        let progressText = (NSString(format: "%.0f", validProgress) as String) + "%"
+        var progressText = ""
+        
+        if !isPercentage, let content = content {
+            progressText = content   //显示内容
+        }else{
+            //Avoid negative  //显示百分比
+            var validProgress = progress * 100
+            validProgress = validProgress < 1 ? 0 : validProgress
+            progressText = (NSString(format: "%.0f", validProgress) as String) + "%"
+        }
+        
+        
         
         var attribute: [String : AnyObject]!
         if progress > 0.45 {
@@ -248,5 +262,3 @@ public class WaveLoadingIndicator: UIView {
     
 }
 
-// 版权属于原作者
-// 个人博客 zyden.vicp.cc

@@ -76,3 +76,6 @@
 
 /* Class = "UIViewController"; title = "地图选点"; ObjectID = "wED-QR-wVy"; */
 "wED-QR-wVy.title" = "SelectFromMap";
+
+/* Class = "UILabel"; text = "拖动上面滑竿设置今日目标水量"; ObjectID = "nvN-d9-Yiy"; */
+"nvN-d9-Yiy.text" = "Drag the slider to set the goals of today";

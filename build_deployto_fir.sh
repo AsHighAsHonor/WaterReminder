@@ -84,8 +84,7 @@ export LC_ALL=en_US;
 echo "正在上传到fir.im...."
 fir p $path
 changelog=`cat $projectDir/README`
-#####http://fir.im/api/v2/app/appID?token=APIToken，里面的appID是你要上传应用的appID，APIToken是你fir上的APIToken
 curl -X PUT --data "changelog=$changelog" http://fir.im/api/v2/app/589d9d7e959d6944d80000e6?token=2bc11ca72f6af8f858cf648342d6693b
 echo "\n打包上传更新成功！"
-rm -rf $buildAppToDir
-rm -rf $projectDir/tmp
+#rm -rf $buildAppToDir
+#rm -rf $projectDir/tmp

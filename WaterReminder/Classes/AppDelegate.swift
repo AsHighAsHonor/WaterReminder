@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UMessage.start(withAppkey: UmengAppKey, launchOptions: launchOptions, httpsenable: true)//注册友盟
         UMessage.registerForRemoteNotifications() // 注册远程通知
         UMessage.setLogEnabled(true)//开启日志
-        notificationHandler.dailyCheck() //检测每日水量
         IQKeyboardManager.sharedManager().enable = true  //开启键盘自适应
         registerKSCrash()//注册kscrash
 
@@ -58,13 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        notificationHandler.dailyCheck() //检测每日水量
-        pushNotifications()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        notificationHandler.dailyCheck() //检测每日水量
 
     }
     
@@ -80,9 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-   private func pushNotifications()  {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: AppDelegate.updateUIName), object: nil, userInfo: nil)
-    }
     
     
     /// KSCrash 注册
@@ -101,7 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         completionHandler(qucikActHandler.actionHandler(shortcutItem))
     }
-    
     
     
     

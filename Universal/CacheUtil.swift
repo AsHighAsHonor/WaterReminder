@@ -47,10 +47,10 @@ public class CacheUtil {
     
     static let TargetWater = "TargetWater"
     static let DrinkingWater = "DrinkingWater"
-   public static let userDefaults = UserDefaults(suiteName: "group.com.ZTESoft.app")!
+    public static let userDefaults = UserDefaults(suiteName: "group.com.ZTESoft.app")!
     
-
-     // MARK: - 水量相关
+    
+    // MARK: - 水量相关
     ///保存水量
     class public func saveWaterBy(waterType :WaterType) -> () {
         switch waterType {
@@ -59,44 +59,40 @@ public class CacheUtil {
         case .DrinkingWater(let drinkValue):
             userDefaults.set(drinkValue, forKey:DrinkingWater)
         }
-        
-        //保存每日时间戳
-        userDefaults.set(String().dailyMark(), forKey:UserSetting.DailyMark.rawValue)
-
-        userDefaults.synchronize()
     }
     
     ///删除水量
-  class public func deleteWater(type waterType :WaterType) {
-    switch waterType {
-    case .TargetWater:
-        userDefaults.removeObject(forKey: TargetWater)
-    case .DrinkingWater:
-        userDefaults.removeObject(forKey: DrinkingWater)
+    class public func deleteWater(type waterType :WaterType) {
+        switch waterType {
+        case .TargetWater:
+            userDefaults.removeObject(forKey: TargetWater)
+        case .DrinkingWater:
+            userDefaults.removeObject(forKey: DrinkingWater)
+        }
+        userDefaults.synchronize()
+        print("目标============>>\(String(describing: userDefaults.object(forKey:TargetWater)))")
+        print("完成============>>\(String(describing: userDefaults.object(forKey:DrinkingWater)))")
+        
+        
     }
-    userDefaults.synchronize()
-    print("目标============>>\(userDefaults.object(forKey:TargetWater))")
-    print("完成============>>\(userDefaults.object(forKey:DrinkingWater))")
-
-
-}
     ///获取水量
-  class public func readWater(type waterType :WaterType) -> Double {
-    switch waterType {
-    case .TargetWater:
-        if let water = userDefaults.object(forKey:TargetWater) as? Double {
-            return water
-        }else{
-            return 1
-        }
-    case .DrinkingWater:
-        if let water = userDefaults.object(forKey: DrinkingWater) as? Double {
-            return water
-        }else{
-            return 0.0
+    class public func readWater(type waterType :WaterType) -> Double {
+        dailyCheck()
+        switch waterType {
+        case .TargetWater:
+            if let water = userDefaults.object(forKey:TargetWater) as? Double {
+                return water
+            }else{
+                return 1
+            }
+        case .DrinkingWater:
+            if let water = userDefaults.object(forKey: DrinkingWater) as? Double {
+                return water
+            }else{
+                return 0.0
+            }
         }
     }
-}
     
     
     
@@ -122,12 +118,29 @@ public class CacheUtil {
         }
     }
     
-
+    // MARK: - 每日水量重置
+    class public func dailyCheck() -> () {
+        let savedMark = UserDefaults(suiteName: "group.com.ZTESoft.app")!.object(forKey: UserSetting.DailyMark.rawValue) as? String
+        //获取时间戳
+        let currentStr = String.dateStr(fromat: "yyyyMMdd")
+        if let savedMark = savedMark {
+            print("保存的时间:\(savedMark) , 当前时间 :\(currentStr)")
+            guard savedMark != currentStr else {return}
+            CacheUtil.deleteWater(type: .DrinkingWater(0))
+            CacheUtil.deleteWater(type: .TargetWater(0))
+            //保存时间戳
+            userDefaults.set(currentStr, forKey:UserSetting.DailyMark.rawValue)
+            userDefaults.synchronize()
+        }
+        
+        
+        
+    }
     
     
-     // MARK: - 校验
+    // MARK: - 校验
     
-   class public func waterChecker(water : Double) -> Bool {
+    class public func waterChecker(water : Double) -> Bool {
         //校验目标水量
         if water < 100 || water > 3000 {
             return false
@@ -136,9 +149,9 @@ public class CacheUtil {
         }
     }
     
-
     
-     // MARK: - 配置保存
+    
+    // MARK: - 配置保存
     
     /// 用户配置
     ///
@@ -147,23 +160,23 @@ public class CacheUtil {
     ///   - setting: 设置key
     /// - Returns: nil(存) / 获取用户设置值(取)
     public class func userSettingOperation(toggle : Any? , setting : UserSetting) -> (Any?) {
-    if let toggle = toggle {
-        userDefaults.set(toggle, forKey:setting.rawValue)
-        userDefaults.synchronize()
-        return nil
-    }else{
-        return userDefaults.object(forKey: setting.rawValue)
-    }
+        if let toggle = toggle {
+            userDefaults.set(toggle, forKey:setting.rawValue)
+            userDefaults.synchronize()
+            return nil
+        }else{
+            return userDefaults.object(forKey: setting.rawValue)
+        }
         
-}
+    }
     
-  /// 保存/读取 数据的共用方法
-  ///
-  /// - Parameters:
-  ///   - value: 需要保存的值 (传入nil 的时候为获取值)
-  ///   - forkey: key
-  /// - Returns:  读取的值
-  public class func userDefaultsOperation(value : Any? , key forkey : UserSetting) -> (Any?) {
+    /// 保存/读取 数据的共用方法
+    ///
+    /// - Parameters:
+    ///   - value: 需要保存的值 (传入nil 的时候为获取值)
+    ///   - forkey: key
+    /// - Returns:  读取的值
+    public class func userDefaultsOperation(value : Any? , key forkey : UserSetting) -> (Any?) {
         if let value = value {
             userDefaults.set(value, forKey:forkey.rawValue)
             userDefaults.synchronize()
@@ -174,6 +187,6 @@ public class CacheUtil {
     }
     
     
-
-
+    
+    
 }

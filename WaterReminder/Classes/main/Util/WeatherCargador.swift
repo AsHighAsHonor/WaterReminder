@@ -24,16 +24,7 @@ class WeatherCargador: NSObject {
                 mapUtil.placeMarkHandler = {[unowned self] placemark in
                     let city = placemark.locality
                     let country = placemark.isoCountryCode
-                    YYPrint("\(city)---------\(country)")
-                    
-                    //获取缓存的城市
-                    //                    let savedCity = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCity) as? String
-                    //                    let savedCountry = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCountry) as? String
-                    
-                    
-                    //                    guard savedCity != city! , savedCountry != country! else{
-                    //                        return //当前定位位置和缓存的位置相同的时候 不再请求天气数据
-                    //                    }
+                    YYPrint("\(String(describing: city))---------\(String(describing: country))")
                     
                     //根据当前地理位置查询城市天气
                     self.fetchWeatherData(cityName: city!, Code: country!, completionHandler: completionHandler)
@@ -43,22 +34,17 @@ class WeatherCargador: NSObject {
                     _ = CacheUtil.userDefaultsOperation(value: country, key: UserSetting.CurrentCountry)
                     //停止定位，节省电量，只获取一次定位
 //                    self.mapUtil.endLocating()
-                    
                 }
             }else{
-                // 尚未获取到定位权限/未开启定位
-                UIAlertController.showAuthorizationAlert(msg: "您尚未允许定位权限或未开启定位服务,是否进入设置页面开启?", ancelHandler: { [unowned self](act) in
-                    
-                    // 获取上次保存的位置   如果没保存位置 默认使用北京
-                    let city = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCity)
-                    let country = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCountry)
-                    if let cityStr = city as? String , let countryStr = country as? String {
-                        self.fetchWeatherData(cityName: cityStr, Code: countryStr, completionHandler: completionHandler)
-                    }else{
-                        self.fetchWeatherData(cityName: "Beijing", Code: "CN", completionHandler: completionHandler)
-                    }
-                    
-                })
+                // 获取上次保存的位置   如果没保存位置 默认使用北京
+                let city = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCity)
+                let country = CacheUtil.userDefaultsOperation(value: nil, key: UserSetting.CurrentCountry)
+                if let cityStr = city as? String , let countryStr = country as? String {
+                    self.fetchWeatherData(cityName: cityStr, Code: countryStr, completionHandler: completionHandler)
+                }else{
+                    self.fetchWeatherData(cityName: "Beijing", Code: "CN", completionHandler: completionHandler)
+                }
+
             }
         }
     }
