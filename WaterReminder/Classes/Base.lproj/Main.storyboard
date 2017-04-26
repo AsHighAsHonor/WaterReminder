@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vOx-1m-MwA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vOx-1m-MwA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +55,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POo-tK-gAN" userLabel="Container1">
-                                <rect key="frame" x="0.0" y="404" width="375" height="209"/>
+                                <rect key="frame" x="0.0" y="404" width="375" height="213"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已补充水量:" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-Qt-nZr" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
                                         <rect key="frame" x="5" y="0.0" width="365" height="44"/>
@@ -74,7 +74,7 @@
                                         </connections>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3i3-Ab-s2L">
-                                        <rect key="frame" x="5" y="191" width="365" height="18"/>
+                                        <rect key="frame" x="5" y="195" width="365" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.44157841801643372" green="0.74878698587417603" blue="0.9900546669960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -91,24 +91,24 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhX-6l-Ifu" userLabel="Container2">
-                                <rect key="frame" x="390" y="404" width="375" height="209"/>
+                                <rect key="frame" x="390" y="404" width="375" height="213"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" minimumValueImage="Main-WaterSubtract" maximumValueImage="Main-WaterAdd" translatesAutoresizingMaskIntoConstraints="NO" id="sqq-kL-i4s">
-                                        <rect key="frame" x="8" y="89" width="359" height="32"/>
+                                        <rect key="frame" x="8" y="91" width="359" height="32"/>
                                         <color key="tintColor" red="0.4431372549" green="0.74901960779999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="sliderBarValueDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="AWO-Qm-AMv"/>
                                         </connections>
                                     </slider>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="printness" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-CJ-jZ6">
-                                        <rect key="frame" x="155.5" y="82" width="64" height="45"/>
+                                        <rect key="frame" x="155.5" y="84" width="64" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8q8-CJ-jZ6" secondAttribute="height" multiplier="1:0.71111" id="Mee-QP-4lZ"/>
                                             <constraint firstAttribute="width" constant="64" id="rit-iG-RCI"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拖动滑竿上方设置今日目标水量" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-d9-Yiy">
-                                        <rect key="frame" x="5" y="189.5" width="365" height="19.5"/>
+                                        <rect key="frame" x="5" y="193.5" width="365" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.4431372549" green="0.74901960779999999" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -134,9 +134,9 @@
                             <constraint firstItem="POo-tK-gAN" firstAttribute="top" secondItem="jTB-dU-Jg7" secondAttribute="bottom" constant="15" id="2hZ-zf-cof"/>
                             <constraint firstAttribute="trailing" secondItem="rhX-6l-Ifu" secondAttribute="trailing" priority="250" constant="15" id="3hr-b5-Y0v"/>
                             <constraint firstAttribute="trailing" secondItem="POo-tK-gAN" secondAttribute="trailing" priority="750" id="CpB-bH-20G"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="POo-tK-gAN" secondAttribute="bottom" constant="5" id="GHO-Fm-1kk"/>
                             <constraint firstItem="rhX-6l-Ifu" firstAttribute="width" secondItem="POo-tK-gAN" secondAttribute="width" id="HlM-RQ-kSo"/>
                             <constraint firstItem="rhX-6l-Ifu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" priority="250" constant="15" id="HyY-9W-y5s"/>
+                            <constraint firstAttribute="bottom" secondItem="POo-tK-gAN" secondAttribute="bottom" constant="50" id="JUa-fO-gy0"/>
                             <constraint firstItem="rhX-6l-Ifu" firstAttribute="height" secondItem="POo-tK-gAN" secondAttribute="height" id="PCG-TE-3TO"/>
                             <constraint firstItem="rhX-6l-Ifu" firstAttribute="top" secondItem="POo-tK-gAN" secondAttribute="top" id="V9f-OQ-3ta"/>
                             <constraint firstItem="rhX-6l-Ifu" firstAttribute="leading" secondItem="POo-tK-gAN" secondAttribute="trailing" constant="15" id="Y1T-LE-evU"/>

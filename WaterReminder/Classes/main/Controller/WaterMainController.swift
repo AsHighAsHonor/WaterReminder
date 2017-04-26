@@ -49,7 +49,8 @@ class WaterMainController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false;
+        self.tabBarController?.tabBar.isHidden = false
+        view.updateConstraintsIfNeeded()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
