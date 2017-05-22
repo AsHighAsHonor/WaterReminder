@@ -28,6 +28,7 @@ enum QuickActionType : String{
 class WaterMainController: BaseViewController {
     
     var quickActStr : String?
+    var h: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +45,10 @@ class WaterMainController: BaseViewController {
         updateUI()
         //更新天气
         fetchWeaterData()
+
     }
-    
+
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -59,8 +62,7 @@ class WaterMainController: BaseViewController {
         popMenu?.dismissPopMenuAnimatedOnMenu(selected: false)
     }
     
-    
-    
+
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         YYPrint("touches======>>>>>>\(touches) \n event======>>>> \(String(describing: event))")
         //1.是否水量模式
@@ -70,7 +72,7 @@ class WaterMainController: BaseViewController {
         guard  TouchUtil.sharedInstance.fourceTouchCapability(controller: self) else {return}
         //3.是否是settingImageView在响应事件
         guard touch.view === settingImageView else {return}
-        
+
         if touch.force >= touch.maximumPossibleForce{
             //超出3000ml
             self.waveIndicator.progress = 1
@@ -96,7 +98,8 @@ class WaterMainController: BaseViewController {
 //    override func touchesEstimatedPropertiesUpdated(_ touches: Set<UITouch>) {
 //        YYPrint("++++++++++++touchesEnded+++++++++++ \n touches======>>>>>>\(touches)")
 //    }
-    
+
+
     func configure() {
         animationLab.text = "今日补水目标 : ".localized() + "\(targetResult)"+"毫升".localized()
         animationLab.morphingEffect = LTMorphingEffect.fall

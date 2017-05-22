@@ -7,7 +7,7 @@
 		<key>Universal.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>2</integer>
 		</dict>
 		<key>WaterReminder.xcscheme</key>
 		<dict>
@@ -25,17 +25,17 @@
 		<key>FD8FDBB91E3B34FF0009A61C</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>FD8FDBE91E3EC8870009A61C</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>FDEAA8D11E3721E500C04ADF</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>

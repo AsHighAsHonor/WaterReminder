@@ -1,12 +1,15 @@
 # Description
-This app coded by Swift3.0 , it helps you drinking water in Time and water.
- You can set the time to remind based on individual schedule , setting is on your control , set how much and how many times you need reminder. 
+This APP is coded by Swift3.0 & Objective-C, which helps you drinking water in time and gets to know how much water been drunk per day. 
+You are able to set the time based on individual schedule, such as how much and how many times you need be remind. Following functions also included: 
  
 #feature
-* Custom reminders.
-* Too busy now ? just delay it ! at top banner or lock screen ! this app will reminder you after 5mins.
-* Embedded a QRcode scanner you can easy to find it at home screen by force touch.
-* Jump to "Setting > Privacy > Location Service" quickly.
+* Custom reminders. (CoreData)
+* Too busy now? Just delay it! At top banner or lock screen! This APP will remind you after 5 min. (UserNotifications)
+* Embedded a QRcode scanner, you can easily find it at home screen by force touch.	(Home Screen Quick Actions)
+* Access to Location Service in “Setting” quickly.	 (Private APIs)
 * A simple today widget avaliable.
+* A simple today widget available. (Embed Framework, Today Extension Widget)
 * Internationalization
+
+**Download: http://fir.im/yadh **
 
