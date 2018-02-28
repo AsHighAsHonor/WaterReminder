@@ -101,7 +101,7 @@ class WaterMainController: BaseViewController {
 
 
     func configure() {
-        animationLab.text = "今日补水目标 : ".localized() + "\(targetResult)"+"毫升".localized()
+        animationLab.text = "今日补水目标 : ".localized() + "\(String(targetResult) + "毫升".localized())"
         animationLab.morphingEffect = LTMorphingEffect.fall
         waveIndicator.waveAmplitude = 45
         waveIndicator.isPercentage = false
@@ -233,13 +233,13 @@ class WaterMainController: BaseViewController {
     /// 观察目标水量更新ui
     var observeTargetResult : Double?{
         didSet{
-            animationLab.text = "今日补水目标 : ".localized() + "\(targetResult)" + "毫升".localized()
+            animationLab.text = "今日补水目标 : ".localized() + "\(String(targetResult) + "毫升".localized())"
         }
     }
     /// 观察已喝水量更新ui
     var observeDrinkingResult : Double?{
         didSet{
-            animationLab.text = "当前补水量 : ".localized() + "\(drinkResult)" + "毫升".localized()
+            animationLab.text = "当前补水量 : ".localized() + "\(String(drinkResult) + "毫升".localized())"
         }
     }
     
