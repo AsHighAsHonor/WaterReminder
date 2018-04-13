@@ -254,7 +254,7 @@ extension WaterAddLocationMapController : MKMapViewDelegate{
         
         //2.反地理 查名称
         mapUtil.reverseGeocode(location: location) {[unowned self] (placeMarks) in
-            YYPrint("选中地址信息: \n \(placeMarks!.last?.addressDictionary!)")
+            YYPrint("选中地址信息: \n \(String(describing: placeMarks!.last?.addressDictionary!))")
             
             if let addDict = placeMarks!.last?.addressDictionary{
                 let addressLines = (addDict["FormattedAddressLines"])!
